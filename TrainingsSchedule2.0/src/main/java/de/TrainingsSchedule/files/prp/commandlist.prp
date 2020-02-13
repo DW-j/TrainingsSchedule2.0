@@ -1,0 +1,10 @@
+exit=Exits the program.
+help=Shows all available commands.
+abort=Aborts certain processes.
+repeat=Repeats a certain action during certain processes.
+create=Creates a new template plan with parameters given.
+add=Adds a new day the plan with the parameters given.
+show$plan=Shows the current plan template.
+show$days=Shows all days of the plan.
+delete$'date'=Deletes a day specified by the date in the format dd-MM-yyyy.
+show$exercise$'dayID'$'exerciseID'=Shows all cases of a given exercise of a given day. 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<trainingsSchedule>
+    <planTemplate>
+        <dayTemplates id="1">
+            <exerciseTemplates id="1" setNumber="2" name="Rope">
+                <goalTypes>2</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="2" setNumber="4" name="Benchpress">
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="3" setNumber="3" name="Pull-Up">
+                <variations>Close / not weighted</variations>
+                <variations>Close / weighted</variations>
+                <variations>Wide / not weighted</variations>
+                <goalTypes>2</goalTypes>
+                <goalTypes>1</goalTypes>
+                <goalTypes>2</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="4" setNumber="3" name="Dip">
+                <variations>Weighted</variations>
+                <variations>Not weighted</variations>
+                <goalTypes>1</goalTypes>
+                <goalTypes>2</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="5" setNumber="3" name="Push-Up">
+                <variations>Normal / not weighted</variations>
+                <variations>Normal / weighted</variations>
+                <variations>Stepping / not weighted</variations>
+                <goalTypes>2</goalTypes>
+                <goalTypes>1</goalTypes>
+                <goalTypes>2</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="6" setNumber="3" name="Curls &amp; triceps pushdown">
+                <variations>SZ-Curls</variations>
+                <variations>DB-Curls</variations>
+                <variations>Triceps pushdown</variations>
+                <goalTypes>1</goalTypes>
+                <goalTypes>1</goalTypes>
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="7" setNumber="5" name="Plank &amp; Sit-Up">
+                <variations>3 sets planks / 2 sets sit-ups</variations>
+                <variations>2 sets planks / 3 sets sit-ups</variations>
+                <goalTypes>2</goalTypes>
+                <goalTypes>2</goalTypes>
+            </exerciseTemplates>
+        </dayTemplates>
+        <dayTemplates id="2">
+            <exerciseTemplates id="1" setNumber="4" name="Squad">
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="2" setNumber="4" name="Deadlift">
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="3" setNumber="3" name="Lat-Pull">
+                <variations>Close</variations>
+                <variations>Wide</variations>
+                <goalTypes>1</goalTypes>
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="4" setNumber="3" name="T-Bar-Row">
+                <variations>Wide</variations>
+                <variations>Close</variations>
+                <goalTypes>1</goalTypes>
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="5" setNumber="3" name="Shoulderpress">
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="6" setNumber="3" name="Calfraise">
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+        </dayTemplates>
+    </planTemplate>
+    <plan/>
+    <goalList/>
+</trainingsSchedule>
