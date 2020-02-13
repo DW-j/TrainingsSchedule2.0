@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import de.TrainingsSchedule.commands.CommandAdd;
 import de.TrainingsSchedule.commands.CommandCreate;
 import de.TrainingsSchedule.commands.CommandDelete;
+import de.TrainingsSchedule.commands.CommandGoal;
 import de.TrainingsSchedule.commands.CommandHelp;
 import de.TrainingsSchedule.commands.CommandShow;
 import de.TrainingsSchedule.elements.main.TrainingsSchedule;
@@ -72,6 +73,10 @@ public class CommandHandler {
 			case "delete":
 				CommandDelete commandDelete = new CommandDelete();
 				return commandDelete.deleteDay(command.getObjectParameter(), trainingsSchedule);
+			
+			case "goals":
+				CommandGoal commandGoal = new CommandGoal();
+				return commandGoal.showGoals(trainingsSchedule);
 				
 			default:
 				throw new ThrowableCommand();
@@ -86,6 +91,7 @@ public class CommandHandler {
 		} catch (ThrowableData e) {
 			return "No data exists.";
 		}catch (Exception e) {
+			e.printStackTrace();
 			return "An unknown error occured.";
 		}
 	}

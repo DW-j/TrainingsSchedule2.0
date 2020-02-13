@@ -56,7 +56,7 @@ public class Exercise {
 			add(id+"");
 			add(name);
 			add(variation);
-			add(weight+"");
+			add(weight+"kg");
 			add(ListConverter.getInstance().integerListToString(reps));
 		}};
 		return row;

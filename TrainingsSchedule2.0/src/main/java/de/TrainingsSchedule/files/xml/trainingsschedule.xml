@@ -2,11 +2,11 @@
 <trainingsSchedule>
     <planTemplate>
         <dayTemplates id="1">
-            <exerciseTemplates id="1" setNumber="4" name="Benchpress">
+            <exerciseTemplates id="1" setNumber="4" dayId="0" name="Benchpress">
                 <variations>-</variations>
                 <goalTypes>1</goalTypes>
             </exerciseTemplates>
-            <exerciseTemplates id="2" setNumber="3" name="Pull-Ups">
+            <exerciseTemplates id="2" setNumber="3" dayId="0" name="Pull-Ups">
                 <variations>Wide</variations>
                 <variations>Close</variations>
                 <goalTypes>1</goalTypes>
@@ -14,6 +14,37 @@
             </exerciseTemplates>
         </dayTemplates>
     </planTemplate>
-    <plan/>
-    <goalList/>
+    <plan>
+        <days id="1" date="2000-01-01T00:00:00+01:00" weight="100.0" time="100">
+            <exercises id="1" dayId="0" name="Benchpress" weight="100.0" variation="-">
+                <reps>10</reps>
+                <reps>10</reps>
+                <reps>10</reps>
+                <reps>10</reps>
+            </exercises>
+            <exercises id="2" dayId="0" name="Pull-Ups" weight="0.0" variation="Close">
+                <reps>9</reps>
+                <reps>8</reps>
+                <reps>8</reps>
+            </exercises>
+        </days>
+        <days id="1" date="2000-02-02T00:00:00+01:00" weight="100.0" time="100">
+            <exercises id="1" dayId="0" name="Benchpress" weight="105.0" variation="-">
+                <reps>8</reps>
+                <reps>7</reps>
+                <reps>6</reps>
+                <reps>6</reps>
+            </exercises>
+            <exercises id="2" dayId="0" name="Pull-Ups" weight="0.0" variation="Wide">
+                <reps>9</reps>
+                <reps>8</reps>
+                <reps>1</reps>
+            </exercises>
+        </days>
+    </plan>
+    <goalList>
+        <exerciseGoals name="Pull-Ups" variation="Close" dayId="0" exerciseId="2" goalReps="9" goalWeight="0.0"/>
+        <exerciseGoals name="Pull-Ups" variation="Wide" dayId="0" exerciseId="2" goalReps="6" goalWeight="0.0"/>
+        <exerciseGoals name="Benchpress" variation="-" dayId="0" exerciseId="1" goalReps="7" goalWeight="105.0"/>
+    </goalList>
 </trainingsSchedule>

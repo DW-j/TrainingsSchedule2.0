@@ -88,7 +88,7 @@ public class Table {
 			}
 		}
 		
-		return String.join("\n", printTable);
+		return String.join(String.join("\n", printTable), "\n", "\n");
 	}
 
 }

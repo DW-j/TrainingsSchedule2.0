@@ -25,7 +25,6 @@ public class TrainingsSchedule {
 	private Plan plan;
 	private GoalList goalList;
 	
-	@XmlElement
 	public void setGoalList(GoalList goalList) {
 		this.goalList = goalList;
 	}

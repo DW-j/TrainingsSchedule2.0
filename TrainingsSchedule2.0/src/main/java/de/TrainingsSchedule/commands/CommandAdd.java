@@ -79,7 +79,7 @@ public class CommandAdd {
 				
 				List<String> repList = new ArrayList<String>();
 				for(int i=0; i<exerciseTemplate.getSetNumber(); i++) {
-					repList.add(("set"+(i+1)+" "));
+					repList.add(("set"+(i+1)));
 				}
 				String inputPattern = "'weight "+String.join(" ", repList)+"'";
 				List<String> numberInput = Arrays.asList(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the weight and sets of the exercise by the following pattern "+inputPattern)).split(" "));

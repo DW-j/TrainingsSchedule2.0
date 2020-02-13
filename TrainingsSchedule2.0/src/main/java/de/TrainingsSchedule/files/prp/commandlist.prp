@@ -8,3 +8,4 @@ show$plan=Shows the current plan template.
 show$days=Shows all days of the plan.
 delete$'date'=Deletes a day specified by the date in the format dd-MM-yyyy.
 show$exercise$'dayID'$'exerciseID'=Shows all cases of a given exercise of a given day. 
+goals=Shows the goals of all exercises and their variations.
