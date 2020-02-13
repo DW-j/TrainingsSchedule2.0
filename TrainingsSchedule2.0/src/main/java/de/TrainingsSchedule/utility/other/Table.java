@@ -41,13 +41,6 @@ public class Table {
 	}
 	
 	public String toString() {
-		for(int i=0; i<content.size(); i++) {
-			for(int j=0; j<content.get(i).size(); j++) {
-				if(content.get(i).get(j)==null) {
-					content.get(i).set(j, "-");
-				}
-			}
-		}
 		
 		List<Integer> indents = new ArrayList<Integer>();
 		List<List<String>> contentHeader = new ArrayList<List<String>>();

@@ -61,17 +61,20 @@ public class CommandAdd {
 		while(exercises.size()<dayTemplate.getExerciseTemplates().size()) {
 			ExerciseTemplate exerciseTemplate = exerciseTemplates.get(exercises.size());
 			int exerciseId = exerciseTemplate.getId();
+			int dayId = exerciseTemplate.getDayId();
 			String exerciseName = exerciseTemplate.getName();
 			try {
 				communicator.output(String.format("The current exercise is %s.", exerciseName));
 				
 				String exerciseVariation = null;
-				if(exerciseTemplate.getVariations().size()>0) {
+				if(exerciseTemplate.getVariations().size()>1) {
 					Table variationTable = new Table(Arrays.asList(new String[]{"ID", "Variation"}));
 					variationTable.addColumn(IntStream.range(0, exerciseTemplate.getVariations().size()).mapToObj(i -> i+"").collect(Collectors.toList()));
 					variationTable.addColumn(exerciseTemplate.getVariations());
 					communicator.output(variationTable.toString());
 					exerciseVariation = exerciseTemplate.getVariations().get(Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the ID of the desired variation"))));
+				}else {
+					exerciseVariation = exerciseTemplate.getVariations().get(0);
 				}
 				
 				List<String> repList = new ArrayList<String>();
@@ -86,7 +89,7 @@ public class CommandAdd {
 				double exerciseWeight = Double.parseDouble(numberInput.get(0));
 				List<Integer> exerciseReps = numberInput.subList(1, numberInput.size()).stream().map(i -> Integer.parseInt(i)).collect(Collectors.toList());
 				communicator.getConfirmInput();
-				Exercise exercise = new Exercise(exerciseId, exerciseName, exerciseVariation, exerciseReps, exerciseWeight);
+				Exercise exercise = new Exercise(exerciseId, dayId, exerciseName, exerciseVariation, exerciseReps, exerciseWeight);
 				exercises.add(exercise);
 			}catch (Exception e) {
 				communicator.output(Message.getWrongInputMessage());
@@ -101,6 +104,10 @@ public class CommandAdd {
 		
 		plan.addDay(day);
 		trainingsSchedule = new TrainingsSchedule(planTemplate, plan, trainingsSchedule.getGoalList());
+		
+		CommandGoal commandGoal = new CommandGoal();
+		trainingsSchedule = commandGoal.loadGoals(trainingsSchedule);
+		
 		FileWriter.getInstance().writeXML("trainingsschedule", trainingsSchedule, TrainingsSchedule.class);
 		
 		return "Day successful added.";

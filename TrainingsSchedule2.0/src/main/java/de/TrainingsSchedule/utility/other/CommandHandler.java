@@ -86,7 +86,6 @@ public class CommandHandler {
 		} catch (ThrowableData e) {
 			return "No data exists.";
 		}catch (Exception e) {
-			e.printStackTrace();
 			return "An unknown error occured.";
 		}
 	}

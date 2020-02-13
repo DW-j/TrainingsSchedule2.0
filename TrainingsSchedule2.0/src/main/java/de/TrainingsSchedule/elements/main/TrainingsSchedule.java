@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class TrainingsSchedule {
 
@@ -23,11 +23,11 @@ public class TrainingsSchedule {
 	private PlanTemplate planTemplate;
 	@XmlElement
 	private Plan plan;
-	@XmlElement
 	private GoalList goalList;
 	
-	public TrainingsSchedule(PlanTemplate planTemplate) {
-		this.planTemplate = planTemplate;
+	@XmlElement
+	public void setGoalList(GoalList goalList) {
+		this.goalList = goalList;
 	}
 
 }

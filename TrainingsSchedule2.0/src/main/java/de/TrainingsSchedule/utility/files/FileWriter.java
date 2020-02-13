@@ -8,7 +8,7 @@ import javax.xml.bind.Marshaller;
 
 public class FileWriter {
 
-	private final String filePath = "C:\\Users\\wittn\\workspaces\\local workspace\\TrainingsSchedule\\src\\main\\java\\de\\TrainingsSchedule\\files\\%s";
+	private final String filePath = "C:\\Users\\wittn\\workspaces\\git\\TrainingsSchedule2.0\\TrainingsSchedule2.0\\src\\main\\java\\de\\TrainingsSchedule\\files\\%s";
 	private static FileWriter fileWriter = null;
 	
 	private FileWriter() {}

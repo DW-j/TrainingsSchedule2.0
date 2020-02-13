@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class Exercise {
 
 	@XmlAttribute
-	private int id;
+	private int id, dayId;
 	@XmlAttribute
 	private String name;
 	private String variation;

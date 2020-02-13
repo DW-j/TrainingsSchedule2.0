@@ -41,18 +41,20 @@ public class CommandCreate {
 					int variationNumber = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the number of variations", "exercise", exerciseId, "day", dayNumber)));
 					List<String> variations = new ArrayList<String>();
 					List<Integer> goalTypes = new ArrayList<Integer>();
+					
 					while(variationNumber>variations.size()) {
 						variations.add(communicator.getAbortableRepeatableInput(Message.getEnterMessage(String.format("the %d. variation", variations.size()+1), "exercise", exerciseId)));
 						goalTypes.add(Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the goaltype", "variation", variations.size(), Message.getGoaltypeDescription()))));
 					}
 					if(variationNumber<1) {
 						goalTypes.add(Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the goaltype", "exercise", Message.getGoaltypeDescription()))));
+						variations.add("-");
 					}
 					if(goalTypes.stream().filter(i -> i!=1&&i!=2).count()>0) {
 						throw new Exception();
 					}
 					communicator.getConfirmInput();
-					ExerciseTemplate exerciseTemplate = new ExerciseTemplate(exerciseId, setNumber, exerciseName, variations, goalTypes);
+					ExerciseTemplate exerciseTemplate = new ExerciseTemplate(exerciseId, dayId, setNumber, exerciseName, variations, goalTypes);
 					exerciseTemplates.add(exerciseTemplate);
 				} catch (ThrowableRepeat e) {
 					communicator.output(Message.getRepeatingMessage());

@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 public class ExerciseTemplate {
 
 	@XmlAttribute
-	private int id, setNumber;
+	private int id, setNumber, dayId;
 	@XmlAttribute
 	private String name;
 	@XmlElement

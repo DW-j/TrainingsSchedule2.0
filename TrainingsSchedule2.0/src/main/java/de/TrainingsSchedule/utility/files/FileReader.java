@@ -16,7 +16,7 @@ import javax.xml.bind.Unmarshaller;
 
 public class FileReader {
 
-	private final String filePath = "C:\\Users\\wittn\\workspaces\\local workspace\\TrainingsSchedule\\src\\main\\java\\de\\TrainingsSchedule\\files\\%s";
+	private final String filePath = "C:\\Users\\wittn\\workspaces\\git\\TrainingsSchedule2.0\\TrainingsSchedule2.0\\src\\main\\java\\de\\TrainingsSchedule\\files\\%s";
 	private static FileReader fileReader = null;
 	
 	private FileReader() {} 
