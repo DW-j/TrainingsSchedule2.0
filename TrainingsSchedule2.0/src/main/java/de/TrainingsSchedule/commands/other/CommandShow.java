@@ -1,4 +1,4 @@
-package de.TrainingsSchedule.commands;
+package de.TrainingsSchedule.commands.other;
 
 import java.util.ArrayList;
 import java.util.Arrays;

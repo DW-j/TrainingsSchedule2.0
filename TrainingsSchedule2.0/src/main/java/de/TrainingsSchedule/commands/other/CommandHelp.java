@@ -1,4 +1,4 @@
-package de.TrainingsSchedule.commands;
+package de.TrainingsSchedule.commands.other;
 
 import java.io.IOException;
 import java.util.ArrayList;

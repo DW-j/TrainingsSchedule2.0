@@ -1,4 +1,4 @@
-package de.TrainingsSchedule.commands;
+package de.TrainingsSchedule.commands.other;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,6 @@ import javax.xml.bind.JAXBException;
 
 import de.TrainingsSchedule.elements.goals.GoalList;
 import de.TrainingsSchedule.elements.main.TrainingsSchedule;
-import de.TrainingsSchedule.elements.specifics.Plan;
 import de.TrainingsSchedule.elements.templates.DayTemplate;
 import de.TrainingsSchedule.elements.templates.ExerciseTemplate;
 import de.TrainingsSchedule.elements.templates.PlanTemplate;
@@ -20,7 +19,7 @@ import de.TrainingsSchedule.utility.throwables.ThrowableRepeat;
 
 public class CommandCreate {
 
-	public String createPlan() throws NumberFormatException, ThrowableAbort, JAXBException, ThrowableExit {
+	public String createPlan(TrainingsSchedule trainingsScheduleOld) throws NumberFormatException, ThrowableAbort, JAXBException, ThrowableExit {
 		
 		Communicator communicator = Communicator.getInstance();
 		
@@ -71,7 +70,7 @@ public class CommandCreate {
 		communicator.output(planTemplate.toString());
 		communicator.getAbortConfirmInput("to save the plan template");	
 		
-		TrainingsSchedule trainingsSchedule = new TrainingsSchedule(planTemplate, new Plan(), new GoalList());
+		TrainingsSchedule trainingsSchedule = new TrainingsSchedule(planTemplate, trainingsScheduleOld.getPlan(), new GoalList());
 		FileWriter.getInstance().writeXML("TrainingsSchedule", trainingsSchedule, TrainingsSchedule.class);	
 		
 		return "Plan successful created.";

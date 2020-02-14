@@ -4,12 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import de.TrainingsSchedule.commands.CommandAdd;
-import de.TrainingsSchedule.commands.CommandCreate;
-import de.TrainingsSchedule.commands.CommandDelete;
-import de.TrainingsSchedule.commands.CommandGoal;
-import de.TrainingsSchedule.commands.CommandHelp;
-import de.TrainingsSchedule.commands.CommandShow;
+import de.TrainingsSchedule.commands.other.CommandAdd;
+import de.TrainingsSchedule.commands.other.CommandCreate;
+import de.TrainingsSchedule.commands.other.CommandDelete;
+import de.TrainingsSchedule.commands.other.CommandGoal;
+import de.TrainingsSchedule.commands.other.CommandHelp;
+import de.TrainingsSchedule.commands.other.CommandShow;
+import de.TrainingsSchedule.commands.print.CommandPrint;
 import de.TrainingsSchedule.elements.main.TrainingsSchedule;
 import de.TrainingsSchedule.utility.files.FileReader;
 import de.TrainingsSchedule.utility.throwables.ThrowableAbort;
@@ -49,7 +50,7 @@ public class CommandHandler {
 				
 			case "create":
 				CommandCreate commandCreate = new CommandCreate();
-				return commandCreate.createPlan();
+				return commandCreate.createPlan(trainingsSchedule);
 				
 			case "add":
 				CommandAdd commandAdd = new CommandAdd();
@@ -77,6 +78,10 @@ public class CommandHandler {
 			case "goals":
 				CommandGoal commandGoal = new CommandGoal();
 				return commandGoal.showGoals(trainingsSchedule);
+				
+			case "print":
+				CommandPrint commandPrint = new CommandPrint();
+				return commandPrint.print(trainingsSchedule);
 				
 			default:
 				throw new ThrowableCommand();
