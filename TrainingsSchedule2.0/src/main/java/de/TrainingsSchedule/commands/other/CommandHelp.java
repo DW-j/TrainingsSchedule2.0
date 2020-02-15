@@ -14,7 +14,7 @@ public class CommandHelp {
 	private Set<Entry<Object, Object>> entries;
 	
 	public CommandHelp() throws IOException {
-		entries = FileReader.getInstance().readPropertyfile("commandlist");
+		entries = FileReader.getInstance().readPrp("commandlist");
 	}
 	
 	public String toString() {

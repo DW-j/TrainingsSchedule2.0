@@ -32,7 +32,7 @@ public class FileReader {
 		return String.format(filePath, fileType + "\\" + fileName + "." + fileType);
 	}
 	
-	public String readTextfile(String fileName) throws FileNotFoundException {
+	public String readTxt(String fileName) throws FileNotFoundException {
 		String currentPath = createPath("txt", fileName);
 		Scanner sc = new Scanner(new File(currentPath));
 		StringBuilder output = new StringBuilder();
@@ -43,7 +43,7 @@ public class FileReader {
 		return output.toString().trim();
 	}
 	
-	public Set<Entry<Object, Object>> readPropertyfile(String fileName) throws IOException {
+	public Set<Entry<Object, Object>> readPrp(String fileName) throws IOException {
 		String currentPath = createPath("prp", fileName);
 		Properties properties = new Properties();
 		properties.load(Files.newInputStream(Paths.get(currentPath)));
@@ -57,4 +57,7 @@ public class FileReader {
 		return jaxbUnmarshaller.unmarshal(new File(currentPath));
 	}
 	
+	public File getFile(String fileName, String fileType) {
+		return new File(createPath(fileType, fileName));
+	}
 }
