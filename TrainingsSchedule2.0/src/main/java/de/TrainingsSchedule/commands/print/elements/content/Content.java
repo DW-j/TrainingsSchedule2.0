@@ -1,12 +1,13 @@
 package de.TrainingsSchedule.commands.print.elements.content;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 
 import de.TrainingsSchedule.elements.main.TrainingsSchedule;
+import de.TrainingsSchedule.elements.templates.DayTemplate;
 import de.TrainingsSchedule.utility.files.FileReader;
 import lombok.Getter;
 
@@ -15,16 +16,37 @@ public class Content {
 	@Getter
 	private List<Chapter> chapters;
 	
-	public PDDocument create(TrainingsSchedule trainingsSchedule, PDDocument document) throws FileNotFoundException {
+	public void create(TrainingsSchedule trainingsSchedule) throws IOException {
 		
 		chapters = new ArrayList<Chapter>();
 		
-		Chapter chapterDescription = new Chapter(chapters.size()+1, "Description");
-		chapterDescription.setTable(FileReader.getInstance().readTxt("pdfDescription"));
+		Chapter chapterDescription = new Chapter(getChapterId(chapters), "Description");
+		chapterDescription.setText(FileReader.getInstance().readTxt("pdfDescription"));
 		chapters.add(chapterDescription);
+		
+		Chapter chapterTemplate = new Chapter(getChapterId(chapters), "Plan template");
+		for(DayTemplate dayTemplate: trainingsSchedule.getPlanTemplate().getDayTemplates()) {
+			SubChapter subChapter = new SubChapter(getSubChapterId(chapterTemplate), String.format("%s %d", "Day", dayTemplate.getId()));
+			subChapter.setTable(dayTemplate.toTable());
+			chapterTemplate.addSubChapter(subChapter);
+		}
+		chapters.add(chapterTemplate);
+	}
 	
-		//		description, days - exercises, plan, days - day, exercise: name - table history | chart
+	public PDDocument print(PDDocument document) throws IOException {
+		for(Chapter chapter: chapters) {
+			document = chapter.create(document);
+		}
 		return document;
+	}
+	
+	private int getChapterId(List<Chapter> chapters) {
+		return chapters.size()+1;
+	}
+	
+	private double getSubChapterId(Chapter chapter) {
+		String subChapterId = new String(chapter.getId()+"."+chapter.getSubChapters().size()+1);
+		return Double.parseDouble(subChapterId);
 	}
 
 }

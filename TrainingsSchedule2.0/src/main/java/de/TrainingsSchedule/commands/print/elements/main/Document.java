@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
 import de.TrainingsSchedule.commands.print.elements.content.Content;
-import de.TrainingsSchedule.commands.print.elements.contenttable.ContentTable;
+import de.TrainingsSchedule.commands.print.elements.headpage.ContentTable;
 import de.TrainingsSchedule.commands.print.elements.headpage.Headpage;
 import de.TrainingsSchedule.elements.main.TrainingsSchedule;
 import lombok.Getter;
@@ -22,16 +22,19 @@ public class Document {
 	
 	public void create() throws IOException{
 		
-		document = new PDDocument();
-		
 		Headpage headpage = new Headpage();
-		document = headpage.create(document);
+		headpage.create();
 		
 		Content content = new Content();
-		document = content.create(trainingsSchedule, document);
+		content.create(trainingsSchedule);
 		
 		ContentTable contentTable = new ContentTable();
-		document = contentTable.create(content, document);
+		contentTable.create(content, document);
+		
+		document = new PDDocument();
+		document = headpage.print(document);
+		document = contentTable.print(document);
+		document = content.print(document);
 	}
 
 }

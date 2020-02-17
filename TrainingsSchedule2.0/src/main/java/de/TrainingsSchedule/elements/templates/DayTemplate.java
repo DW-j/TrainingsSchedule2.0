@@ -23,14 +23,14 @@ public class DayTemplate {
 	@XmlElement
 	private List<ExerciseTemplate> exerciseTemplates;
 	
-	public String toTable() {
+	public Table toTable() {
 		String headline = "Day "+id;
 		List<String> header = Arrays.asList(new String[] {"ID", "Name", "Sets", "Variations", "Goaltype/s"});
 		Table table = new Table(header, headline);
 		for(ExerciseTemplate exerciseTemplate: exerciseTemplates) {
 			table.addRow(exerciseTemplate.toRow());
 		}
-		return table.toString();
+		return table;
 	}
 	
 }

@@ -12,9 +12,11 @@ import lombok.Setter;
 public class Table {
 
 	@Setter
+	@Getter
 	private List<String> header = new ArrayList<String>();
 	@Getter
 	private List<List<String>> content = new ArrayList<List<String>>();
+	@Getter
 	@Setter
 	String headline;
 	
