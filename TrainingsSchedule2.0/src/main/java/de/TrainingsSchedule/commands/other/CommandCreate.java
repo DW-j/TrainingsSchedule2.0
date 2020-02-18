@@ -71,7 +71,7 @@ public class CommandCreate {
 		communicator.getAbortConfirmInput("to save the plan template");	
 		
 		TrainingsSchedule trainingsSchedule = new TrainingsSchedule(planTemplate, trainingsScheduleOld.getPlan(), new GoalList());
-		FileWriter.getInstance().writeXML("TrainingsSchedule", trainingsSchedule, TrainingsSchedule.class);	
+		FileWriter.getInstance().writeXml("TrainingsSchedule", trainingsSchedule, TrainingsSchedule.class);	
 		
 		return "Plan successful created.";
 	}

@@ -31,7 +31,7 @@ public class CommandGoal {
 		
 		GoalList goalList = new GoalList(exerciseGoals);
 		trainingsSchedule.setGoalList(goalList);
-		FileWriter.getInstance().writeXML("TrainingsSchedule", trainingsSchedule, TrainingsSchedule.class);
+		FileWriter.getInstance().writeXml("TrainingsSchedule", trainingsSchedule, TrainingsSchedule.class);
 		
 		return trainingsSchedule;
 	}

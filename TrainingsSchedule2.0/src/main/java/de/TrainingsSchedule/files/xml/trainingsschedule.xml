@@ -41,10 +41,27 @@
                 <reps>1</reps>
             </exercises>
         </days>
+        <days id="1" date="2019-12-19T00:00:00+01:00" weight="12.0" time="100">
+            <exercises id="1" dayId="0" name="Benchpress" weight="1.0" variation="-">
+                <reps>1</reps>
+                <reps>90</reps>
+                <reps>100</reps>
+                <reps>1</reps>
+                <timeSets>1</timeSets>
+                <timeSets>2</timeSets>
+                <timeSets>3</timeSets>
+            </exercises>
+            <exercises id="2" dayId="0" name="Pull-Ups" weight="1.0" variation="Close">
+                <reps>19</reps>
+                <reps>1</reps>
+                <reps>2</reps>
+                <timeSets>1</timeSets>
+            </exercises>
+        </days>
     </plan>
     <goalList>
-        <exerciseGoals name="Pull-Ups" variation="Close" dayId="0" exerciseId="2" goalReps="9" goalWeight="0.0"/>
+        <exerciseGoals name="Pull-Ups" variation="Close" dayId="0" exerciseId="2" goalReps="8" goalWeight="1.0"/>
         <exerciseGoals name="Pull-Ups" variation="Wide" dayId="0" exerciseId="2" goalReps="6" goalWeight="0.0"/>
-        <exerciseGoals name="Benchpress" variation="-" dayId="0" exerciseId="1" goalReps="7" goalWeight="105.0"/>
+        <exerciseGoals name="Benchpress" variation="-" dayId="0" exerciseId="1" goalReps="48" goalWeight="1.0"/>
     </goalList>
 </trainingsSchedule>

@@ -35,7 +35,7 @@ public class CommandDelete {
 		plan.getDays().remove(day);
 		
 		trainingsSchedule = new TrainingsSchedule(trainingsSchedule.getPlanTemplate(), plan, trainingsSchedule.getGoalList());
-		FileWriter.getInstance().writeXML("trainingsschedule", trainingsSchedule, TrainingsSchedule.class);
+		FileWriter.getInstance().writeXml("trainingsschedule", trainingsSchedule, TrainingsSchedule.class);
 		
 		return "Day successul deleted.";
 	}

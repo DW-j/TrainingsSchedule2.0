@@ -6,4 +6,6 @@ public class Constants {
 
 	public static final String dateFormatString = "dd-MM-yyyy";
 	public static final SimpleDateFormat dateFormat = new SimpleDateFormat(dateFormatString);
+	public static final SimpleDateFormat durationSecondsFormat = new SimpleDateFormat("mm:ss");
+	
 }

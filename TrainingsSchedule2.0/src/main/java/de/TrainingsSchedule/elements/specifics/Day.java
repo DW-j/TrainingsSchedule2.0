@@ -48,7 +48,7 @@ public class Day {
 		List<String> header = Arrays.asList(new String[] {"ID", "Name", "Variation", "Weight", "Reps"});
 		Table table = new Table(header, headline);
 		for(Exercise exercise: exercises) {
-			table.addRow(exercise.toRow());
+			table.addRow(exercise.toRow(null));
 		}
 		return table.toString();
 	}

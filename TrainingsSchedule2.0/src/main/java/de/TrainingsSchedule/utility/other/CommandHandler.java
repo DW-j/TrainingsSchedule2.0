@@ -10,7 +10,7 @@ import de.TrainingsSchedule.commands.other.CommandDelete;
 import de.TrainingsSchedule.commands.other.CommandGoal;
 import de.TrainingsSchedule.commands.other.CommandHelp;
 import de.TrainingsSchedule.commands.other.CommandShow;
-import de.TrainingsSchedule.commands.print.CommandPrint;
+import de.TrainingsSchedule.commands.print.command.CommandPrint;
 import de.TrainingsSchedule.elements.main.TrainingsSchedule;
 import de.TrainingsSchedule.utility.files.FileReader;
 import de.TrainingsSchedule.utility.throwables.ThrowableAbort;

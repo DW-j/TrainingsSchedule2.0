@@ -1,13 +1,16 @@
 package de.TrainingsSchedule.utility.files;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import org.apache.pdfbox.pdmodel.PDDocument;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfWriter;
 
 public class FileWriter {
 
@@ -23,11 +26,11 @@ public class FileWriter {
 		return fileWriter;
 	}
 	
-	private String createPath(String fileType, String fileName) {
+	public String createPath(String fileType, String fileName) {
 		return String.format(filePath, fileType + "\\" + fileName + "." + fileType);
 	}
 	
-	public File writeXML(String fileName, Object object, Class<?> c) throws JAXBException {
+	public File writeXml(String fileName, Object object, Class<?> c) throws JAXBException {
 		String currentPath = createPath("xml", fileName);
 		File output = new File(currentPath);
 		JAXBContext jaxbContext = JAXBContext.newInstance(c);
@@ -37,9 +40,8 @@ public class FileWriter {
 		return output;
 	}
 	
-	public void writePdf(String fileName, PDDocument document) throws IOException {
-		String currentPath = createPath("pdf", fileName);
-		document.save(currentPath);
-		document.close();
+	public PdfWriter writePdf(String fileName, Document document) throws FileNotFoundException, DocumentException {
+		return PdfWriter.getInstance(document, new FileOutputStream(createPath("pdf", fileName)));
 	}
+	
 }

@@ -29,35 +29,27 @@ public class Exercise {
 	private List<Integer> reps;
 	@XmlAttribute
 	private double weight;
+	@XmlElement
+	private List<Integer> timeSets;
 	
 	@XmlAttribute
 	public void setVariation(String variation) {
 		this.variation = variation;
 	}
-	
-	public List<String> toRow(){
-		List<String> row = new ArrayList<String>(){
-			private static final long serialVersionUID = 1L;
-		{
-			add(id+"");
-			add(name);
-			add(variation);
-			add(weight+"");
-			add(ListConverter.getInstance().integerListToString(reps));
-		}};
-		return row;
-	}
 
 	public List<String> toRow(Date date) {
+		ListConverter listConverter = ListConverter.getInstance();
 		List<String> row = new ArrayList<String>(){
 			private static final long serialVersionUID = 1L;
 		{
-			add(Constants.dateFormat.format(date));
+			if(date!=null) {
+				add(Constants.dateFormat.format(date));
+			}
 			add(id+"");
 			add(name);
 			add(variation);
 			add(weight+"kg");
-			add(ListConverter.getInstance().integerListToString(reps));
+			add(listConverter.stringListToString(listConverter.convertTimeSets(reps, timeSets)));
 		}};
 		return row;
 	}

@@ -3,6 +3,7 @@ package de.TrainingsSchedule.utility.files;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map.Entry;
@@ -13,6 +14,9 @@ import java.util.Set;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.Image;
 
 public class FileReader {
 
@@ -55,6 +59,11 @@ public class FileReader {
 		JAXBContext jaxbContext = JAXBContext.newInstance(c);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		return jaxbUnmarshaller.unmarshal(new File(currentPath));
+	}
+	
+	public Image getImage(String fileName) throws BadElementException, MalformedURLException, IOException {
+		String currentPath = createPath("jpg", fileName);
+		return Image.getInstance(currentPath);
 	}
 	
 	public File getFile(String fileName, String fileType) {

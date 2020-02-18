@@ -82,14 +82,22 @@ public class CommandAdd {
 					repList.add(("set"+(i+1)));
 				}
 				String inputPattern = "'weight "+String.join(" ", repList)+"'";
-				List<String> numberInput = Arrays.asList(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the weight and sets of the exercise by the following pattern "+inputPattern)).split(" "));
+				List<String> numberInput = Arrays.asList(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the weight and sets of the exercise by the following pattern "+inputPattern+". If the set is a timeset, start it with 'd:' and provide it in seconds")).split(" "));
 				if(numberInput.size()<exerciseTemplate.getSetNumber()+1) {
 					throw new Exception();
 				}
 				double exerciseWeight = Double.parseDouble(numberInput.get(0));
-				List<Integer> exerciseReps = numberInput.subList(1, numberInput.size()).stream().map(i -> Integer.parseInt(i)).collect(Collectors.toList());
+				List<Integer> timeSets = new ArrayList<Integer>();
+				numberInput = numberInput.subList(1, numberInput.size());
+				for(int i=0; i<numberInput.size(); i++) {
+					if(numberInput.get(i).startsWith("d:")) {
+						timeSets.add(i+1);
+						numberInput.set(i, numberInput.get(i).replace("d:", ""));
+					}
+				}
+				List<Integer> exerciseReps = numberInput.stream().map(i -> Integer.parseInt(i)).collect(Collectors.toList());
 				communicator.getConfirmInput();
-				Exercise exercise = new Exercise(exerciseId, dayId, exerciseName, exerciseVariation, exerciseReps, exerciseWeight);
+				Exercise exercise = new Exercise(exerciseId, dayId, exerciseName, exerciseVariation, exerciseReps, exerciseWeight, timeSets);
 				exercises.add(exercise);
 			}catch (Exception e) {
 				communicator.output(Message.getWrongInputMessage());
@@ -108,7 +116,7 @@ public class CommandAdd {
 		CommandGoal commandGoal = new CommandGoal();
 		trainingsSchedule = commandGoal.loadGoals(trainingsSchedule);
 		
-		FileWriter.getInstance().writeXML("trainingsschedule", trainingsSchedule, TrainingsSchedule.class);
+		FileWriter.getInstance().writeXml("trainingsschedule", trainingsSchedule, TrainingsSchedule.class);
 		
 		return "Day successful added.";
 	}
