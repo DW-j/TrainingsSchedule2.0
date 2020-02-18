@@ -23,7 +23,7 @@ public class CommandPrint {
 		ContentTable contentTable = new ContentTable();
 		Content content = new Content();
 		headpage.create();
-		content.create();
+		content.create(trainingsSchedule);
 		contentTable.create(content.getChapters());
 		
 		Document document = new Document();

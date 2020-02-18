@@ -20,7 +20,7 @@ public class CommandDelete {
 
 	public String deleteDay(String date, TrainingsSchedule trainingsSchedule) throws ParseException, ThrowableAbort, ThrowableExit, ThrowableData, JAXBException {
 		
-		Date dayDate = Constants.dateFormat.parse(date);
+		Date dayDate = Constants.getDateformat().parse(date);
 		Plan plan = trainingsSchedule.getPlan();
 		Day day;
 		try {

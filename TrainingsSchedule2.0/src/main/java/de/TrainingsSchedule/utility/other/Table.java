@@ -6,8 +6,10 @@ import java.util.List;
 import de.TrainingsSchedule.utility.text.IndentGenerator;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Data
 public class Table {
 
@@ -39,8 +41,11 @@ public class Table {
 	}
 	
 	public List<Float> getIndents(){
-		List<Float >indents = new ArrayList<Float>();
+		List<Float>indents = new ArrayList<Float>();
 		List<List<String>> contentHeader = new ArrayList<List<String>>();
+		if(header.size()==0) {
+			contentHeader = content;
+		}
 		for(int i=0; i<header.size(); i++) {
 			contentHeader.add(new ArrayList<String>());
 			contentHeader.get(i).add(header.get(i));

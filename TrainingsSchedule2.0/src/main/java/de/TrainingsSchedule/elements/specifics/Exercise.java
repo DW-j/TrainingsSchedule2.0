@@ -43,7 +43,7 @@ public class Exercise {
 			private static final long serialVersionUID = 1L;
 		{
 			if(date!=null) {
-				add(Constants.dateFormat.format(date));
+				add(Constants.getDateformat().format(date));
 			}
 			add(id+"");
 			add(name);

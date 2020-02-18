@@ -3,6 +3,7 @@ package de.TrainingsSchedule.commands.print.utility.elements;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.itextpdf.text.Document;
@@ -29,6 +30,21 @@ public class Chapter {
 	private String chart_caption;
 	@Getter
 	private List<SubChapter> subChapters;
+	
+	public Chapter(int id, String title, String text, Table table, File chart, String chart_caption) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.text = text;
+		this.table = table;
+		this.chart = chart;
+		this.chart_caption = chart_caption;
+		subChapters = new ArrayList<SubChapter>();
+	}
+	
+	public void addSubChapter(SubChapter subChapter) {
+		subChapters.add(subChapter);
+	}
 	
 	float add(Document document, PdfContentByte pdfContentByte, PDFAdder pdfAdder, float yPosition) throws DocumentException, MalformedURLException, IOException {
 		yPosition = pdfAdder.addPagebreak(document);

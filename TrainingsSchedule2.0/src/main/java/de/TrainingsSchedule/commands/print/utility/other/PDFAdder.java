@@ -66,17 +66,13 @@ public class PDFAdder {
 			pdfPTable.addCell(cell);
 		}
 		List<List<String>> content = table.getContent();
-		while(content.get(0).size()>0) {
-			for(int i=0; i<content.size(); i++) {
-				String cellContent = content.get(i).get(0);
+		for(int i=0; i<content.get(0).size(); i++) {
+			for(int j=0; j<content.size(); j++) {
+				String cellContent = content.get(j).get(i);
 				pdfPTable.addCell(new PdfPCell(new Phrase(cellContent, property.getFont())));
-				content.get(i).remove(0);
 			}
 		}
-		
-//		document.add(pdfPTable);
 		pdfPTable.writeSelectedRows(0, -1, property.getMargin_left(), getYPosition(document, yPosition, tableHeight), pdfContentByte);
-
 		return yPosition + property.getMargin_bottom() + tableHeight;
 	}
 	

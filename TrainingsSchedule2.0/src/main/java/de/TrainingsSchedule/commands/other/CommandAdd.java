@@ -42,7 +42,7 @@ public class CommandAdd {
 				int dayId = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the id of the day to be added")));
 				final int dayNo = dayId;
 				dayTemplate = planTemplate.getDayTemplates().stream().filter(d -> d.getId()==dayNo).findFirst().get();
-				Date dayDate = Constants.dateFormat.parse(communicator.getAbortableRepeatableInput(Message.getEnterMessage(String.format("the date in the '%s' format", Constants.dateFormatString))));
+				Date dayDate = Constants.getDateformat().parse(communicator.getAbortableRepeatableInput(Message.getEnterMessage(String.format("the date in the '%s' format", Constants.getDateformat()))));
 				int dayTime = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the workout time of the day")));
 				double dayWeight = Double.parseDouble(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the body weight of the day")));
 				day = new Day(dayId, dayDate, dayWeight, dayTime);

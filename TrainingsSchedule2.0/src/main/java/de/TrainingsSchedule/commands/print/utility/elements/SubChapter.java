@@ -13,8 +13,10 @@ import de.TrainingsSchedule.commands.print.utility.other.PDFAdder;
 import de.TrainingsSchedule.commands.print.utility.properties.Properties;
 import de.TrainingsSchedule.utility.files.FileReader;
 import de.TrainingsSchedule.utility.other.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor
 public class SubChapter {
 
 	@Getter
@@ -27,7 +29,7 @@ public class SubChapter {
 	private String chart_caption;
 	
 	float add(Document document, PdfContentByte pdfContentByte, PDFAdder pdfAdder, float yPosition) throws MalformedURLException, BadElementException, IOException, DocumentException {
-		yPosition = pdfAdder.addText(document, pdfContentByte, String.format("%d. %s", id, title), Properties.chapter_1, yPosition, false);
+		yPosition = pdfAdder.addText(document, pdfContentByte, String.format("%.1f %s", id, title), Properties.chapter_2, yPosition, false);
 		if(text!=null) {
 			yPosition = pdfAdder.addText(document, pdfContentByte, text, Properties.text_1, yPosition, false);
 		}

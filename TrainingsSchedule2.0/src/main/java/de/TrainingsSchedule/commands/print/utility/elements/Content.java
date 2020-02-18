@@ -10,8 +10,11 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfContentByte;
 
+import de.TrainingsSchedule.commands.print.utility.other.ChapterBuilder;
 import de.TrainingsSchedule.commands.print.utility.other.PDFAdder;
-import de.TrainingsSchedule.utility.files.FileReader;
+import de.TrainingsSchedule.elements.main.TrainingsSchedule;
+import de.TrainingsSchedule.elements.specifics.Plan;
+import de.TrainingsSchedule.elements.templates.PlanTemplate;
 import lombok.Getter;
 
 
@@ -20,11 +23,17 @@ public class Content {
 	@Getter
 	private List<Chapter> chapters;
 	
-	public void create() throws FileNotFoundException {
+	public void create(TrainingsSchedule trainingsSchedule) throws FileNotFoundException {
+		PlanTemplate planTemplate = trainingsSchedule.getPlanTemplate();
+		Plan plan = trainingsSchedule.getPlan();
+		
+		ChapterBuilder chapterBuilder = new ChapterBuilder();
 		chapters = new ArrayList<Chapter>();
 		
-		Chapter chapterDescription = new Chapter(createChapterId(), "Description", FileReader.getInstance().readTxt("pdfDescription"), null, null, null, null);
-		chapters.add(chapterDescription);
+		chapters.add(chapterBuilder.getChapterDescription(chapters));
+		chapters.add(chapterBuilder.getChapterTemplate(chapters, planTemplate));
+		chapters.add(chapterBuilder.getChapterPlan(chapters, plan.getDays()));
+		chapters.addAll(chapterBuilder.getChaptersDays(chapters, planTemplate, plan.getDays()));
 	}
 	
 	public float add(Document document, PdfContentByte pdfContentByte, PDFAdder pdfAdder, float yPosition) throws MalformedURLException, DocumentException, IOException {
@@ -35,14 +44,5 @@ public class Content {
 		}
 		return yPosition;
 	}
-	
-	private int createChapterId() {
-		return chapters.size()+1;
-	}
-	
-	private double createSubChapterId(Chapter chapter) {
-		return chapter.getId()+((chapter.getSubChapters().size()+1)/10);
-	}
-	
 	
 }

@@ -38,7 +38,7 @@ public class ListConverter {
 		}
 		for(int i=0; i<repList.size(); i++) {
 			if(timeSets.contains(i+1)) {
-				formatedRepList.add(Constants.durationSecondsFormat.format(repList.get(i)*1000)+"min");
+				formatedRepList.add(Constants.getDurationminutesformat().format(repList.get(i)*1000)+"min");
 			}else {
 				formatedRepList.add(repList.get(i)+"");
 			}
