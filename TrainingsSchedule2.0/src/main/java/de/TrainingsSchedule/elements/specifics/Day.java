@@ -43,14 +43,14 @@ public class Day {
 		this.exercises = exercises;
 	}
 
-	public String toTable() {
+	public Table toTable() {
 		String headline = "Day "+id+", "+Constants.dateFormat.format(date)+", body weight: "+weight+"kg, time: "+time+"min";
 		List<String> header = Arrays.asList(new String[] {"ID", "Name", "Variation", "Weight", "Reps"});
 		Table table = new Table(header, headline);
 		for(Exercise exercise: exercises) {
 			table.addRow(exercise.toRow(null));
 		}
-		return table.toString();
+		return table;
 	}
 	
 }

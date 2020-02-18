@@ -6,12 +6,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
+import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 
 import de.TrainingsSchedule.commands.print.utility.properties.Property;
+import de.TrainingsSchedule.utility.other.Table;
 
 public class PDFAdder {
 
@@ -38,12 +44,40 @@ public class PDFAdder {
 	
 	public float addImage(Document document, PdfContentByte pdfContentByte, Image image, String caption, Property property, float yPosition) throws MalformedURLException, IOException, DocumentException {
 		
-		addText(document, pdfContentByte, caption, property, yPosition, false);
+		yPosition = addText(document, pdfContentByte, caption, property, yPosition, false) - property.getMargin_bottom() + property.getLine_space();
 		
 		image.setAbsolutePosition(property.getMargin_left(), getYPosition(document, yPosition, image.getScaledHeight()));
 		document.add(image);
 		
 		return yPosition + property.getMargin_bottom() + image.getHeight();
+	}
+	
+	public float addTable(Document document, PdfContentByte pdfContentByte, Table table, Property property, float yPosition) throws DocumentException {
+		float[] columnWidth = ArrayUtils.toPrimitive(table.getIndents().toArray(new Float[table.getIndents().size()]));
+		PdfPTable pdfPTable = new PdfPTable(columnWidth);	
+		pdfPTable.setTotalWidth(document.getPageSize().getWidth() - property.getMargin_left() - property.getMargin_right());
+		float tableHeight = pdfPTable.getTotalHeight();
+		yPosition += property.getMargin_bottom();
+		
+		List<String> header = table.getHeader();
+		for(String cellContent: header) {
+			PdfPCell cell = new PdfPCell(new Phrase(cellContent, property.getFont()));
+			cell.setBackgroundColor(property.getHeaderColor());
+			pdfPTable.addCell(cell);
+		}
+		List<List<String>> content = table.getContent();
+		while(content.get(0).size()>0) {
+			for(int i=0; i<content.size(); i++) {
+				String cellContent = content.get(i).get(0);
+				pdfPTable.addCell(new PdfPCell(new Phrase(cellContent, property.getFont())));
+				content.get(i).remove(0);
+			}
+		}
+		
+//		document.add(pdfPTable);
+		pdfPTable.writeSelectedRows(0, -1, property.getMargin_left(), getYPosition(document, yPosition, tableHeight), pdfContentByte);
+
+		return yPosition + property.getMargin_bottom() + tableHeight;
 	}
 
 	private List<String> splitText(String text, Property property, float pageWidth){

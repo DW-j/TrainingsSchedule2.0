@@ -22,6 +22,6 @@ public class Plan {
 	}
 	
 	public String toString() {
-		return ListConverter.getInstance().listLists(days.stream().map(d -> d.toTable()).collect(Collectors.toList()));
+		return ListConverter.getInstance().listLists(days.stream().map(d -> d.toTable().toString()).collect(Collectors.toList()));
 	}
 }

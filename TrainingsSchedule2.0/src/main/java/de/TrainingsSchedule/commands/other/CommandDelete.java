@@ -30,7 +30,7 @@ public class CommandDelete {
 		}
 		Communicator communicator = Communicator.getInstance();
 		
-		communicator.output('\n'+day.toTable()+'\n');
+		communicator.output('\n'+day.toTable().toString()+'\n');
 		communicator.getAbortConfirmInput("delete this day");
 		plan.getDays().remove(day);
 		

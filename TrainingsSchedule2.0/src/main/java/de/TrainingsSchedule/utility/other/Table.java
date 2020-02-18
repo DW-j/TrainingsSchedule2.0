@@ -4,20 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.TrainingsSchedule.utility.text.IndentGenerator;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.Data;
 import lombok.Setter;
 
-@NoArgsConstructor
+@Data
 public class Table {
 
-	@Setter
-	@Getter
 	private List<String> header = new ArrayList<String>();
-	@Getter
+	@Setter(AccessLevel.NONE)
 	private List<List<String>> content = new ArrayList<List<String>>();
-	@Getter
-	@Setter
 	String headline;
 	
 	public Table(List<String> header) {
@@ -42,11 +38,9 @@ public class Table {
 		content.add(column);
 	}
 	
-	public String toString() {
-		
-		List<Integer> indents = new ArrayList<Integer>();
+	public List<Float> getIndents(){
+		List<Float >indents = new ArrayList<Float>();
 		List<List<String>> contentHeader = new ArrayList<List<String>>();
-		
 		for(int i=0; i<header.size(); i++) {
 			contentHeader.add(new ArrayList<String>());
 			contentHeader.get(i).add(header.get(i));
@@ -55,14 +49,19 @@ public class Table {
 			}
 		}
 		for(int i=0; i<contentHeader.size(); i++) {
-			indents.add(0);
+			indents.add(0F);
 			for(int j=0; j<contentHeader.get(i).size(); j++) {
 				String cell = contentHeader.get(i).get(j);
 				if(cell.length()+1>indents.get(indents.size()-1)) {
-					indents.set(indents.size()-1, cell.length()+1);
+					indents.set(indents.size()-1, (float) cell.length()+1);
 				}
 			}
 		}
+		return indents;
+	}
+	
+	public String toString() {
+		List<Float> indents = getIndents();		
 		
 		List<String> printTable = new ArrayList<String>();
 		if(headline!=null) {
@@ -90,7 +89,7 @@ public class Table {
 			}
 		}
 		
-		return String.join(String.join("\n", printTable), "\n", "\n");
+		return String.format("%s\n", String.join("\n", printTable));
 	}
 
 }

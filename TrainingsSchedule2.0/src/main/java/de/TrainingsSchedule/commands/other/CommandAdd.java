@@ -107,7 +107,7 @@ public class CommandAdd {
 		}
 		
 		day.setExercises(exercises);
-		communicator.output(day.toTable());
+		communicator.output(day.toTable().toString());
 		communicator.getAbortConfirmInput("to save the day");
 		
 		plan.addDay(day);

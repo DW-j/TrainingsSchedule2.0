@@ -16,7 +16,7 @@ public class IndentGenerator {
 		return indentGenerator;
 	}
 	
-	public String generateIndent(char c, int length) {
-		return Stream.generate(() -> c+"").limit(length).collect(Collectors.joining());
+	public String generateIndent(char c, float f) {
+		return Stream.generate(() -> c+"").limit((int) f).collect(Collectors.joining());
 	}
 }

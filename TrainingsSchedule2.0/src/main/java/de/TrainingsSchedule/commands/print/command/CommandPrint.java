@@ -25,8 +25,8 @@ public class CommandPrint {
 		
 		PDFAdder pdfAdder = new PDFAdder();
 		float yPosition = pdfAdder.addText(document, pdfContentByte, FileReader.getInstance().readTxt("pdfDescription"), Properties.text_1, 0, false);
-		pdfAdder.addImage(document, pdfContentByte, FileReader.getInstance().getImage("Jokah_Profilbild"), "Test_Chart", Properties.chart_1, yPosition);
-		
+		yPosition = pdfAdder.addImage(document, pdfContentByte, FileReader.getInstance().getImage("Jokah_Profilbild"), "Test_Chart", Properties.chart_1, yPosition);
+		yPosition = pdfAdder.addTable(document, pdfContentByte, trainingsSchedule.getPlan().getDays().get(0).toTable(), Properties.table_1, yPosition);
 		document.close();
 		return "PDF created succesfully.";
 	}

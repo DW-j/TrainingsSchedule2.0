@@ -28,7 +28,7 @@ public class ListConverter {
 	}
 	
 	public String listLists(List<String> list) {
-		return String.format("\n%s\n", String.join("\n", list));
+		return String.format("\n%s", String.join("\n", list));
 	}
 	
 	public List<String> convertTimeSets(List<Integer> repList, List<Integer> timeSets){
