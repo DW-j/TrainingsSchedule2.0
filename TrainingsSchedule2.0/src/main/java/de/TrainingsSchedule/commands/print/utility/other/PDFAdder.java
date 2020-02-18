@@ -79,6 +79,11 @@ public class PDFAdder {
 
 		return yPosition + property.getMargin_bottom() + tableHeight;
 	}
+	
+	public float addPagebreak(Document document) {
+		document.newPage();
+		return 0;
+	}
 
 	private List<String> splitText(String text, Property property, float pageWidth){
 		List<String> lines = new ArrayList<String>();

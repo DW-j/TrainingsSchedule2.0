@@ -61,9 +61,8 @@ public class FileReader {
 		return jaxbUnmarshaller.unmarshal(new File(currentPath));
 	}
 	
-	public Image getImage(String fileName) throws BadElementException, MalformedURLException, IOException {
-		String currentPath = createPath("jpg", fileName);
-		return Image.getInstance(currentPath);
+	public Image getImage(File file) throws BadElementException, MalformedURLException, IOException {
+		return Image.getInstance(file.getAbsolutePath());
 	}
 	
 	public File getFile(String fileName, String fileType) {

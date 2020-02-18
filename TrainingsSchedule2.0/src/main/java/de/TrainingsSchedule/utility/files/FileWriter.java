@@ -3,10 +3,14 @@ package de.TrainingsSchedule.utility.files;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+
+import org.jfree.chart.ChartUtils;
+import org.jfree.chart.JFreeChart;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -38,6 +42,12 @@ public class FileWriter {
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 		jaxbMarshaller.marshal(object, output);
 		return output;
+	}
+	
+	public File saveChart(String fileName, JFreeChart chart, int height, int width) throws IOException {
+		File file = new File(createPath("jpg", fileName));
+		ChartUtils.saveChartAsJPEG(file, chart, width, height);
+		return file;
 	}
 	
 	public PdfWriter writePdf(String fileName, Document document) throws FileNotFoundException, DocumentException {
