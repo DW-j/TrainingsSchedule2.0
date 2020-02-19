@@ -3,8 +3,11 @@ package de.TrainingsSchedule.utility.other;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
+import lombok.Getter;
+
 public class Constants {
 
+	@Getter
 	private static final String dateFormatString = "dd-MM-yyyy";
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat(dateFormatString);
 	private static final SimpleDateFormat durationMinutesFormat = new SimpleDateFormat("mm:ss");
@@ -22,6 +25,5 @@ public class Constants {
 		durationHoursFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 		return durationHoursFormat;
 	}
-	
 	
 }

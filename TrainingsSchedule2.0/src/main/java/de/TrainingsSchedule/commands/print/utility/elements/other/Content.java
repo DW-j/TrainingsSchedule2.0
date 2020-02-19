@@ -1,6 +1,5 @@
 package de.TrainingsSchedule.commands.print.utility.elements.other;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class Content {
 	@Getter
 	private List<Chapter> chapters;
 	
-	public void create(TrainingsSchedule trainingsSchedule) throws FileNotFoundException {
+	public void create(TrainingsSchedule trainingsSchedule) throws IOException {
 		PlanTemplate planTemplate = trainingsSchedule.getPlanTemplate();
 		Plan plan = trainingsSchedule.getPlan();
 		
@@ -41,6 +40,11 @@ public class Content {
 	public float add(Document document, PdfContentByte pdfContentByte, PDFAdder pdfAdder, float yPosition) throws MalformedURLException, DocumentException, IOException {
 		if(chapters!=null) {
 			for(Chapter chapter: chapters) {
+				float subChapterHeight = chapter.getSubChapters()!=null? chapter.getSubChapters().get(0).getHeight(document, pdfAdder):0;
+				float subSubChapterHeight = subChapterHeight!=0? chapter.getSubChapters().get(0).getSubSubChapters()!=null? chapter.getSubChapters().get(0).getSubSubChapters().get(0).getHeight(document, pdfAdder): 0 :0;
+				if(yPosition+chapter.getHeight(document, pdfAdder)+subChapterHeight+subSubChapterHeight >document.getPageSize().getHeight()) {
+					yPosition = pdfAdder.addPagebreak(document);
+				}
 				yPosition = chapter.add(document, pdfContentByte, pdfAdder, yPosition);
 			}
 		}

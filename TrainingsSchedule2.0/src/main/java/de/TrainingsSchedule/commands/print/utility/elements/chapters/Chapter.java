@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -31,15 +32,24 @@ public class Chapter extends ChapterTemplate{
 	}
 	
 	public float add(Document document, PdfContentByte pdfContentByte, PDFAdder pdfAdder, float yPosition) throws DocumentException, MalformedURLException, IOException {
-		yPosition = pdfAdder.addPagebreak(document);
 		yPosition = pdfAdder.addText(document, pdfContentByte, getHeadline(), Properties.chapter_1, yPosition, false);
 		yPosition = super.add(document, pdfContentByte, pdfAdder, yPosition);
 		if(subChapters!=null) {
 			for(SubChapter subChapter: subChapters) {
+				float subSubChapterHeight = subChapter.getSubSubChapters()!=null? subChapter.getSubSubChapters().get(0).getHeight(document, pdfAdder) : 0;
+				if(yPosition+subChapter.getHeight(document, pdfAdder)+subSubChapterHeight>document.getPageSize().getHeight()) {
+					yPosition = pdfAdder.addPagebreak(document);
+				}
 				yPosition = subChapter.add(document, pdfContentByte, pdfAdder, yPosition);
 			}
 		}
 		return yPosition;
+	}
+	
+	public float getHeight(Document document, PDFAdder pdfAdder) throws BadElementException, MalformedURLException, IOException {
+		float height = pdfAdder.getTextHeight(document, getHeadline(), Properties.chapter_1);
+		height += super.getHeight(document, pdfAdder);
+		return height;
 	}
 	
 }

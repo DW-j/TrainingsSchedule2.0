@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -87,9 +88,30 @@ public class ChapterTemplate {
 		if(charts!=null) {
 			for(int i=0; i<charts.size(); i++) {
 				yPosition = pdfAdder.addImage(document, pdfContentByte, FileReader.getInstance().getImage(charts.get(i)), chart_captions.get(i), Properties.chart_1, yPosition);
+				charts.get(i).delete();
 			}
 		}
 		return yPosition;
+	}
+	
+	public float getHeight(Document document, PDFAdder pdfAdder) throws BadElementException, MalformedURLException, IOException {
+		float height = 0;
+		if(texts!=null) {
+			for(String text: texts) {
+				height += pdfAdder.getTextHeight(document, text, Properties.text_1);
+			}
+		}
+		if(tables!=null) {
+			for(int i=0; i<tables.size(); i++) {
+				height += pdfAdder.getTableHeight(document, tables.get(i), table_captions.get(i), Properties.table_1);
+			}
+		}
+		if(charts!=null) {
+			for(int i=0; i<charts.size(); i++) {
+				height += pdfAdder.getChartHeight(document, FileReader.getInstance().getImage(charts.get(i)), chart_captions.get(i), Properties.table_1);
+			}
+		}
+		return height;
 	}
 	
 }

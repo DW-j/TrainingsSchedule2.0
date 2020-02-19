@@ -42,7 +42,7 @@ public class CommandAdd {
 				int dayId = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the id of the day to be added")));
 				final int dayNo = dayId;
 				dayTemplate = planTemplate.getDayTemplates().stream().filter(d -> d.getId()==dayNo).findFirst().get();
-				Date dayDate = Constants.getDateformat().parse(communicator.getAbortableRepeatableInput(Message.getEnterMessage(String.format("the date in the '%s' format", Constants.getDateformat()))));
+				Date dayDate = Constants.getDateformat().parse(communicator.getAbortableRepeatableInput(Message.getEnterMessage(String.format("the date in the '%s' format", Constants.getDateFormatString()))));
 				int dayTime = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the workout time of the day")));
 				double dayWeight = Double.parseDouble(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the body weight of the day")));
 				day = new Day(dayId, dayDate, dayWeight, dayTime);
@@ -82,7 +82,7 @@ public class CommandAdd {
 					repList.add(("set"+(i+1)));
 				}
 				String inputPattern = "'weight "+String.join(" ", repList)+"'";
-				List<String> numberInput = Arrays.asList(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the weight and sets of the exercise by the following pattern "+inputPattern+". If the set is a timeset, start it with 'd:' and provide it in seconds")).split(" "));
+				List<String> numberInput = Arrays.asList(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the weight and sets of the exercise by the following pattern "+inputPattern+".\nIf the set is a timeset, start it with 'd:' and provide it in seconds")).split(" "));
 				if(numberInput.size()<exerciseTemplate.getSetNumber()+1) {
 					throw new Exception();
 				}
@@ -97,7 +97,7 @@ public class CommandAdd {
 				}
 				List<Integer> exerciseReps = numberInput.stream().map(i -> Integer.parseInt(i)).collect(Collectors.toList());
 				communicator.getConfirmInput();
-				Exercise exercise = new Exercise(exerciseId, dayId, exerciseName, exerciseVariation, exerciseReps, exerciseWeight, timeSets);
+				Exercise exercise = new Exercise(exerciseId, dayId, exerciseName, day.getDate(), exerciseVariation, exerciseReps, exerciseWeight, timeSets);
 				exercises.add(exercise);
 			}catch (Exception e) {
 				communicator.output(Message.getWrongInputMessage());

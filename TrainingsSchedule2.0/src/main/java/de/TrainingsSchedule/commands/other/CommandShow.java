@@ -49,7 +49,7 @@ public class CommandShow {
 			
 			for(String variation: exerciseVariations) {
 				Table table = new Table(header, variation);
-				days.stream().forEach(d -> d.getExercises().stream().filter(e -> e.getVariation().equals(variation)).forEach(e -> table.addRow(e.toRow(d.getDate()))));
+				days.stream().forEach(d -> d.getExercises().stream().filter(e -> e.getVariation().equals(variation)).forEach(e -> table.addRow(e.toRow(true))));
 				exerciseTables.add(table.toString());
 			}
 			

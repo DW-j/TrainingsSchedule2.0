@@ -22,13 +22,17 @@ public class ContentTable {
 	}
 	
 	public float add(Document document, PdfContentByte pdfContentByte, PDFAdder pdfAdder, float yPosition) {
-		yPosition = pdfAdder.addPagebreak(document);
 		yPosition = pdfAdder.addText(document, pdfContentByte, title, Properties.chapter_1, yPosition, false);
 		if(chapters!=null) {
 			for(Chapter chapter: chapters) {
 				yPosition = pdfAdder.addText(document, pdfContentByte, chapter.getHeadline(),Properties.contenttable_1, yPosition, false);
 				if(chapter.getSubChapters()!=null) {
 					for(SubChapter subChapter: chapter.getSubChapters()) {
+						float subChapterHeight = pdfAdder.getTextHeight(document, subChapter.getHeadline(), Properties.contenttable_2);
+						float subSubChaptersHeight = subChapter.getSubSubChapters()!=null? pdfAdder.getTextHeight(document, subChapter.getSubSubChapters().get(0).getHeadline(), Properties.contenttable_3)*subChapter.getSubSubChapters().size():0;
+						if(yPosition + subChapterHeight + subSubChaptersHeight > document.getPageSize().getHeight()) {
+							yPosition = pdfAdder.addPagebreak(document);
+						}
 						yPosition = pdfAdder.addText(document, pdfContentByte, subChapter.getHeadline(), Properties.contenttable_2, yPosition, false);
 						if(subChapter.getSubSubChapters()!=null) {
 							for(SubSubChapter subSubChapter: subChapter.getSubSubChapters()) {
@@ -39,6 +43,7 @@ public class ContentTable {
 				}
 			}
 		}
+		yPosition = pdfAdder.addPagebreak(document);
 		return yPosition;
 	}
 	

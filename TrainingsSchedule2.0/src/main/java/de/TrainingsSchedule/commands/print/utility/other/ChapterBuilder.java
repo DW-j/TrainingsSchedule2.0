@@ -1,8 +1,11 @@
 package de.TrainingsSchedule.commands.print.utility.other;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +16,7 @@ import org.apache.commons.math3.util.Precision;
 import de.TrainingsSchedule.commands.print.utility.elements.chapters.Chapter;
 import de.TrainingsSchedule.commands.print.utility.elements.chapters.SubChapter;
 import de.TrainingsSchedule.commands.print.utility.elements.chapters.SubSubChapter;
+import de.TrainingsSchedule.commands.print.utility.properties.Properties;
 import de.TrainingsSchedule.elements.specifics.Day;
 import de.TrainingsSchedule.elements.specifics.Exercise;
 import de.TrainingsSchedule.elements.templates.DayTemplate;
@@ -39,53 +43,60 @@ public class ChapterBuilder {
 		return chapter;
 	}
 	
-	public Chapter getChapterPlan(List<Chapter> chapters, List<Day> days) {
+	public Chapter getChapterPlan(List<Chapter> chapters, List<Day> days) throws IOException {
 		Chapter chapter = new Chapter(createChapterId(chapters), "Plan");
-		Table statTable = new Table();
+
 		List<Integer> sets = new ArrayList<Integer>();
 		List<Integer> timeSets = new ArrayList<Integer>();
 		for(Day day: days) {
-			for(Exercise exercise: day.getExercises()) {
-				List<Integer> reps = exercise.getReps();
-				if(exercise.getTimeSets()!=null) {
-					timeSets.addAll(exercise.getTimeSets());
-					for(int i=exercise.getTimeSets().size()-1; i>=0; i--) {
-						reps.remove(exercise.getTimeSets().get(i));
-					}
-				}
-				sets.addAll(reps);
-			}
+			day.getExercises().stream().forEach(e -> sets.addAll(getSets(e)));
+			day.getExercises().stream().forEach(e -> timeSets.addAll(getTimeSets(e)));
 		}
-		List<String> statColumn1 = Arrays.asList(new String[] {
-				"Total days trained",
-				"Total time trained",
-				"Average time trained",
-				"Peek training time", 
-				"Least training time", 
-				"Average body weight", 
-				"Peek body weight", 
-				"Least body weight",
-				"Sets made",
-				"Time sets made",
-				"Reps made"});
-		List<String> statColumn2 = Arrays.asList(new String[] {
-				days.size()+"",
-				Constants.getDurationhoursformat().format(days.stream().mapToInt(d -> d.getTime()).sum()*60000)+" h",
-				Precision.round(days.stream().mapToInt(d -> d.getTime()).average().getAsDouble(), 2)+" min",
-				days.stream().mapToInt(d -> d.getTime()).max().getAsInt()+ " min",
-				days.stream().mapToInt(d -> d.getTime()).min().getAsInt()+ " min",
-				Precision.round(days.stream().mapToDouble(d -> d.getWeight()).average().getAsDouble(), 2)+" kg",
-				days.stream().mapToDouble(d -> d.getWeight()).max().getAsDouble()+" kg",
-				days.stream().mapToDouble(d -> d.getWeight()).min().getAsDouble()+" kg",
-				sets.size()+timeSets.size()+"",
-				timeSets.size()+"",
-				sets.stream().mapToInt(i -> i).sum()+""
-			});
-		statTable.addColumn(statColumn1);
-		statTable.addColumn(statColumn2);
-		SubChapter subChapter = new SubChapter(createSubChapterId(chapter), "Statistics");
-		subChapter.addTable(statTable, null);
-		chapter.addSubChapter(subChapter);
+		
+		SubChapter subChapter1 = new SubChapter(createSubChapterId(chapter), "Statistics");
+		Table statTable = createStatTable(
+				new String[] {
+						"Total days trained",
+						"Total time trained",
+						"Average time trained",
+						"Peek training time", 
+						"Least training time", 
+						"Average body weight", 
+						"Peek body weight", 
+						"Least body weight",
+						"Sets made",
+						"Time sets made",
+						"Reps made"
+				}, new String[] {
+						days.size()+"",
+						Constants.getDurationhoursformat().format(days.stream().mapToInt(d -> d.getTime()).sum()*60000)+" h",
+						Precision.round(days.stream().mapToInt(d -> d.getTime()).average().getAsDouble(), 2)+" min",
+						days.stream().mapToInt(d -> d.getTime()).max().getAsInt()+ " min",
+						days.stream().mapToInt(d -> d.getTime()).min().getAsInt()+ " min",
+						Precision.round(days.stream().mapToDouble(d -> d.getWeight()).average().getAsDouble(), 2)+" kg",
+						days.stream().mapToDouble(d -> d.getWeight()).max().getAsDouble()+" kg",
+						days.stream().mapToDouble(d -> d.getWeight()).min().getAsDouble()+" kg",
+						sets.size()+timeSets.size()+"",
+						timeSets.size()+"",
+						sets.stream().mapToInt(i -> i).sum()+""}
+		);
+		subChapter1.addTable(statTable, null);
+		chapter.addSubChapter(subChapter1);
+		
+		SubChapter subChapter2 = new SubChapter(createSubChapterId(chapter), "Body weight");
+		List<Date> dates = days.stream().map(d -> d.getDate()).collect(Collectors.toList());
+		List<Double> weights = days.stream().map(d -> d.getWeight()).collect(Collectors.toList());
+		ChartBuilder chartBuilder = new ChartBuilder();
+		chartBuilder.createLineChart("bodyweight", Properties.chart_1, dates, weights, "Body weight");
+		subChapter2.addChart(chartBuilder.getChart(), null);
+		chapter.addSubChapter(subChapter2);
+		
+		SubChapter subChapter3 = new SubChapter(createSubChapterId(chapter), "Training time");
+		List<Double> trainingTime = days.stream().map(d -> (double)d.getTime()).collect(Collectors.toList());	
+		chartBuilder.createLineChart("trainingtime", Properties.chart_1, dates, trainingTime, "Training time");
+		subChapter3.addChart(chartBuilder.getChart(), null);
+		chapter.addSubChapter(subChapter3);
+		
 		return chapter;
 	}
 	
@@ -109,15 +120,16 @@ public class ChapterBuilder {
 			subChapter.addSubSubChapter(subSubChapter1);
 			
 			SubSubChapter subSubChapter2 = new SubSubChapter(createSubSubChapterId(subChapter), "Statistics");
-			Table statTable = new Table();
-			List<String> statColumn1 = Arrays.asList(new String[] {"Total days trained", "Total time trained", "Average time trained"});
-			List<String> statColumn2 = Arrays.asList(new String[] {
-					days.get(dayId).size()+"",
-					Constants.getDurationhoursformat().format(days.get(dayId).stream().mapToInt(d -> d.getTime()).sum()*60000)+" h",
-					days.get(dayId).stream().mapToInt(d -> d.getTime()).sum()/days.size()+" min"
-				});
-			statTable.addColumn(statColumn1);
-			statTable.addColumn(statColumn2);
+			Table statTable = createStatTable(
+					new String[] {
+							"Total days trained",
+							"Total time trained", 
+							"Average time trained"
+					}, new String[] {
+							days.get(dayId).size()+"",
+							Constants.getDurationhoursformat().format(days.get(dayId).stream().mapToInt(d -> d.getTime()).sum()*60000)+" h",
+							days.get(dayId).stream().mapToInt(d -> d.getTime()).sum()/days.size()+" min"
+			});
 			subSubChapter2.addTable(statTable, null);
 			subChapter.addSubSubChapter(subSubChapter2); 
 			
@@ -133,7 +145,7 @@ public class ChapterBuilder {
 		return chapter;
 	}
 	
-	public Chapter getChapterExercises(List<Chapter> chapters, List<Day> days) {
+	public Chapter getChapterExercises(List<Chapter> chapters, List<Day> days) throws IOException {
 		Chapter chapter = new Chapter(createChapterId(chapters), "Exercises");
 		
 		List<Exercise> exerciseList = new ArrayList<Exercise>();
@@ -142,31 +154,71 @@ public class ChapterBuilder {
 		List<String> keys = new ArrayList<String>();
 		
 		for(Exercise exercise: exerciseList) {
-			String temp = exercise.getName();
-			if(!exercise.getVariation().equals("-")) {
-				temp += ", "+exercise.getVariation();
+			String key = String.format("%s, %s", exercise.getName(), exercise.getVariation());
+			if(!exercises.containsKey(key)) {
+				exercises.put(key, new ArrayList<Exercise>());
+				keys.add(key);
 			}
-			if(!exercises.containsKey(temp)) {
-				exercises.put(temp, new ArrayList<Exercise>());
-				keys.add(temp);
-			}
-			exercises.get(temp).add(exercise);
+			exercises.get(key).add(exercise);
 		}
 		
 		for(int i=0; i<exercises.size(); i++) {
-			SubChapter subChapter = new SubChapter(createSubChapterId(chapter), keys.get(i));
+			String key = keys.get(i);
+			SubChapter subChapter = new SubChapter(createSubChapterId(chapter), key.replace(", -", ""));
 			SubSubChapter subSubChapter1 = new SubSubChapter(createSubSubChapterId(subChapter), "Statistics"); 
+			List<Integer> sets = new ArrayList<Integer>();
+			exercises.get(key).stream().forEach(e -> sets.addAll(getSets(e)));
+			List<Integer> timeSets = new ArrayList<Integer>();
+			exercises.get(key).stream().forEach(e -> timeSets.addAll(getTimeSets(e)));
+			Table statTable = createStatTable(
+					new String[] {
+						"Number of performances",
+						"Peak weight",
+						"Least weight",
+						"Peak reps",
+						"Least reps",
+						"Peak timeset",
+						"Least timeset"
+					},new String[] {
+						exercises.get(key).size()+"",
+						exercises.get(key).stream().mapToDouble(e -> e.getWeight()).max().getAsDouble()+"",
+						exercises.get(key).stream().mapToDouble(e -> e.getWeight()).min().getAsDouble()+"",
+						Collections.max(sets)+"",
+						Collections.min(sets)+"",
+						timeSets.isEmpty()? "-" : Constants.getDurationminutesformat().format(Collections.max(timeSets)*1000)+"min",
+						timeSets.isEmpty()? "-" : Constants.getDurationminutesformat().format(Collections.min(timeSets)*1000)+"min",
+					});
+			subSubChapter1.addTable(statTable, null);
 			subChapter.addSubSubChapter(subSubChapter1);
-			SubSubChapter subSubChapter2 = new SubSubChapter(createSubSubChapterId(subChapter), "Performances");
-			subChapter.addSubSubChapter(subSubChapter2);
-
-
-			//			List<String> header = Arrays.asList(new String[] {"Date", "ID", "Name",  "Variation", "Weight", "Reps"});
-//			Table performances = new Table(header);
-//			for(Exercise exercise: exercises.get(keys.get(i))) {
-//				performances.addRow(exercise.);
-			//} //exercise -> date
 			
+			SubSubChapter subSubChapter2 = new SubSubChapter(createSubSubChapterId(subChapter), "Performances");
+			List<String> header = Arrays.asList(new String[] {"Date", "ID", "Name",  "Variation", "Weight", "Reps"});
+			Table performances = new Table(header);
+			days.stream().forEach(d -> d.getExercises().stream().filter(e -> String.format("%s, %s", e.getName(), e.getVariation()).equals(key)).forEach(e -> performances.addRow(e.toRow(true))));
+			subSubChapter2.addTable(performances, null);
+			subChapter.addSubSubChapter(subSubChapter2);
+			
+			SubSubChapter subSubChapter3 = new SubSubChapter(createSubSubChapterId(subChapter), "Rep average chart");
+			ChartBuilder chartBuilder = new ChartBuilder();
+			List<Date> dateList = exercises.get(key).stream().map(e -> e.getDate()).collect(Collectors.toList());
+			List<Double> weightList = exercises.get(key).stream().map(e -> e.getWeight()).collect(Collectors.toList());
+			List<Double> setList = new ArrayList<Double>();
+			exercises.get(key).stream().forEach(e -> setList.add(getSets(e).size()>0?getSets(e).stream().mapToDouble(s -> s).average().getAsDouble():null));
+			if(!isNull(setList)) {
+				chartBuilder.createLineChart(key+" sets", Properties.chart_1, dateList, setList, "Reps", weightList, "Weight");
+				subSubChapter3.addChart(chartBuilder.getChart(), null);
+				subChapter.addSubSubChapter(subSubChapter3);
+			}
+			
+			List<Double> timeSetList = new ArrayList<Double>();
+			exercises.get(key).stream().forEach(e -> timeSetList.add(getTimeSets(e).size()>0?getTimeSets(e).stream().mapToDouble(t -> t).average().getAsDouble():null));
+			if(!isNull(timeSetList)) {
+				SubSubChapter subSubChapter4 = new SubSubChapter(createSubSubChapterId(subChapter), "Time average chart");
+				chartBuilder.createLineChart(key+"timesets", Properties.chart_1, dateList, timeSetList, "Time average");
+				subSubChapter4.addChart(chartBuilder.getChart(), null);
+				subChapter.addSubSubChapter(subSubChapter4);
+			}
+						
 			chapter.addSubChapter(subChapter);
 		}
 		
@@ -176,7 +228,6 @@ public class ChapterBuilder {
 	private String createChapterId(List<Chapter> chapters) {
 		return (chapters.size()+1)+"";
 	}
-
 	
 	private String createSubChapterId(Chapter chapter) {
 		if(chapter.getSubChapters()==null) {
@@ -190,6 +241,42 @@ public class ChapterBuilder {
 			return subChapter.getId() + "." + 1;
 		}
 		return subChapter.getId() + "." + (subChapter.getSubSubChapters().size()+1);
+	}
+	
+	private Table createStatTable(String[] labels, String[] stats) {
+		Table table = new Table();
+		table.addColumn(Arrays.asList(labels));
+		table.addColumn(Arrays.asList(stats));
+		return table;
+	}
+	
+	private List<Integer> getSets(Exercise exercise){
+		List<Integer> sets = exercise.getReps();
+		if(exercise.getTimeSets()!=null) {
+			for(int i=exercise.getTimeSets().size()-1; i>=0; i--) {
+				sets.remove(exercise.getTimeSets().get(i));
+			}
+		}
+		return sets;
+	}
+	
+	private List<Integer> getTimeSets(Exercise exercise){
+		List<Integer> timeSets = new ArrayList<Integer>();
+		if(exercise.getTimeSets()!=null) {				
+			for(Integer timeSet: exercise.getTimeSets()) {
+				timeSets.add(exercise.getReps().get(timeSet-1));
+			}
+		}	
+		return timeSets;
+	}
+	
+	private boolean isNull(List<Double> list) {
+		for(Double d: list) {
+			if(d!=null) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 }

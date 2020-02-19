@@ -20,6 +20,7 @@ public class Headpage {
 		yPosition = pdfAdder.addText(document, pdfContentByte, title1, Properties.title_1, yPosition, true);
 		yPosition = pdfAdder.addText(document, pdfContentByte, title2, Properties.title_2, yPosition, true);
 		yPosition = pdfAdder.addText(document, pdfContentByte, title3, Properties.title_3, yPosition, true);
+		yPosition = pdfAdder.addPagebreak(document);
 		return yPosition;
 	}
 	

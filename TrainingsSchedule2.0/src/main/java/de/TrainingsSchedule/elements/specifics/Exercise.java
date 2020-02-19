@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import de.TrainingsSchedule.utility.other.Constants;
@@ -24,11 +25,15 @@ public class Exercise {
 	private int id, dayId;
 	@XmlAttribute
 	private String name;
+	@XmlAttribute
+	private Date date;
 	private String variation;
+	@XmlElementWrapper
 	@XmlElement
 	private List<Integer> reps;
 	@XmlAttribute
 	private double weight;
+	@XmlElementWrapper
 	@XmlElement
 	private List<Integer> timeSets;
 	
@@ -37,12 +42,12 @@ public class Exercise {
 		this.variation = variation;
 	}
 
-	public List<String> toRow(Date date) {
+	public List<String> toRow(boolean dateIncluded) {
 		ListConverter listConverter = ListConverter.getInstance();
 		List<String> row = new ArrayList<String>(){
 			private static final long serialVersionUID = 1L;
 		{
-			if(date!=null) {
+			if(dateIncluded) {
 				add(Constants.getDateformat().format(date));
 			}
 			add(id+"");

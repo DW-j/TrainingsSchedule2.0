@@ -42,25 +42,59 @@ public class PDFAdder {
 		return yPosition + property.getMargin_bottom();
 	}
 	
+	public float getTextHeight(Document document, String text, Property property) {
+		float height = property.getMargin_top() + property.getMargin_bottom();
+		int lineNumber = splitText(text, property, document.getPageSize().getWidth()).size();
+		height += lineNumber*(property.getText_height()+property.getLine_space());
+		return height;
+	}
+	
 	public float addImage(Document document, PdfContentByte pdfContentByte, Image image, String caption, Property property, float yPosition) throws MalformedURLException, IOException, DocumentException {
 		if(caption!=null) {
 			yPosition = addText(document, pdfContentByte, caption, property, yPosition, false) - property.getMargin_bottom() + property.getLine_space();
 		}
 		
-		image.setAbsolutePosition(property.getMargin_left(), getYPosition(document, yPosition, image.getScaledHeight()));
+		image.setAbsolutePosition(property.getMargin_left(), getYPosition(document, yPosition, image.getHeight()));
 		document.add(image);
 		
 		return yPosition + property.getMargin_bottom() + image.getHeight();
+	}
+	
+	public float getChartHeight(Document document, Image image, String caption, Property property) {
+		float height = property.getMargin_top() + property.getMargin_bottom();
+		if(caption!=null) {
+			height += getTextHeight(document, caption, property);
+		}
+		height += image.getHeight();
+		return height;
 	}
 	
 	public float addTable(Document document, PdfContentByte pdfContentByte, Table table, String caption, Property property, float yPosition) throws DocumentException {
 		if(caption!=null) {
 			yPosition = addText(document, pdfContentByte, caption, property, yPosition, false) - property.getMargin_bottom() + property.getLine_space();
 		}		
+		yPosition += property.getMargin_top();
+		
+		PdfPTable pdfPTable = createTable(document, table, property);
+		
+		float tableHeight = pdfPTable.getTotalHeight();
+		pdfPTable.writeSelectedRows(0, -1, property.getMargin_left(), getYPosition(document, yPosition, 0), pdfContentByte);
+		return yPosition + property.getMargin_bottom() + tableHeight;
+	}
+	
+	public float getTableHeight(Document document, Table table, String caption, Property property) {
+		float height = property.getMargin_top() + property.getMargin_bottom();
+		if(caption!=null) {
+			height += getTextHeight(document, caption, property);
+		}
+		height += createTable(document, table, property).getTotalHeight();
+		return height;
+	}
+	
+	private PdfPTable createTable(Document document, Table table, Property property) {
 		float[] columnWidth = ArrayUtils.toPrimitive(table.getIndents().toArray(new Float[table.getIndents().size()]));
 		PdfPTable pdfPTable = new PdfPTable(columnWidth);	
 		pdfPTable.setTotalWidth(document.getPageSize().getWidth() - property.getMargin_left() - property.getMargin_right());
-		yPosition += property.getMargin_top();
 		
 		List<String> header = table.getHeader();
 		for(String cellContent: header) {
@@ -75,14 +109,12 @@ public class PDFAdder {
 				pdfPTable.addCell(new PdfPCell(new Phrase(cellContent, property.getFont())));
 			}
 		}
-		float tableHeight = pdfPTable.getTotalHeight();
-		pdfPTable.writeSelectedRows(0, -1, property.getMargin_left(), getYPosition(document, yPosition, 0), pdfContentByte);
-		return yPosition + property.getMargin_bottom() + tableHeight;
+		return pdfPTable;
 	}
 	
 	public float addPagebreak(Document document) {
 		document.newPage();
-		return 0;
+		return 20;
 	}
 
 	private List<String> splitText(String text, Property property, float pageWidth){

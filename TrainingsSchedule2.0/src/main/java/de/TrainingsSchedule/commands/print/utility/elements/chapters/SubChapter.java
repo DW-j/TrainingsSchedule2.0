@@ -35,10 +35,19 @@ public class SubChapter extends ChapterTemplate{
 		yPosition = super.add(document, pdfContentByte, pdfAdder, yPosition);
 		if(subSubChapters!=null) {
 			for(SubSubChapter subSubChapter: subSubChapters) {
+				if(yPosition+subSubChapter.getHeight(document, pdfAdder)>document.getPageSize().getHeight()) {
+					yPosition = pdfAdder.addPagebreak(document);
+				}
 				yPosition = subSubChapter.add(document, pdfContentByte, pdfAdder, yPosition);
 			}
 		}
 		return yPosition;
+	}
+	
+	public float getHeight(Document document, PDFAdder pdfAdder) throws BadElementException, MalformedURLException, IOException {
+		float height = pdfAdder.getTextHeight(document, getHeadline(), Properties.chapter_2);
+		height += super.getHeight(document, pdfAdder);
+		return height;
 	}
 
 }
