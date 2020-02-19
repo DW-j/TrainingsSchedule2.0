@@ -8,9 +8,9 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import de.TrainingsSchedule.commands.print.utility.elements.Content;
-import de.TrainingsSchedule.commands.print.utility.elements.ContentTable;
-import de.TrainingsSchedule.commands.print.utility.elements.Headpage;
+import de.TrainingsSchedule.commands.print.utility.elements.other.Content;
+import de.TrainingsSchedule.commands.print.utility.elements.other.ContentTable;
+import de.TrainingsSchedule.commands.print.utility.elements.other.Headpage;
 import de.TrainingsSchedule.commands.print.utility.other.PDFAdder;
 import de.TrainingsSchedule.elements.main.TrainingsSchedule;
 import de.TrainingsSchedule.utility.files.FileWriter;

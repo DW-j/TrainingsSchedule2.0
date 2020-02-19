@@ -1,4 +1,4 @@
-package de.TrainingsSchedule.commands.print.utility.elements;
+package de.TrainingsSchedule.commands.print.utility.elements.other;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,6 +10,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfContentByte;
 
+import de.TrainingsSchedule.commands.print.utility.elements.chapters.Chapter;
 import de.TrainingsSchedule.commands.print.utility.other.ChapterBuilder;
 import de.TrainingsSchedule.commands.print.utility.other.PDFAdder;
 import de.TrainingsSchedule.elements.main.TrainingsSchedule;
@@ -33,7 +34,8 @@ public class Content {
 		chapters.add(chapterBuilder.getChapterDescription(chapters));
 		chapters.add(chapterBuilder.getChapterTemplate(chapters, planTemplate));
 		chapters.add(chapterBuilder.getChapterPlan(chapters, plan.getDays()));
-		chapters.addAll(chapterBuilder.getChaptersDays(chapters, planTemplate, plan.getDays()));
+		chapters.add(chapterBuilder.getChapterDays(chapters, planTemplate, plan.getDays()));
+		chapters.add(chapterBuilder.getChapterExercises(chapters, plan.getDays()));
 	}
 	
 	public float add(Document document, PdfContentByte pdfContentByte, PDFAdder pdfAdder, float yPosition) throws MalformedURLException, DocumentException, IOException {

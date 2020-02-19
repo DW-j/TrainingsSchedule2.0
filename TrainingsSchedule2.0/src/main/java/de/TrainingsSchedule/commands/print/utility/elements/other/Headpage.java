@@ -1,4 +1,4 @@
-package de.TrainingsSchedule.commands.print.utility.elements;
+package de.TrainingsSchedule.commands.print.utility.elements.other;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfContentByte;

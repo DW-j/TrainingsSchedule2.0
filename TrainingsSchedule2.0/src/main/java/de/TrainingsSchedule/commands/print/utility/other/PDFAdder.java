@@ -43,8 +43,9 @@ public class PDFAdder {
 	}
 	
 	public float addImage(Document document, PdfContentByte pdfContentByte, Image image, String caption, Property property, float yPosition) throws MalformedURLException, IOException, DocumentException {
-		
-		yPosition = addText(document, pdfContentByte, caption, property, yPosition, false) - property.getMargin_bottom() + property.getLine_space();
+		if(caption!=null) {
+			yPosition = addText(document, pdfContentByte, caption, property, yPosition, false) - property.getMargin_bottom() + property.getLine_space();
+		}
 		
 		image.setAbsolutePosition(property.getMargin_left(), getYPosition(document, yPosition, image.getScaledHeight()));
 		document.add(image);
@@ -52,12 +53,14 @@ public class PDFAdder {
 		return yPosition + property.getMargin_bottom() + image.getHeight();
 	}
 	
-	public float addTable(Document document, PdfContentByte pdfContentByte, Table table, Property property, float yPosition) throws DocumentException {
+	public float addTable(Document document, PdfContentByte pdfContentByte, Table table, String caption, Property property, float yPosition) throws DocumentException {
+		if(caption!=null) {
+			yPosition = addText(document, pdfContentByte, caption, property, yPosition, false) - property.getMargin_bottom() + property.getLine_space();
+		}		
 		float[] columnWidth = ArrayUtils.toPrimitive(table.getIndents().toArray(new Float[table.getIndents().size()]));
 		PdfPTable pdfPTable = new PdfPTable(columnWidth);	
 		pdfPTable.setTotalWidth(document.getPageSize().getWidth() - property.getMargin_left() - property.getMargin_right());
-		float tableHeight = pdfPTable.getTotalHeight();
-		yPosition += property.getMargin_bottom();
+		yPosition += property.getMargin_top();
 		
 		List<String> header = table.getHeader();
 		for(String cellContent: header) {
@@ -72,7 +75,8 @@ public class PDFAdder {
 				pdfPTable.addCell(new PdfPCell(new Phrase(cellContent, property.getFont())));
 			}
 		}
-		pdfPTable.writeSelectedRows(0, -1, property.getMargin_left(), getYPosition(document, yPosition, tableHeight), pdfContentByte);
+		float tableHeight = pdfPTable.getTotalHeight();
+		pdfPTable.writeSelectedRows(0, -1, property.getMargin_left(), getYPosition(document, yPosition, 0), pdfContentByte);
 		return yPosition + property.getMargin_bottom() + tableHeight;
 	}
 	

@@ -1,10 +1,13 @@
-package de.TrainingsSchedule.commands.print.utility.elements;
+package de.TrainingsSchedule.commands.print.utility.elements.other;
 
 import java.util.List;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfContentByte;
 
+import de.TrainingsSchedule.commands.print.utility.elements.chapters.Chapter;
+import de.TrainingsSchedule.commands.print.utility.elements.chapters.SubChapter;
+import de.TrainingsSchedule.commands.print.utility.elements.chapters.SubSubChapter;
 import de.TrainingsSchedule.commands.print.utility.other.PDFAdder;
 import de.TrainingsSchedule.commands.print.utility.properties.Properties;
 
@@ -23,10 +26,15 @@ public class ContentTable {
 		yPosition = pdfAdder.addText(document, pdfContentByte, title, Properties.chapter_1, yPosition, false);
 		if(chapters!=null) {
 			for(Chapter chapter: chapters) {
-				yPosition = pdfAdder.addText(document, pdfContentByte, String.format("%d. %s", chapter.getId(), chapter.getTitle()),Properties.contenttable_1, yPosition, false);
+				yPosition = pdfAdder.addText(document, pdfContentByte, chapter.getHeadline(),Properties.contenttable_1, yPosition, false);
 				if(chapter.getSubChapters()!=null) {
 					for(SubChapter subChapter: chapter.getSubChapters()) {
-						yPosition = pdfAdder.addText(document, pdfContentByte, String.format("%.1f %s",  subChapter.getId(), subChapter.getTitle()), Properties.contenttable_2, yPosition, false);
+						yPosition = pdfAdder.addText(document, pdfContentByte, subChapter.getHeadline(), Properties.contenttable_2, yPosition, false);
+						if(subChapter.getSubSubChapters()!=null) {
+							for(SubSubChapter subSubChapter: subChapter.getSubSubChapters()) {
+								yPosition = pdfAdder.addText(document, pdfContentByte, subSubChapter.getHeadline(), Properties.contenttable_3, yPosition, false);
+							}
+						}
 					}
 				}
 			}
