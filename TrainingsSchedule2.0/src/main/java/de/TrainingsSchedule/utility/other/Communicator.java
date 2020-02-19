@@ -2,7 +2,6 @@ package de.TrainingsSchedule.utility.other;
 
 import java.util.Scanner;
 
-import de.TrainingsSchedule.utility.text.Message;
 import de.TrainingsSchedule.utility.throwables.ThrowableAbort;
 import de.TrainingsSchedule.utility.throwables.ThrowableExit;
 import de.TrainingsSchedule.utility.throwables.ThrowableRepeat;
@@ -67,23 +66,6 @@ public class Communicator {
 			throw new ThrowableAbort();
 		}
 		return getAbortConfirmInput(action);
-	}
-	
-	public String getSingleInput(String message) throws ThrowableAbort, ThrowableExit {
-		String input = null;
-		while(input==null) {
-			try {
-				input = getAbortableRepeatableInput(message);
-				getConfirmInput();
-			} catch (ThrowableRepeat e) {
-				input = null;
-				output(Message.getRepeatingMessage());
-			}catch (Exception e) {
-				input = null;
-				output(Message.getWrongInputMessage());
-			}
-		}
-		return input;
 	}
 	
 	public void output(String message) {

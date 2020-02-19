@@ -23,21 +23,31 @@ public class CommandCreate {
 		
 		Communicator communicator = Communicator.getInstance();
 		
-		int dayNumber = Integer.parseInt(communicator.getSingleInput(Message.getEnterMessage("the number of days", "the plan")));
+		int dayNumber = Integer.parseInt(communicator.getInput(Message.getEnterMessage("the number of days", "the plan")));
 		
 		List<DayTemplate> dayTemplates = new ArrayList<DayTemplate>();
 		while(dayNumber>dayTemplates.size()) {
 			
 			int dayId = dayTemplates.size()+1;
 			List<ExerciseTemplate> exerciseTemplates = new ArrayList<ExerciseTemplate>();
-			int exerciseNumber = Integer.parseInt(communicator.getSingleInput(Message.getEnterMessage("the number of exercises", "day", dayId)));
+			int exerciseNumber = 0;
+			while(exerciseNumber <= 0) {
+				try {
+					exerciseNumber = Integer.parseInt(communicator.getInput(Message.getEnterMessage("the number of exercises", "day", dayId)));	
+					communicator.getConfirmInput();
+				} catch (ThrowableRepeat e) {
+					communicator.output(Message.getRepeatingMessage());
+				} catch (Exception e) {
+					communicator.output(Message.getWrongInputMessage());
+				}
+			}
 			
 			while(exerciseNumber>exerciseTemplates.size()) {
 				try {
 					int exerciseId = exerciseTemplates.size()+1;
-					String exerciseName = communicator.getAbortableRepeatableInput(Message.getEnterMessage("the name of the exercise", "exercise", exerciseId, "day", dayNumber));
-					int setNumber = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the number of sets", "exercise", exerciseId, "day", dayNumber)));			
-					int variationNumber = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the number of variations", "exercise", exerciseId, "day", dayNumber)));
+					String exerciseName = communicator.getAbortableRepeatableInput(Message.getEnterMessage("the name of the exercise", "exercise", exerciseId, "day", dayId));
+					int setNumber = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the number of sets", "exercise", exerciseId, "day", dayId)));			
+					int variationNumber = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the number of variations", "exercise", exerciseId, "day", dayId)));
 					List<String> variations = new ArrayList<String>();
 					List<Integer> goalTypes = new ArrayList<Integer>();
 					

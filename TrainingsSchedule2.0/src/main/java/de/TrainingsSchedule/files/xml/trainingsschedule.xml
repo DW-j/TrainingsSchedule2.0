@@ -2,110 +2,2254 @@
 <trainingsSchedule>
     <planTemplate>
         <dayTemplates id="1">
-            <exerciseTemplates id="1" setNumber="4" dayId="0" name="Benchpress">
+            <exerciseTemplates id="1" dayId="1" setNumber="2" name="Rope">
+                <variations>-</variations>
+                <goalTypes>2</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="2" dayId="1" setNumber="4" name="Benchpress">
                 <variations>-</variations>
                 <goalTypes>1</goalTypes>
             </exerciseTemplates>
-            <exerciseTemplates id="2" setNumber="3" dayId="0" name="Pull-Ups">
+            <exerciseTemplates id="3" dayId="1" setNumber="3" name="Pull-Ups">
+                <variations>Close, weighted</variations>
+                <variations>Close, not weighted</variations>
+                <variations>Wide, not weighted</variations>
+                <goalTypes>1</goalTypes>
+                <goalTypes>2</goalTypes>
+                <goalTypes>2</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="4" dayId="1" setNumber="3" name="Dips">
+                <variations>Weighted</variations>
+                <variations>Not weighted</variations>
+                <goalTypes>1</goalTypes>
+                <goalTypes>2</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="5" dayId="1" setNumber="3" name="Push-Ups">
+                <variations>Stepping</variations>
+                <variations>Normal, not weighted</variations>
+                <variations>Normal, weighted</variations>
+                <goalTypes>2</goalTypes>
+                <goalTypes>2</goalTypes>
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="6" dayId="1" setNumber="3" name="Curls, triceps pushdown">
+                <variations>SZ-Curl</variations>
+                <variations>Triceps pushdown</variations>
+                <variations>DB-Curl, standing</variations>
+                <variations>DB-Curl, incline</variations>
+                <goalTypes>1</goalTypes>
+                <goalTypes>1</goalTypes>
+                <goalTypes>1</goalTypes>
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="7" dayId="1" setNumber="5" name="Planks &amp; Sit-Ups">
+                <variations>-</variations>
+                <goalTypes>2</goalTypes>
+            </exerciseTemplates>
+        </dayTemplates>
+        <dayTemplates id="2">
+            <exerciseTemplates id="1" dayId="2" setNumber="2" name="Rope">
+                <variations>-</variations>
+                <goalTypes>2</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="2" dayId="2" setNumber="4" name="Squad">
+                <variations>-</variations>
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="3" dayId="2" setNumber="4" name="Deadlift">
+                <variations>-</variations>
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="4" dayId="2" setNumber="3" name="Latpull">
                 <variations>Wide</variations>
                 <variations>Close</variations>
                 <goalTypes>1</goalTypes>
-                <goalTypes>2</goalTypes>
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="5" dayId="2" setNumber="3" name="T-Bar-Row">
+                <variations>Wide</variations>
+                <variations>Close</variations>
+                <goalTypes>1</goalTypes>
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="6" dayId="2" setNumber="3" name="Shoulderpress">
+                <variations>-</variations>
+                <goalTypes>1</goalTypes>
+            </exerciseTemplates>
+            <exerciseTemplates id="7" dayId="2" setNumber="3" name="Calfraise">
+                <variations>-</variations>
+                <goalTypes>1</goalTypes>
             </exerciseTemplates>
         </dayTemplates>
     </planTemplate>
     <plan>
-        <days id="1" date="2000-12-12T01:00:00+01:00" weight="100.0" time="19">
-            <exercises id="1" dayId="0" name="Benchpress" date="2000-12-12T01:00:00+01:00" weight="10.0" variation="-">
+        <days id="1" date="2019-12-02T01:00:00+01:00" weight="76.8" time="60">
+            <exercises id="1" dayId="1" name="Rope" date="2019-12-02T01:00:00+01:00" weight="0.0" variation="-">
                 <reps>
-                    <reps>10</reps>
-                    <reps>100</reps>
-                    <reps>100</reps>
-                    <reps>1</reps>
+                    <reps>90</reps>
+                    <reps>150</reps>
                 </reps>
                 <timeSets>
                     <timeSets>1</timeSets>
-                    <timeSets>2</timeSets>
                 </timeSets>
             </exercises>
-            <exercises id="2" dayId="0" name="Pull-Ups" date="2000-12-12T01:00:00+01:00" weight="0.0" variation="Close">
+            <exercises id="2" dayId="1" name="Benchpress" date="2019-12-02T01:00:00+01:00" weight="70.0" variation="-">
                 <reps>
-                    <reps>1</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2019-12-02T01:00:00+01:00" weight="0.0" variation="Close, not weighted">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2019-12-02T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2019-12-02T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>25</reps>
+                    <reps>20</reps>
+                    <reps>20</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2019-12-02T01:00:00+01:00" weight="10.0" variation="DB-Curl, standing">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>9</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2019-12-02T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>25</reps>
+                    <reps>60</reps>
+                    <reps>25</reps>
+                    <reps>60</reps>
+                    <reps>25</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2019-12-03T01:00:00+01:00" weight="77.2" time="70">
+            <exercises id="1" dayId="2" name="Rope" date="2019-12-03T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>150</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2019-12-03T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2019-12-03T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2019-12-03T01:00:00+01:00" weight="100.0" variation="Wide">
+                <reps>
                     <reps>10</reps>
-                    <reps>1000</reps>
+                    <reps>10</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2019-12-03T01:00:00+01:00" weight="30.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2019-12-03T01:00:00+01:00" weight="30.0" variation="-">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2019-12-03T01:00:00+01:00" weight="60.0" variation="-">
+                <reps>
+                    <reps>15</reps>
+                    <reps>15</reps>
+                    <reps>15</reps>
                 </reps>
                 <timeSets/>
             </exercises>
         </days>
-        <days id="1" date="2001-12-12T01:00:00+01:00" weight="100.0" time="19">
-            <exercises id="1" dayId="0" name="Benchpress" date="2001-12-12T01:00:00+01:00" weight="10.0" variation="-">
+        <days id="1" date="2019-12-07T01:00:00+01:00" weight="78.1" time="60">
+            <exercises id="1" dayId="1" name="Rope" date="2019-12-07T01:00:00+01:00" weight="0.0" variation="-">
                 <reps>
-                    <reps>10</reps>
-                    <reps>100</reps>
-                    <reps>100</reps>
-                    <reps>1</reps>
+                    <reps>90</reps>
+                    <reps>188</reps>
                 </reps>
                 <timeSets>
                     <timeSets>1</timeSets>
-                    <timeSets>2</timeSets>
                 </timeSets>
             </exercises>
-            <exercises id="2" dayId="0" name="Pull-Ups" date="2001-12-12T01:00:00+01:00" weight="0.0" variation="Close">
+            <exercises id="2" dayId="1" name="Benchpress" date="2019-12-07T01:00:00+01:00" weight="70.0" variation="-">
                 <reps>
-                    <reps>1</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2019-12-07T01:00:00+01:00" weight="0.0" variation="Close, not weighted">
+                <reps>
+                    <reps>7</reps>
+                    <reps>7</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2019-12-07T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2019-12-07T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>25</reps>
+                    <reps>20</reps>
+                    <reps>18</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2019-12-07T01:00:00+01:00" weight="12.0" variation="DB-Curl, incline">
+                <reps>
                     <reps>10</reps>
-                    <reps>1000</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2019-12-07T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>60</reps>
+                    <reps>35</reps>
+                    <reps>60</reps>
+                    <reps>35</reps>
+                    <reps>60</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
+                    <timeSets>5</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2019-12-08T01:00:00+01:00" weight="77.9" time="80">
+            <exercises id="1" dayId="2" name="Rope" date="2019-12-08T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>199</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2019-12-08T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2019-12-08T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2019-12-08T01:00:00+01:00" weight="110.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2019-12-08T01:00:00+01:00" weight="35.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2019-12-08T01:00:00+01:00" weight="35.0" variation="-">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2019-12-08T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>15</reps>
+                    <reps>13</reps>
+                    <reps>15</reps>
                 </reps>
                 <timeSets/>
             </exercises>
         </days>
-        <days id="1" date="2002-12-12T01:00:00+01:00" weight="100.0" time="19">
-            <exercises id="1" dayId="0" name="Benchpress" date="2002-12-12T01:00:00+01:00" weight="10.0" variation="-">
+        <days id="1" date="2019-12-14T01:00:00+01:00" weight="77.8" time="75">
+            <exercises id="1" dayId="1" name="Rope" date="2019-12-14T01:00:00+01:00" weight="0.0" variation="-">
                 <reps>
-                    <reps>10</reps>
-                    <reps>100</reps>
-                    <reps>100</reps>
-                    <reps>1</reps>
+                    <reps>90</reps>
+                    <reps>235</reps>
                 </reps>
                 <timeSets>
                     <timeSets>1</timeSets>
-                    <timeSets>2</timeSets>
                 </timeSets>
             </exercises>
-            <exercises id="2" dayId="0" name="Pull-Ups" date="2002-12-12T01:00:00+01:00" weight="24.0" variation="Close">
+            <exercises id="2" dayId="1" name="Benchpress" date="2019-12-14T01:00:00+01:00" weight="70.0" variation="-">
                 <reps>
-                    <reps>1</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2019-12-14T01:00:00+01:00" weight="0.0" variation="Close, not weighted">
+                <reps>
+                    <reps>7</reps>
+                    <reps>7</reps>
+                    <reps>7</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2019-12-14T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>14</reps>
+                    <reps>14</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2019-12-14T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>25</reps>
+                    <reps>25</reps>
+                    <reps>25</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2019-12-14T01:00:00+01:00" weight="33.5" variation="SZ-Curl">
+                <reps>
+                    <reps>12</reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2019-12-14T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>30</reps>
+                    <reps>70</reps>
+                    <reps>30</reps>
+                    <reps>70</reps>
+                    <reps>30</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2019-12-15T01:00:00+01:00" weight="77.8" time="85">
+            <exercises id="1" dayId="2" name="Rope" date="2019-12-15T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>187</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2019-12-15T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2019-12-15T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2019-12-15T01:00:00+01:00" weight="120.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
                     <reps>10</reps>
-                    <reps>1000</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2019-12-15T01:00:00+01:00" weight="40.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2019-12-15T01:00:00+01:00" weight="35.0" variation="-">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2019-12-15T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
                 </reps>
                 <timeSets/>
             </exercises>
         </days>
-        <days id="1" date="2003-12-12T01:00:00+01:00" weight="100.0" time="19">
-            <exercises id="1" dayId="0" name="Benchpress" date="2003-12-12T01:00:00+01:00" weight="10.0" variation="-">
+        <days id="1" date="2019-12-18T01:00:00+01:00" weight="78.2" time="65">
+            <exercises id="1" dayId="1" name="Rope" date="2019-12-18T01:00:00+01:00" weight="0.0" variation="-">
                 <reps>
-                    <reps>10</reps>
-                    <reps>100</reps>
-                    <reps>100</reps>
-                    <reps>1</reps>
+                    <reps>90</reps>
+                    <reps>195</reps>
                 </reps>
                 <timeSets>
                     <timeSets>1</timeSets>
-                    <timeSets>2</timeSets>
                 </timeSets>
             </exercises>
-            <exercises id="2" dayId="0" name="Pull-Ups" date="2003-12-12T01:00:00+01:00" weight="1.0" variation="Close">
+            <exercises id="2" dayId="1" name="Benchpress" date="2019-12-18T01:00:00+01:00" weight="70.0" variation="-">
                 <reps>
-                    <reps>1</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2019-12-18T01:00:00+01:00" weight="0.0" variation="Close, not weighted">
+                <reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2019-12-18T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>14</reps>
+                    <reps>14</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2019-12-18T01:00:00+01:00" weight="15.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2019-12-18T01:00:00+01:00" weight="10.0" variation="DB-Curl, standing">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2019-12-18T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>70</reps>
+                    <reps>40</reps>
+                    <reps>70</reps>
+                    <reps>40</reps>
+                    <reps>70</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
+                    <timeSets>5</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2019-12-20T01:00:00+01:00" weight="78.6" time="80">
+            <exercises id="1" dayId="2" name="Rope" date="2019-12-20T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>218</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2019-12-20T01:00:00+01:00" weight="75.0" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2019-12-20T01:00:00+01:00" weight="85.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2019-12-20T01:00:00+01:00" weight="120.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
                     <reps>10</reps>
-                    <reps>1000</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2019-12-20T01:00:00+01:00" weight="40.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2019-12-20T01:00:00+01:00" weight="40.0" variation="-">
+                <reps>
+                    <reps>12</reps>
+                    <reps>7</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2019-12-20T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2019-12-22T01:00:00+01:00" weight="78.6" time="70">
+            <exercises id="1" dayId="1" name="Rope" date="2019-12-22T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>217</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2019-12-22T01:00:00+01:00" weight="75.0" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2019-12-22T01:00:00+01:00" weight="0.0" variation="Wide, not weighted">
+                <reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2019-12-22T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>14</reps>
+                    <reps>14</reps>
+                    <reps>14</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2019-12-22T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>25</reps>
+                    <reps>25</reps>
+                    <reps>19</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2019-12-22T01:00:00+01:00" weight="12.0" variation="DB-Curl, standing">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2019-12-22T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>40</reps>
+                    <reps>75</reps>
+                    <reps>40</reps>
+                    <reps>75</reps>
+                    <reps>40</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2019-12-23T01:00:00+01:00" weight="78.5" time="75">
+            <exercises id="1" dayId="2" name="Rope" date="2019-12-23T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>180</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2019-12-23T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2019-12-23T01:00:00+01:00" weight="90.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>3</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2019-12-23T01:00:00+01:00" weight="120.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2019-12-23T01:00:00+01:00" weight="45.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2019-12-23T01:00:00+01:00" weight="40.0" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2019-12-23T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>13</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2019-12-28T01:00:00+01:00" weight="79.3" time="65">
+            <exercises id="1" dayId="1" name="Rope" date="2019-12-28T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>194</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2019-12-28T01:00:00+01:00" weight="75.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2019-12-28T01:00:00+01:00" weight="0.0" variation="Close, not weighted">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2019-12-28T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>15</reps>
+                    <reps>14</reps>
+                    <reps>14</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2019-12-28T01:00:00+01:00" weight="15.0" variation="Normal, weighted">
+                <reps>
+                    <reps>10</reps>
+                    <reps>10</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2019-12-28T01:00:00+01:00" weight="14.0" variation="DB-Curl, incline">
+                <reps>
+                    <reps>8</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2019-12-28T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>40</reps>
+                    <reps>80</reps>
+                    <reps>40</reps>
+                    <reps>80</reps>
+                    <reps>40</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2019-12-30T01:00:00+01:00" weight="79.3" time="75">
+            <exercises id="1" dayId="2" name="Rope" date="2019-12-30T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>179</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2019-12-30T01:00:00+01:00" weight="85.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2019-12-30T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2019-12-30T01:00:00+01:00" weight="100.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2019-12-30T01:00:00+01:00" weight="45.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2019-12-30T01:00:00+01:00" weight="45.0" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2019-12-30T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-01-03T01:00:00+01:00" weight="79.3" time="65">
+            <exercises id="1" dayId="1" name="Rope" date="2020-01-03T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>180</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-01-03T01:00:00+01:00" weight="75.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-01-03T01:00:00+01:00" weight="0.0" variation="Wide, not weighted">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-01-03T01:00:00+01:00" weight="0.0" variation="Weighted">
+                <reps>
+                    <reps>15</reps>
+                    <reps>15</reps>
+                    <reps>15</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-01-03T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>25</reps>
+                    <reps>25</reps>
+                    <reps>25</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-01-03T01:00:00+01:00" weight="14.0" variation="DB-Curl, standing">
+                <reps>
+                    <reps>10</reps>
+                    <reps>10</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-01-03T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>80</reps>
+                    <reps>45</reps>
+                    <reps>80</reps>
+                    <reps>45</reps>
+                    <reps>80</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
+                    <timeSets>5</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-01-04T01:00:00+01:00" weight="79.9" time="70">
+            <exercises id="1" dayId="2" name="Rope" date="2020-01-04T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>186</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-01-04T01:00:00+01:00" weight="85.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-01-04T01:00:00+01:00" weight="85.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-01-04T01:00:00+01:00" weight="110.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-01-04T01:00:00+01:00" weight="50.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-01-04T01:00:00+01:00" weight="45.0" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-01-04T01:00:00+01:00" weight="75.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-01-07T01:00:00+01:00" weight="80.3" time="70">
+            <exercises id="1" dayId="1" name="Rope" date="2020-01-07T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>239</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-01-07T01:00:00+01:00" weight="75.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-01-07T01:00:00+01:00" weight="10.0" variation="Close, weighted">
+                <reps>
+                    <reps>4</reps>
+                    <reps>3</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-01-07T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-01-07T01:00:00+01:00" weight="0.0" variation="Stepping">
+                <reps>
+                    <reps>7</reps>
+                    <reps>7</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-01-07T01:00:00+01:00" weight="36.0" variation="SZ-Curl">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-01-07T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>45</reps>
+                    <reps>90</reps>
+                    <reps>45</reps>
+                    <reps>90</reps>
+                    <reps>45</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-01-15T01:00:00+01:00" weight="78.2" time="75">
+            <exercises id="1" dayId="2" name="Rope" date="2020-01-15T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>250</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-01-15T01:00:00+01:00" weight="85.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-01-15T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-01-15T01:00:00+01:00" weight="120.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-01-15T01:00:00+01:00" weight="50.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-01-15T01:00:00+01:00" weight="50.0" variation="-">
+                <reps>
+                    <reps>7</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-01-15T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-01-18T01:00:00+01:00" weight="78.6" time="75">
+            <exercises id="1" dayId="1" name="Rope" date="2020-01-18T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>240</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-01-18T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>4</reps>
+                    <reps>3</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-01-18T01:00:00+01:00" weight="0.0" variation="Close, not weighted">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-01-18T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-01-18T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>25</reps>
+                    <reps>25</reps>
+                    <reps>20</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-01-18T01:00:00+01:00" weight="12.5" variation="DB-Curl, standing">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-01-18T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>50</reps>
+                    <reps>90</reps>
+                    <reps>50</reps>
+                    <reps>90</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
+                    <timeSets>5</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-01-20T01:00:00+01:00" weight="77.0" time="90">
+            <exercises id="1" dayId="2" name="Rope" date="2020-01-20T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>253</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-01-20T01:00:00+01:00" weight="90.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-01-20T01:00:00+01:00" weight="85.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-01-20T01:00:00+01:00" weight="120.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-01-20T01:00:00+01:00" weight="50.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-01-20T01:00:00+01:00" weight="45.0" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-01-20T01:00:00+01:00" weight="79.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>14</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-01-22T01:00:00+01:00" weight="77.4" time="95">
+            <exercises id="1" dayId="1" name="Rope" date="2020-01-22T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>228</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-01-22T01:00:00+01:00" weight="75.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-01-22T01:00:00+01:00" weight="0.0" variation="Wide, not weighted">
+                <reps>
+                    <reps>7</reps>
+                    <reps>7</reps>
+                    <reps>7</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-01-22T01:00:00+01:00" weight="10.0" variation="Weighted">
+                <reps>
+                    <reps>7</reps>
+                    <reps>7</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-01-22T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>25</reps>
+                    <reps>25</reps>
+                    <reps>25</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-01-22T01:00:00+01:00" weight="40.0" variation="Triceps pushdown">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-01-22T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>50</reps>
+                    <reps>95</reps>
+                    <reps>50</reps>
+                    <reps>95</reps>
+                    <reps>50</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-01-24T01:00:00+01:00" weight="77.2" time="75">
+            <exercises id="1" dayId="2" name="Rope" date="2020-01-24T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>224</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-01-24T01:00:00+01:00" weight="90.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-01-24T01:00:00+01:00" weight="85.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-01-24T01:00:00+01:00" weight="130.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-01-24T01:00:00+01:00" weight="55.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>7</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-01-24T01:00:00+01:00" weight="50.0" variation="-">
+                <reps>
+                    <reps>7</reps>
+                    <reps>3</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-01-24T01:00:00+01:00" weight="70.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-01-25T01:00:00+01:00" weight="77.3" time="70">
+            <exercises id="1" dayId="1" name="Rope" date="2020-01-25T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>224</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-01-25T01:00:00+01:00" weight="75.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-01-25T01:00:00+01:00" weight="0.0" variation="Close, not weighted">
+                <reps>
+                    <reps>9</reps>
+                    <reps>9</reps>
+                    <reps>9</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-01-25T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>17</reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-01-25T01:00:00+01:00" weight="15.0" variation="Normal, weighted">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-01-25T01:00:00+01:00" weight="15.0" variation="DB-Curl, standing">
+                <reps>
+                    <reps>12</reps>
+                    <reps>9</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-01-25T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>95</reps>
+                    <reps>50</reps>
+                    <reps>95</reps>
+                    <reps>50</reps>
+                    <reps>95</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
+                    <timeSets>5</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-01-28T01:00:00+01:00" weight="76.6" time="80">
+            <exercises id="1" dayId="2" name="Rope" date="2020-01-28T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>248</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-01-28T01:00:00+01:00" weight="95.0" variation="-">
+                <reps>
+                    <reps>4</reps>
+                    <reps>3</reps>
+                    <reps>3</reps>
+                    <reps>3</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-01-28T01:00:00+01:00" weight="90.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-01-28T01:00:00+01:00" weight="120.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-01-28T01:00:00+01:00" weight="52.5" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-01-28T01:00:00+01:00" weight="47.5" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>6</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-01-28T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-01-29T01:00:00+01:00" weight="77.2" time="90">
+            <exercises id="1" dayId="1" name="Rope" date="2020-01-29T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>226</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-01-29T01:00:00+01:00" weight="77.5" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-01-29T01:00:00+01:00" weight="10.0" variation="Close, weighted">
+                <reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-01-29T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>17</reps>
+                    <reps>17</reps>
+                    <reps>17</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-01-29T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>30</reps>
+                    <reps>28</reps>
+                    <reps>28</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-01-29T01:00:00+01:00" weight="36.0" variation="SZ-Curl">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-01-29T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>50</reps>
+                    <reps>100</reps>
+                    <reps>50</reps>
+                    <reps>100</reps>
+                    <reps>50</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-01-31T01:00:00+01:00" weight="76.2" time="80">
+            <exercises id="1" dayId="2" name="Rope" date="2020-03-02T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>159</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-01-31T01:00:00+01:00" weight="95.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                    <reps>3</reps>
+                    <reps>3</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-01-31T01:00:00+01:00" weight="90.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-01-31T01:00:00+01:00" weight="130.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>11</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-01-31T01:00:00+01:00" weight="52.5" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-01-31T01:00:00+01:00" weight="47.5" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-01-31T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>14</reps>
+                    <reps>14</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-02-01T01:00:00+01:00" weight="76.8" time="95">
+            <exercises id="1" dayId="1" name="Rope" date="2020-02-01T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>219</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-02-01T01:00:00+01:00" weight="77.5" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-02-01T01:00:00+01:00" weight="0.0" variation="Close, not weighted">
+                <reps>
+                    <reps>10</reps>
+                    <reps>8</reps>
+                    <reps>9</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-02-01T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>17</reps>
+                    <reps>17</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-02-01T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>30</reps>
+                    <reps>24</reps>
+                    <reps>30</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-02-01T01:00:00+01:00" weight="50.0" variation="Triceps pushdown">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-02-01T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>100</reps>
+                    <reps>55</reps>
+                    <reps>100</reps>
+                    <reps>55</reps>
+                    <reps>100</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
+                    <timeSets>5</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-02-04T01:00:00+01:00" weight="77.0" time="80">
+            <exercises id="1" dayId="2" name="Rope" date="2020-02-04T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>216</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-02-04T01:00:00+01:00" weight="95.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>3</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-02-04T01:00:00+01:00" weight="95.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-02-04T01:00:00+01:00" weight="120.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-02-04T01:00:00+01:00" weight="52.5" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-02-04T01:00:00+01:00" weight="47.5" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-02-04T01:00:00+01:00" weight="75.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-02-05T01:00:00+01:00" weight="77.0" time="85">
+            <exercises id="1" dayId="1" name="Rope" date="2020-02-05T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>249</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-02-05T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>4</reps>
+                    <reps>4</reps>
+                    <reps>3</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-02-05T01:00:00+01:00" weight="0.0" variation="Close, not weighted">
+                <reps>
+                    <reps>10</reps>
+                    <reps>10</reps>
+                    <reps>9</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-02-05T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>18</reps>
+                    <reps>17</reps>
+                    <reps>17</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-02-05T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>30</reps>
+                    <reps>30</reps>
+                    <reps>30</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-02-05T01:00:00+01:00" weight="15.0" variation="DB-Curl, standing">
+                <reps>
+                    <reps>12</reps>
+                    <reps>10</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-02-05T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>55</reps>
+                    <reps>105</reps>
+                    <reps>55</reps>
+                    <reps>105</reps>
+                    <reps>55</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-02-07T01:00:00+01:00" weight="77.1" time="80">
+            <exercises id="1" dayId="2" name="Rope" date="2020-02-07T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>277</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-02-07T01:00:00+01:00" weight="95.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                    <reps>3</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-02-07T01:00:00+01:00" weight="100.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                    <reps>4</reps>
+                    <reps>3</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-02-07T01:00:00+01:00" weight="130.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                    <reps>12</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-02-07T01:00:00+01:00" weight="52.5" variation="Close">
+                <reps>
+                    <reps>10</reps>
+                    <reps>10</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-02-07T01:00:00+01:00" weight="47.5" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                    <reps>7</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-02-07T01:00:00+01:00" weight="75.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-02-08T01:00:00+01:00" weight="77.2" time="80">
+            <exercises id="1" dayId="1" name="Rope" date="2020-02-08T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>245</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-02-08T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-02-08T01:00:00+01:00" weight="0.0" variation="Wide, not weighted">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-02-08T01:00:00+01:00" weight="10.0" variation="Weighted">
+                <reps>
+                    <reps>10</reps>
+                    <reps>9</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-02-08T01:00:00+01:00" weight="15.0" variation="Normal, weighted">
+                <reps>
+                    <reps>15</reps>
+                    <reps>15</reps>
+                    <reps>15</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-02-08T01:00:00+01:00" weight="36.5" variation="SZ-Curl">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-02-08T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>105</reps>
+                    <reps>60</reps>
+                    <reps>105</reps>
+                    <reps>60</reps>
+                    <reps>105</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
+                    <timeSets>5</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-02-09T01:00:00+01:00" weight="77.7" time="85">
+            <exercises id="1" dayId="2" name="Rope" date="2020-02-09T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>225</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-02-09T01:00:00+01:00" weight="95.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-02-09T01:00:00+01:00" weight="10.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-02-09T01:00:00+01:00" weight="120.0" variation="Wide">
+                <reps>
+                    <reps>12</reps>
+                    <reps>9</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-02-09T01:00:00+01:00" weight="55.0" variation="Close">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-02-09T01:00:00+01:00" weight="47.5" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>6</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-02-09T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-02-11T01:00:00+01:00" weight="77.9" time="80">
+            <exercises id="1" dayId="1" name="Rope" date="2020-02-11T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>221</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-02-11T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-02-11T01:00:00+01:00" weight="0.0" variation="Close, not weighted">
+                <reps>
+                    <reps>10</reps>
+                    <reps>9</reps>
+                    <reps>9</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-02-11T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>18</reps>
+                    <reps>16</reps>
+                    <reps>18</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-02-11T01:00:00+01:00" weight="20.0" variation="Normal, weighted">
+                <reps>
+                    <reps>12</reps>
+                    <reps>10</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-02-11T01:00:00+01:00" weight="50.0" variation="Triceps pushdown">
+                <reps>
+                    <reps>16</reps>
+                    <reps>16</reps>
+                    <reps>13</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-02-11T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>60</reps>
+                    <reps>110</reps>
+                    <reps>60</reps>
+                    <reps>110</reps>
+                    <reps>60</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-02-12T01:00:00+01:00" weight="77.8" time="75">
+            <exercises id="1" dayId="2" name="Rope" date="2020-02-12T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>212</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-02-12T01:00:00+01:00" weight="95.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-02-12T01:00:00+01:00" weight="100.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-02-12T01:00:00+01:00" weight="140.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>11</reps>
+                    <reps>10</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-02-12T01:00:00+01:00" weight="57.5" variation="Close">
+                <reps>
+                    <reps>7</reps>
+                    <reps>7</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-02-12T01:00:00+01:00" weight="47.5" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-02-12T01:00:00+01:00" weight="85.0" variation="-">
+                <reps>
+                    <reps>12</reps>
+                    <reps>13</reps>
+                    <reps>11</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+        </days>
+        <days id="1" date="2020-02-15T01:00:00+01:00" weight="75.8" time="70">
+            <exercises id="1" dayId="1" name="Rope" date="2020-02-15T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>233</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="1" name="Benchpress" date="2020-02-15T01:00:00+01:00" weight="80.0" variation="-">
+                <reps>
+                    <reps>6</reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="1" name="Pull-Ups" date="2020-02-15T01:00:00+01:00" weight="10.0" variation="Close, weighted">
+                <reps>
+                    <reps>6</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="1" name="Dips" date="2020-02-15T01:00:00+01:00" weight="0.0" variation="Not weighted">
+                <reps>
+                    <reps>19</reps>
+                    <reps>18</reps>
+                    <reps>18</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="1" name="Push-Ups" date="2020-02-15T01:00:00+01:00" weight="0.0" variation="Normal, not weighted">
+                <reps>
+                    <reps>35</reps>
+                    <reps>32</reps>
+                    <reps>28</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="1" name="Curls, triceps pushdown" date="2020-02-15T01:00:00+01:00" weight="15.0" variation="DB-Curl, standing">
+                <reps>
+                    <reps>12</reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="1" name="Planks &amp; Sit-Ups" date="2020-02-15T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>110</reps>
+                    <reps>60</reps>
+                    <reps>110</reps>
+                    <reps>60</reps>
+                    <reps>110</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
+                    <timeSets>5</timeSets>
+                </timeSets>
+            </exercises>
+        </days>
+        <days id="2" date="2020-02-18T01:00:00+01:00" weight="76.1" time="75">
+            <exercises id="1" dayId="2" name="Rope" date="2020-02-18T01:00:00+01:00" weight="0.0" variation="-">
+                <reps>
+                    <reps>90</reps>
+                    <reps>247</reps>
+                </reps>
+                <timeSets>
+                    <timeSets>1</timeSets>
+                </timeSets>
+            </exercises>
+            <exercises id="2" dayId="2" name="Squad" date="2020-02-18T01:00:00+01:00" weight="95.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>4</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="3" dayId="2" name="Deadlift" date="2020-02-18T01:00:00+01:00" weight="100.0" variation="-">
+                <reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                    <reps>5</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="4" dayId="2" name="Latpull" date="2020-02-18T01:00:00+01:00" weight="140.0" variation="Close">
+                <reps>
+                    <reps>12</reps>
+                    <reps>9</reps>
+                    <reps>8</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="5" dayId="2" name="T-Bar-Row" date="2020-02-18T01:00:00+01:00" weight="57.5" variation="Close">
+                <reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                    <reps>7</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="6" dayId="2" name="Shoulderpress" date="2020-02-18T01:00:00+01:00" weight="47.5" variation="-">
+                <reps>
+                    <reps>8</reps>
+                    <reps>8</reps>
+                    <reps>7</reps>
+                </reps>
+                <timeSets/>
+            </exercises>
+            <exercises id="7" dayId="2" name="Calfraise" date="2020-02-18T01:00:00+01:00" weight="85.0" variation="-">
+                <reps>
+                    <reps>16</reps>
+                    <reps>13</reps>
+                    <reps>14</reps>
                 </reps>
                 <timeSets/>
             </exercises>
         </days>
     </plan>
     <goalList>
-        <exerciseGoals name="Pull-Ups" variation="Close" dayId="0" exerciseId="2" goalReps="337" goalWeight="0.0"/>
-        <exerciseGoals name="Benchpress" variation="-" dayId="0" exerciseId="1" goalReps="53" goalWeight="10.0"/>
+        <exerciseGoals name="Curls, triceps pushdown" variation="DB-Curl, standing" dayId="1" exerciseId="6" goalReps="10" goalWeight="15.0"/>
+        <exerciseGoals name="Curls, triceps pushdown" variation="SZ-Curl" dayId="1" exerciseId="6" goalReps="8" goalWeight="36.5"/>
+        <exerciseGoals name="Pull-Ups" variation="Wide, not weighted" dayId="1" exerciseId="3" goalReps="8" goalWeight="0.0"/>
+        <exerciseGoals name="Curls, triceps pushdown" variation="Triceps pushdown" dayId="1" exerciseId="6" goalReps="15" goalWeight="50.0"/>
+        <exerciseGoals name="Calfraise" variation="-" dayId="2" exerciseId="7" goalReps="15" goalWeight="85.0"/>
+        <exerciseGoals name="Dips" variation="Not weighted" dayId="1" exerciseId="4" goalReps="19" goalWeight="0.0"/>
+        <exerciseGoals name="Curls, triceps pushdown" variation="DB-Curl, incline" dayId="1" exerciseId="6" goalReps="6" goalWeight="14.0"/>
+        <exerciseGoals name="Pull-Ups" variation="Close, weighted" dayId="1" exerciseId="3" goalReps="6" goalWeight="10.0"/>
+        <exerciseGoals name="Pull-Ups" variation="Close, not weighted" dayId="1" exerciseId="3" goalReps="10" goalWeight="0.0"/>
+        <exerciseGoals name="Push-Ups" variation="Normal, not weighted" dayId="1" exerciseId="5" goalReps="32" goalWeight="0.0"/>
+        <exerciseGoals name="Push-Ups" variation="Stepping" dayId="1" exerciseId="5" goalReps="7" goalWeight="0.0"/>
+        <exerciseGoals name="Dips" variation="Weighted" dayId="1" exerciseId="4" goalReps="9" goalWeight="10.0"/>
+        <exerciseGoals name="Push-Ups" variation="Normal, weighted" dayId="1" exerciseId="5" goalReps="11" goalWeight="20.0"/>
+        <exerciseGoals name="Latpull" variation="Wide" dayId="2" exerciseId="4" goalReps="10" goalWeight="120.0"/>
+        <exerciseGoals name="T-Bar-Row" variation="Close" dayId="2" exerciseId="5" goalReps="8" goalWeight="57.5"/>
     </goalList>
 </trainingsSchedule>
