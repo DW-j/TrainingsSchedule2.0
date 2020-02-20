@@ -5,11 +5,13 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -22,7 +24,7 @@ import de.TrainingsSchedule.utility.other.Table;
 public class PDFAdder {
 
 	public float addText(Document document, PdfContentByte pdfContentByte, String text, Property property, float yPosition, boolean centered) {
-		List<String> lines = splitText(text, property, document.getPageSize().getWidth());
+		List<String> lines =  splitText(text, property.getFont(), document.getPageSize().getWidth() - property.getMargin_left() - property.getMargin_right());
 
 		float xPosition = property.getMargin_left();
 		if(centered) {
@@ -44,7 +46,7 @@ public class PDFAdder {
 	
 	public float getTextHeight(Document document, String text, Property property) {
 		float height = property.getMargin_top() + property.getMargin_bottom();
-		int lineNumber = splitText(text, property, document.getPageSize().getWidth()).size();
+		int lineNumber = splitText(text, property.getFont(), document.getPageSize().getWidth() - property.getMargin_left() - property.getMargin_right()).size();
 		height += lineNumber*(property.getText_height()+property.getLine_space());
 		return height;
 	}
@@ -82,7 +84,7 @@ public class PDFAdder {
 		return yPosition + property.getMargin_bottom() + tableHeight;
 	}
 	
-	public float getTableHeight(Document document, Table table, String caption, Property property) {
+	public float getTableHeight(Document document, Table table, String caption, Property property) throws DocumentException {
 		float height = property.getMargin_top() + property.getMargin_bottom();
 		if(caption!=null) {
 			height += getTextHeight(document, caption, property);
@@ -91,22 +93,32 @@ public class PDFAdder {
 		return height;
 	}
 	
-	private PdfPTable createTable(Document document, Table table, Property property) {
-		float[] columnWidth = ArrayUtils.toPrimitive(table.getIndents().toArray(new Float[table.getIndents().size()]));
-		PdfPTable pdfPTable = new PdfPTable(columnWidth);	
-		pdfPTable.setTotalWidth(document.getPageSize().getWidth() - property.getMargin_left() - property.getMargin_right());
+	private PdfPTable createTable(Document document, Table table, Property property) throws DocumentException {
+	
+		float totalWidth = document.getPageSize().getWidth() - property.getMargin_left() - property.getMargin_right();
+		float[] columnWidths =  ArrayUtils.toPrimitive(table.getIndents().toArray(new Float[table.getIndents().size()]));
 		
+		if(table.getFixedColumnWidths()!=null) {
+			for(Entry<Object, Object> entry: table.getFixedColumnWidths()) {
+				columnWidths[Integer.parseInt(entry.getKey().toString())] = Float.parseFloat(entry.getValue().toString());
+			}
+		}
+		
+		PdfPTable pdfPTable = new PdfPTable(columnWidths);
+		pdfPTable.setTotalWidth(totalWidth);
+						
 		List<String> header = table.getHeader();
 		for(String cellContent: header) {
 			PdfPCell cell = new PdfPCell(new Phrase(cellContent, property.getFont()));
 			cell.setBackgroundColor(property.getHeaderColor());
 			pdfPTable.addCell(cell);
 		}
+		
 		List<List<String>> content = table.getContent();
 		for(int i=0; i<content.get(0).size(); i++) {
 			for(int j=0; j<content.size(); j++) {
-				String cellContent = content.get(j).get(i);
-				pdfPTable.addCell(new PdfPCell(new Phrase(cellContent, property.getFont())));
+				PdfPCell cell = new PdfPCell(new Phrase(content.get(j).get(i), property.getFont()));
+				pdfPTable.addCell(cell);
 			}
 		}
 		return pdfPTable;
@@ -114,18 +126,17 @@ public class PDFAdder {
 	
 	public float addPagebreak(Document document) {
 		document.newPage();
-		return 20;
+		return 35;
 	}
 
-	private List<String> splitText(String text, Property property, float pageWidth){
+	private List<String> splitText(String text, Font font, float maxWidth){
 		List<String> lines = new ArrayList<String>();
 		List<String> words = Arrays.asList(text.split(" "));
-		float maxWidth = pageWidth - property.getMargin_left() - property.getMargin_right();
 		
 		lines.add("");
 		for(String word: words) {
 			String line = String.format("%s %s", lines.get(lines.size()-1), word);
-			if(property.getFont().getBaseFont().getWidthPoint(line, property.getFont().getSize())>=maxWidth) {
+			if(font.getBaseFont().getWidthPoint(line, font.getSize())>=maxWidth) {
 				lines.add(word);
 			}else {
 				lines.set(lines.size()-1, line);

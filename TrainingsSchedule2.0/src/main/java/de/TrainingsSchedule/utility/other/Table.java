@@ -1,7 +1,10 @@
 package de.TrainingsSchedule.utility.other;
 
 import java.util.ArrayList;
+
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import de.TrainingsSchedule.utility.text.IndentGenerator;
 import lombok.AccessLevel;
@@ -16,7 +19,8 @@ public class Table {
 	private List<String> header = new ArrayList<String>();
 	@Setter(AccessLevel.NONE)
 	private List<List<String>> content = new ArrayList<List<String>>();
-	String headline;
+	private String headline;
+	private Set<Entry<Object, Object>> fixedColumnWidths;
 	
 	public Table(List<String> header) {
 		this.header = header;
@@ -54,11 +58,11 @@ public class Table {
 			}
 		}
 		for(int i=0; i<contentHeader.size(); i++) {
-			indents.add(0F);
+			indents.add(0f);
 			for(int j=0; j<contentHeader.get(i).size(); j++) {
 				String cell = contentHeader.get(i).get(j);
 				if(cell.length()+1>indents.get(indents.size()-1)) {
-					indents.set(indents.size()-1, (float) cell.length()+1);
+					indents.set(indents.size()-1, (float)cell.length()+1);
 				}
 			}
 		}
@@ -75,7 +79,7 @@ public class Table {
 		List<String> printHeader = new ArrayList<String>();
 		for(int i=0; i<header.size(); i++) {
 			String cell = header.get(i);
-			printHeader.add(cell+IndentGenerator.getInstance().generateIndent(' ', indents.get(i)-cell.length()));
+			printHeader.add(cell+IndentGenerator.getInstance().generateIndent(' ', indents.get(i).intValue()-cell.length()));
 		}
 		printTable.add(String.join("|", printHeader));
 		if(headline!=null) {
@@ -88,7 +92,7 @@ public class Table {
 				List<String> printRow = new ArrayList<String>();
 				for(int j=0; j<content.size(); j++) {
 					String cell = content.get(j).get(i);
-					printRow.add(cell+IndentGenerator.getInstance().generateIndent(' ', indents.get(j)-cell.length()));
+					printRow.add(cell+IndentGenerator.getInstance().generateIndent(' ', indents.get(j).intValue()-cell.length()));
 				}
 				printTable.add(String.join("|", printRow));
 			}

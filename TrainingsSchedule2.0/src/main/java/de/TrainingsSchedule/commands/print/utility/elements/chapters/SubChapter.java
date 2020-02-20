@@ -44,7 +44,7 @@ public class SubChapter extends ChapterTemplate{
 		return yPosition;
 	}
 	
-	public float getHeight(Document document, PDFAdder pdfAdder) throws BadElementException, MalformedURLException, IOException {
+	public float getHeight(Document document, PDFAdder pdfAdder) throws MalformedURLException, IOException, DocumentException {
 		float height = pdfAdder.getTextHeight(document, getHeadline(), Properties.chapter_2);
 		height += super.getHeight(document, pdfAdder);
 		return height;

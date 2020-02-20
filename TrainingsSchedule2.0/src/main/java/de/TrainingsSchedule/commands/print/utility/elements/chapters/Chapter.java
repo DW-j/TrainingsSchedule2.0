@@ -5,7 +5,6 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -46,7 +45,7 @@ public class Chapter extends ChapterTemplate{
 		return yPosition;
 	}
 	
-	public float getHeight(Document document, PDFAdder pdfAdder) throws BadElementException, MalformedURLException, IOException {
+	public float getHeight(Document document, PDFAdder pdfAdder) throws MalformedURLException, IOException, DocumentException {
 		float height = pdfAdder.getTextHeight(document, getHeadline(), Properties.chapter_1);
 		height += super.getHeight(document, pdfAdder);
 		return height;

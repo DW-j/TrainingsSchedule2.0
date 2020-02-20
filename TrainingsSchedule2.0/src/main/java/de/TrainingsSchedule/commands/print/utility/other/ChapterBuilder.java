@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.commons.math3.util.Precision;
@@ -33,11 +35,14 @@ public class ChapterBuilder {
 		return chapter;
 	}
 	
-	public Chapter getChapterTemplate(List<Chapter> chapters, PlanTemplate planTemplate) {
+	public Chapter getChapterTemplate(List<Chapter> chapters, PlanTemplate planTemplate) throws IOException {
 		Chapter chapter = new Chapter(createChapterId(chapters), "Plan template");
 		for(DayTemplate dayTemplate: planTemplate.getDayTemplates()) {
 			SubChapter subChapter = new SubChapter(createSubChapterId(chapter), String.format("%s %d", "Day", dayTemplate.getId()));
-			subChapter.addTable(dayTemplate.toTable(), null);
+			Table dayTemplateTable = dayTemplate.toTable();
+			dayTemplateTable.setFixedColumnWidths(FileReader.getInstance().readPrp("columnwidthstemplate"));
+			subChapter.addTable(dayTemplateTable, null);
+			
 			chapter.addSubChapter(subChapter);
 		}
 		return chapter;
@@ -100,7 +105,7 @@ public class ChapterBuilder {
 		return chapter;
 	}
 	
-	public Chapter getChapterDays(List<Chapter> chapters, PlanTemplate planTemplate, List<Day> dayList) {
+	public Chapter getChapterDays(List<Chapter> chapters, PlanTemplate planTemplate, List<Day> dayList) throws IOException {
 		Map<Integer, List<Day>> days = new HashMap<Integer, List<Day>>();
 		for(Day day: dayList) {
 			if(!days.containsKey(day.getId())) {
@@ -113,10 +118,12 @@ public class ChapterBuilder {
 		
 		for(int i=0; i<days.size(); i++) {
 			int dayId = i+1;
-			SubChapter subChapter = new SubChapter(createSubChapterId(chapter), "Day "+i+1);			
+			SubChapter subChapter = new SubChapter(createSubChapterId(chapter), "Day "+(i+1));			
 			
 			SubSubChapter subSubChapter1 = new SubSubChapter(createSubSubChapterId(subChapter), "Template");
-			subSubChapter1.addTable(planTemplate.getDayTemplates().get(i).toTable(), null);
+			Table dayTemplateTable = planTemplate.getDayTemplates().get(i).toTable();
+			dayTemplateTable.setFixedColumnWidths(FileReader.getInstance().readPrp("columnwidthstemplate"));
+			subSubChapter1.addTable(dayTemplateTable, null);
 			subChapter.addSubSubChapter(subSubChapter1);
 			
 			SubSubChapter subSubChapter2 = new SubSubChapter(createSubSubChapterId(subChapter), "Statistics");
@@ -135,6 +142,8 @@ public class ChapterBuilder {
 			
 			SubSubChapter subSubChapter3 = new SubSubChapter(createSubSubChapterId(subChapter), "Days");
 			List<Table> dayTables = days.get(dayId).stream().map(d -> d.toTable()).collect(Collectors.toList());
+			Set<Entry<Object, Object>> fixedColumnWidths = FileReader.getInstance().readPrp("columnwidthsday");
+			dayTables.stream().forEach(t -> t.setFixedColumnWidths(fixedColumnWidths));
 			List<String> tableCaptions = days.get(dayId).stream().map(d -> d.toTable().getHeadline()).collect(Collectors.toList());
 			subSubChapter3.setTables(dayTables, tableCaptions);
 			subChapter.addSubSubChapter(subSubChapter3);
@@ -154,7 +163,7 @@ public class ChapterBuilder {
 		List<String> keys = new ArrayList<String>();
 		
 		for(Exercise exercise: exerciseList) {
-			String key = String.format("%s, %s", exercise.getName(), exercise.getVariation());
+			String key = String.format("%s: %s", exercise.getName(), exercise.getVariation());
 			if(!exercises.containsKey(key)) {
 				exercises.put(key, new ArrayList<Exercise>());
 				keys.add(key);
@@ -164,7 +173,7 @@ public class ChapterBuilder {
 		
 		for(int i=0; i<exercises.size(); i++) {
 			String key = keys.get(i);
-			SubChapter subChapter = new SubChapter(createSubChapterId(chapter), key.replace(", -", ""));
+			SubChapter subChapter = new SubChapter(createSubChapterId(chapter), key.replace(": -", ""));
 			SubSubChapter subSubChapter1 = new SubSubChapter(createSubSubChapterId(subChapter), "Statistics"); 
 			List<Integer> sets = new ArrayList<Integer>();
 			exercises.get(key).stream().forEach(e -> sets.addAll(getSets(e)));
@@ -194,7 +203,8 @@ public class ChapterBuilder {
 			SubSubChapter subSubChapter2 = new SubSubChapter(createSubSubChapterId(subChapter), "Performances");
 			List<String> header = Arrays.asList(new String[] {"Date", "ID", "Name",  "Variation", "Weight", "Reps"});
 			Table performances = new Table(header);
-			days.stream().forEach(d -> d.getExercises().stream().filter(e -> String.format("%s, %s", e.getName(), e.getVariation()).equals(key)).forEach(e -> performances.addRow(e.toRow(true))));
+			performances.setFixedColumnWidths(FileReader.getInstance().readPrp("columnwidthsperformance"));
+			days.stream().forEach(d -> d.getExercises().stream().filter(e -> String.format("%s: %s", e.getName(), e.getVariation()).equals(key)).forEach(e -> performances.addRow(e.toRow(true))));
 			subSubChapter2.addTable(performances, null);
 			subChapter.addSubSubChapter(subSubChapter2);
 			
@@ -205,7 +215,11 @@ public class ChapterBuilder {
 			List<Double> setList = new ArrayList<Double>();
 			exercises.get(key).stream().forEach(e -> setList.add(getSets(e).size()>0?getSets(e).stream().mapToDouble(s -> s).average().getAsDouble():null));
 			if(!isNull(setList)) {
-				chartBuilder.createLineChart(key+" sets", Properties.chart_1, dateList, setList, "Reps", weightList, "Weight");
+				if(weightList.stream().mapToDouble(w -> w).sum()<=0) {
+					chartBuilder.createLineChart(key+" sets", Properties.chart_1, dateList, setList, "Reps");
+				}else {
+					chartBuilder.createLineChart(key+" sets", Properties.chart_1, dateList, setList, "Reps", weightList, "Weight");
+				}
 				subSubChapter3.addChart(chartBuilder.getChart(), null);
 				subChapter.addSubSubChapter(subSubChapter3);
 			}

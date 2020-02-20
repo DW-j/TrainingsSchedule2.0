@@ -13,7 +13,7 @@ public class Properties {
 	public final static Property contenttable_2 = new Property(FontFactory.TIMES, 16, 5, 5, 95, 95, 3);
 	public final static Property contenttable_3 = new Property(FontFactory.TIMES, 12, 3, 3, 110, 110, 3);
 	
-	public final static Property chapter_1 = new Property(FontFactory.TIMES_BOLD, 28, 20, 15, 40, 40, 1);
+	public final static Property chapter_1 = new Property(FontFactory.TIMES_BOLD, 28, 10, 15, 40, 40, 1);
 	public final static Property chapter_2 = new Property(FontFactory.TIMES_BOLD, 24, 5, 5, 65, 65, 10);
 	public final static Property chapter_3 = new Property(FontFactory.TIMES, 20, 2, 1, 65, 65, 10);
 	
