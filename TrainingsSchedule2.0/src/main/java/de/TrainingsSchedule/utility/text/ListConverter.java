@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import de.TrainingsSchedule.utility.other.Constants;
+import de.TrainingsSchedule.utility.other.TimeFormat;
 
 public class ListConverter {
 
@@ -38,7 +38,7 @@ public class ListConverter {
 		}
 		for(int i=0; i<repList.size(); i++) {
 			if(timeSets.contains(i+1)) {
-				formatedRepList.add(Constants.getDurationminutesformat().format(repList.get(i)*1000)+"min");
+				formatedRepList.add(TimeFormat.secondsToMinutes(repList.get(i)));
 			}else {
 				formatedRepList.add(repList.get(i)+"");
 			}

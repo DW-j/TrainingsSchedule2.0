@@ -19,7 +19,7 @@ import de.TrainingsSchedule.elements.templates.ExerciseTemplate;
 import de.TrainingsSchedule.elements.templates.PlanTemplate;
 import de.TrainingsSchedule.utility.files.FileWriter;
 import de.TrainingsSchedule.utility.other.Communicator;
-import de.TrainingsSchedule.utility.other.Constants;
+import de.TrainingsSchedule.utility.other.TimeFormat;
 import de.TrainingsSchedule.utility.other.Table;
 import de.TrainingsSchedule.utility.text.Message;
 import de.TrainingsSchedule.utility.throwables.ThrowableAbort;
@@ -42,7 +42,7 @@ public class CommandAdd {
 				int dayId = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the id of the day to be added")));
 				final int dayNo = dayId;
 				dayTemplate = planTemplate.getDayTemplates().stream().filter(d -> d.getId()==dayNo).findFirst().get();
-				Date dayDate = Constants.getDateformat().parse(communicator.getAbortableRepeatableInput(Message.getEnterMessage(String.format("the date in the '%s' format", Constants.getDateFormatString()))));
+				Date dayDate = TimeFormat.getDateformat().parse(communicator.getAbortableRepeatableInput(Message.getEnterMessage(String.format("the date in the '%s' format", TimeFormat.getDateFormatString()))));
 				int dayTime = Integer.parseInt(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the workout time of the day in minutes")));
 				double dayWeight = Double.parseDouble(communicator.getAbortableRepeatableInput(Message.getEnterMessage("the body weight of the day in kg")));
 				day = new Day(dayId, dayDate, dayWeight, dayTime);

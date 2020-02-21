@@ -11,7 +11,7 @@ import de.TrainingsSchedule.elements.specifics.Day;
 import de.TrainingsSchedule.elements.specifics.Plan;
 import de.TrainingsSchedule.utility.files.FileWriter;
 import de.TrainingsSchedule.utility.other.Communicator;
-import de.TrainingsSchedule.utility.other.Constants;
+import de.TrainingsSchedule.utility.other.TimeFormat;
 import de.TrainingsSchedule.utility.throwables.ThrowableAbort;
 import de.TrainingsSchedule.utility.throwables.ThrowableData;
 import de.TrainingsSchedule.utility.throwables.ThrowableExit;
@@ -20,7 +20,7 @@ public class CommandDelete {
 
 	public String deleteDay(String date, TrainingsSchedule trainingsSchedule) throws ParseException, ThrowableAbort, ThrowableExit, ThrowableData, JAXBException {
 		
-		Date dayDate = Constants.getDateformat().parse(date);
+		Date dayDate = TimeFormat.getDateformat().parse(date);
 		Plan plan = trainingsSchedule.getPlan();
 		Day day;
 		try {

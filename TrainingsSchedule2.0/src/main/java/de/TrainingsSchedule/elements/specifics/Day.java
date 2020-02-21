@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import de.TrainingsSchedule.utility.other.Constants;
+import de.TrainingsSchedule.utility.other.TimeFormat;
 import de.TrainingsSchedule.utility.other.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,7 +44,7 @@ public class Day {
 	}
 
 	public Table toTable() {
-		String headline = "Day "+id+", "+Constants.getDateformat().format(date)+", body weight: "+weight+"kg, time: "+time+"min";
+		String headline = "Day "+id+", "+TimeFormat.getDateformat().format(date)+", body weight: "+weight+"kg, time: "+time+"min";
 		List<String> header = Arrays.asList(new String[] {"ID", "Name", "Variation", "Weight", "Reps"});
 		Table table = new Table(header, headline);
 		for(Exercise exercise: exercises) {

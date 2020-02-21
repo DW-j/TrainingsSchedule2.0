@@ -6,18 +6,22 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.math3.optim.nonlinear.vector.Weight;
+import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYSplineRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 
 import de.TrainingsSchedule.commands.print.utility.properties.Property;
 import de.TrainingsSchedule.utility.files.FileWriter;
-import de.TrainingsSchedule.utility.other.Constants;
+import de.TrainingsSchedule.utility.other.TimeFormat;
 import lombok.Getter;
 
 public class ChartBuilder {
@@ -42,7 +46,7 @@ public class ChartBuilder {
 
 	    JFreeChart freeChart = new JFreeChart(plot);
 	    chart = FileWriter.getInstance().saveChart(fileName, freeChart, property.getChartHeight(), property.getChartWidth());
-	}
+	}	
 
 	public void createLineChart(String fileName, Property property, List<Date> dates, List<Double> data1, String data1_title, List<Double> data2, String data2_title) throws IOException {
 		TimeSeries series1 = new TimeSeries(data1_title), series2 = new TimeSeries(data2_title);
@@ -75,7 +79,7 @@ public class ChartBuilder {
 	    plot.setRenderer(1, splinerenderer);
 	    plot.setDomainAxis(new DateAxis("Date"));
 	    DateAxis dateaxis = (DateAxis)plot.getDomainAxis();
-	    dateaxis.setDateFormatOverride(Constants.getDateformat());
+	    dateaxis.setDateFormatOverride(TimeFormat.getDateformat());
 
 	    plot.mapDatasetToRangeAxis(0, 0);
 	    plot.mapDatasetToRangeAxis(1, 1);   

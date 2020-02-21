@@ -24,7 +24,7 @@ import de.TrainingsSchedule.elements.specifics.Exercise;
 import de.TrainingsSchedule.elements.templates.DayTemplate;
 import de.TrainingsSchedule.elements.templates.PlanTemplate;
 import de.TrainingsSchedule.utility.files.FileReader;
-import de.TrainingsSchedule.utility.other.Constants;
+import de.TrainingsSchedule.utility.other.TimeFormat;
 import de.TrainingsSchedule.utility.other.Table;
 
 public class ChapterBuilder {
@@ -74,8 +74,8 @@ public class ChapterBuilder {
 						"Reps made"
 				}, new String[] {
 						days.size()+"",
-						Constants.getDurationhoursformat().format(days.stream().mapToInt(d -> d.getTime()).sum()*60000)+" h",
-						Precision.round(days.stream().mapToInt(d -> d.getTime()).average().getAsDouble(), 2)+" min",
+						TimeFormat.minutesToHours(days.stream().mapToInt(d -> d.getTime()).sum()),
+						Precision.round(days.stream().mapToDouble(d -> d.getTime()).average().getAsDouble(), 2)+" min",
 						days.stream().mapToInt(d -> d.getTime()).max().getAsInt()+ " min",
 						days.stream().mapToInt(d -> d.getTime()).min().getAsInt()+ " min",
 						Precision.round(days.stream().mapToDouble(d -> d.getWeight()).average().getAsDouble(), 2)+" kg",
@@ -134,8 +134,8 @@ public class ChapterBuilder {
 							"Average time trained"
 					}, new String[] {
 							days.get(dayId).size()+"",
-							Constants.getDurationhoursformat().format(days.get(dayId).stream().mapToInt(d -> d.getTime()).sum()*60000)+" h",
-							days.get(dayId).stream().mapToInt(d -> d.getTime()).sum()/days.size()+" min"
+							TimeFormat.minutesToHours(days.get(dayId).stream().mapToInt(d -> d.getTime()).sum()),
+							Precision.round(days.get(dayId).stream().mapToInt(d -> d.getTime()).average().getAsDouble(), 2)+" min"
 			});
 			subSubChapter2.addTable(statTable, null);
 			subChapter.addSubSubChapter(subSubChapter2); 
@@ -194,8 +194,8 @@ public class ChapterBuilder {
 						exercises.get(key).stream().mapToDouble(e -> e.getWeight()).min().getAsDouble()+"",
 						Collections.max(sets)+"",
 						Collections.min(sets)+"",
-						timeSets.isEmpty()? "-" : Constants.getDurationminutesformat().format(Collections.max(timeSets)*1000)+"min",
-						timeSets.isEmpty()? "-" : Constants.getDurationminutesformat().format(Collections.min(timeSets)*1000)+"min",
+						timeSets.isEmpty()? "-" : TimeFormat.minutesToHours(Collections.max(timeSets)),
+						timeSets.isEmpty()? "-" : TimeFormat.minutesToHours(Collections.min(timeSets)),
 					});
 			subSubChapter1.addTable(statTable, null);
 			subChapter.addSubSubChapter(subSubChapter1);

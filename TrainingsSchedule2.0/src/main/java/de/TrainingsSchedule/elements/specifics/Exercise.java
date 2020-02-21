@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import de.TrainingsSchedule.utility.other.Constants;
+import de.TrainingsSchedule.utility.other.TimeFormat;
 import de.TrainingsSchedule.utility.text.ListConverter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -48,7 +48,7 @@ public class Exercise {
 			private static final long serialVersionUID = 1L;
 		{
 			if(dateIncluded) {
-				add(Constants.getDateformat().format(date));
+				add(TimeFormat.getDateformat().format(date));
 			}
 			add(id+"");
 			add(name);
