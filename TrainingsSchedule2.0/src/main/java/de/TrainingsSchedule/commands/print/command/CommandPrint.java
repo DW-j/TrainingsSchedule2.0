@@ -1,5 +1,6 @@
 package de.TrainingsSchedule.commands.print.command;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -13,6 +14,7 @@ import de.TrainingsSchedule.commands.print.utility.elements.other.ContentTable;
 import de.TrainingsSchedule.commands.print.utility.elements.other.Headpage;
 import de.TrainingsSchedule.commands.print.utility.other.PDFAdder;
 import de.TrainingsSchedule.elements.main.TrainingsSchedule;
+import de.TrainingsSchedule.utility.files.FileReader;
 import de.TrainingsSchedule.utility.files.FileWriter;
 
 public class CommandPrint {
@@ -38,6 +40,11 @@ public class CommandPrint {
 		yPosition = content.add(document, pdfContentByte, pdfAdder, yPosition);
 		
 		document.close();
+		
+		for(File chart: FileReader.getInstance().getFolder("jpg").listFiles()) {
+			chart.delete();
+		}
+		
 		return "PDF created succesfully.";
 	}
 

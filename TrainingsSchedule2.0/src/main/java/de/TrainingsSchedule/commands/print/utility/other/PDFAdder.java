@@ -115,10 +115,12 @@ public class PDFAdder {
 		}
 		
 		List<List<String>> content = table.getContent();
-		for(int i=0; i<content.get(0).size(); i++) {
-			for(int j=0; j<content.size(); j++) {
-				PdfPCell cell = new PdfPCell(new Phrase(content.get(j).get(i), property.getFont()));
-				pdfPTable.addCell(cell);
+		if(content.size()>0) {
+			for(int i=0; i<content.get(0).size(); i++) {
+				for(int j=0; j<content.size(); j++) {
+					PdfPCell cell = new PdfPCell(new Phrase(content.get(j).get(i), property.getFont()));
+					pdfPTable.addCell(cell);
+				}
 			}
 		}
 		return pdfPTable;

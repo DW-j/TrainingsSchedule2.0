@@ -34,7 +34,8 @@ public class Content {
 		chapters.add(chapterBuilder.getChapterTemplate(chapters, planTemplate));
 		chapters.add(chapterBuilder.getChapterPlan(chapters, plan.getDays()));
 		chapters.add(chapterBuilder.getChapterDays(chapters, planTemplate, plan.getDays()));
-		chapters.add(chapterBuilder.getChapterExercises(chapters, plan.getDays()));
+		chapters.add(chapterBuilder.getChapterExercises(chapters, planTemplate.getDayTemplates(), plan.getDays()));
+	
 	}
 	
 	public float add(Document document, PdfContentByte pdfContentByte, PDFAdder pdfAdder, float yPosition) throws MalformedURLException, DocumentException, IOException {

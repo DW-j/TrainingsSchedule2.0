@@ -22,6 +22,7 @@ import de.TrainingsSchedule.commands.print.utility.properties.Properties;
 import de.TrainingsSchedule.elements.specifics.Day;
 import de.TrainingsSchedule.elements.specifics.Exercise;
 import de.TrainingsSchedule.elements.templates.DayTemplate;
+import de.TrainingsSchedule.elements.templates.ExerciseTemplate;
 import de.TrainingsSchedule.elements.templates.PlanTemplate;
 import de.TrainingsSchedule.utility.files.FileReader;
 import de.TrainingsSchedule.utility.other.TimeFormat;
@@ -61,6 +62,7 @@ public class ChapterBuilder {
 		SubChapter subChapter1 = new SubChapter(createSubChapterId(chapter), "Statistics");
 		Table statTable = createStatTable(
 				new String[] {
+						"First workout",
 						"Total days trained",
 						"Total time trained",
 						"Average time trained",
@@ -73,6 +75,7 @@ public class ChapterBuilder {
 						"Time sets made",
 						"Reps made"
 				}, new String[] {
+						TimeFormat.getDateformat().format(days.stream().map(d -> d.getDate()).sorted().collect(Collectors.toList()).get(0)),
 						days.size()+"",
 						TimeFormat.minutesToHours(days.stream().mapToInt(d -> d.getTime()).sum()),
 						Precision.round(days.stream().mapToDouble(d -> d.getTime()).average().getAsDouble(), 2)+" min",
@@ -154,7 +157,7 @@ public class ChapterBuilder {
 		return chapter;
 	}
 	
-	public Chapter getChapterExercises(List<Chapter> chapters, List<Day> days) throws IOException {
+	public Chapter getChapterExercises(List<Chapter> chapters, List<DayTemplate> dayTemplates, List<Day> days) throws IOException {
 		Chapter chapter = new Chapter(createChapterId(chapters), "Exercises");
 		
 		List<Exercise> exerciseList = new ArrayList<Exercise>();
@@ -162,16 +165,22 @@ public class ChapterBuilder {
 		Map<String, List<Exercise>> exercises = new HashMap<String, List<Exercise>>();
 		List<String> keys = new ArrayList<String>();
 		
+		for(DayTemplate dayTemplate: dayTemplates) {
+			for(ExerciseTemplate exerciseTemplate: dayTemplate.getExerciseTemplates()) {
+				for(String variation: exerciseTemplate.getVariations()) {
+					String key = String.format("%s: %s", exerciseTemplate.getName(), variation);
+					keys.add(key);
+					exercises.put(key, new ArrayList<Exercise>());
+				}
+			}
+		}
+		
 		for(Exercise exercise: exerciseList) {
 			String key = String.format("%s: %s", exercise.getName(), exercise.getVariation());
-			if(!exercises.containsKey(key)) {
-				exercises.put(key, new ArrayList<Exercise>());
-				keys.add(key);
-			}
 			exercises.get(key).add(exercise);
 		}
 		
-		for(int i=0; i<exercises.size(); i++) {
+		for(int i=0; i<exercises.size()+1; i++) {
 			String key = keys.get(i);
 			SubChapter subChapter = new SubChapter(createSubChapterId(chapter), key.replace(": -", ""));
 			SubSubChapter subSubChapter1 = new SubSubChapter(createSubSubChapterId(subChapter), "Statistics"); 
@@ -208,7 +217,7 @@ public class ChapterBuilder {
 			subSubChapter2.addTable(performances, null);
 			subChapter.addSubSubChapter(subSubChapter2);
 			
-			SubSubChapter subSubChapter3 = new SubSubChapter(createSubSubChapterId(subChapter), "Rep average chart");
+			SubSubChapter subSubChapter3 = new SubSubChapter(createSubSubChapterId(subChapter), "Reps per set average chart");
 			ChartBuilder chartBuilder = new ChartBuilder();
 			List<Date> dateList = exercises.get(key).stream().map(e -> e.getDate()).collect(Collectors.toList());
 			List<Double> weightList = exercises.get(key).stream().map(e -> e.getWeight()).collect(Collectors.toList());
@@ -227,7 +236,7 @@ public class ChapterBuilder {
 			List<Double> timeSetList = new ArrayList<Double>();
 			exercises.get(key).stream().forEach(e -> timeSetList.add(getTimeSets(e).size()>0?getTimeSets(e).stream().mapToDouble(t -> t).average().getAsDouble():null));
 			if(!isNull(timeSetList)) {
-				SubSubChapter subSubChapter4 = new SubSubChapter(createSubSubChapterId(subChapter), "Time average chart");
+				SubSubChapter subSubChapter4 = new SubSubChapter(createSubSubChapterId(subChapter), "Time per timeset average chart");
 				chartBuilder.createLineChart(key+"timesets", Properties.chart_1, dateList, timeSetList, "Time average");
 				subSubChapter4.addChart(chartBuilder.getChart(), null);
 				subChapter.addSubSubChapter(subSubChapter4);

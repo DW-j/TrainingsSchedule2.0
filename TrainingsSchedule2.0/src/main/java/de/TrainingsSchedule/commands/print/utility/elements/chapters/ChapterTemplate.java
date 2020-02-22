@@ -23,7 +23,7 @@ public class ChapterTemplate {
 	@Getter
 	protected String id, title, headline;
 	@Setter
-	private List<String> texts;
+	protected List<String> texts;
 	private List<Table> tables;
 	private List<String> table_captions;
 	private List<File> charts;
@@ -91,7 +91,6 @@ public class ChapterTemplate {
 			for(int i=0; i<charts.size(); i++) {
 				yPosition = testYPosition(document, pdfAdder, yPosition, pdfAdder.getChartHeight(document, FileReader.getInstance().getImage(charts.get(i)), chart_captions.get(i), Properties.chart_1), Properties.chart_1);
 				yPosition = pdfAdder.addImage(document, pdfContentByte, FileReader.getInstance().getImage(charts.get(i)), chart_captions.get(i), Properties.chart_1, yPosition);
-				charts.get(i).delete();
 			}
 		}
 		return yPosition;

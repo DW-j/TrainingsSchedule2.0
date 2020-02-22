@@ -65,6 +65,10 @@ public class FileReader {
 		return Image.getInstance(file.getAbsolutePath());
 	}
 	
+	public File getFolder(String fileType) {
+		return new File(String.format(filePath, fileType));
+	}
+	
 	public File getFile(String fileName, String fileType) {
 		return new File(createPath(fileType, fileName));
 	}
