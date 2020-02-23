@@ -52,8 +52,7 @@ public class ChapterBuilder {
 	public Chapter getChapterPlan(List<Chapter> chapters, List<Day> days) throws IOException {
 		Chapter chapter = new Chapter(createChapterId(chapters), "Plan");
 
-		List<Integer> sets = new ArrayList<Integer>();
-		List<Integer> timeSets = new ArrayList<Integer>();
+		List<Double> sets = new ArrayList<Double>(), timeSets = new ArrayList<Double>();
 		for(Day day: days) {
 			day.getExercises().stream().forEach(e -> sets.addAll(getSets(e)));
 			day.getExercises().stream().forEach(e -> timeSets.addAll(getTimeSets(e)));
@@ -86,7 +85,7 @@ public class ChapterBuilder {
 						days.stream().mapToDouble(d -> d.getWeight()).min().getAsDouble()+" kg",
 						sets.size()+timeSets.size()+"",
 						timeSets.size()+"",
-						sets.stream().mapToInt(i -> i).sum()+""}
+						sets.stream().mapToInt(i -> i.intValue()).sum()+""}
 		);
 		subChapter1.addTable(statTable, null);
 		chapter.addSubChapter(subChapter1);
@@ -169,8 +168,10 @@ public class ChapterBuilder {
 			for(ExerciseTemplate exerciseTemplate: dayTemplate.getExerciseTemplates()) {
 				for(String variation: exerciseTemplate.getVariations()) {
 					String key = String.format("%s: %s", exerciseTemplate.getName(), variation);
-					keys.add(key);
-					exercises.put(key, new ArrayList<Exercise>());
+					if(!keys.contains(key)) {
+						keys.add(key);
+						exercises.put(key, new ArrayList<Exercise>());
+					}
 				}
 			}
 		}
@@ -180,14 +181,13 @@ public class ChapterBuilder {
 			exercises.get(key).add(exercise);
 		}
 		
-		for(int i=0; i<exercises.size()+1; i++) {
+		for(int i=0; i<keys.size(); i++) {
 			String key = keys.get(i);
 			SubChapter subChapter = new SubChapter(createSubChapterId(chapter), key.replace(": -", ""));
 			SubSubChapter subSubChapter1 = new SubSubChapter(createSubSubChapterId(subChapter), "Statistics"); 
-			List<Integer> sets = new ArrayList<Integer>();
-			exercises.get(key).stream().forEach(e -> sets.addAll(getSets(e)));
-			List<Integer> timeSets = new ArrayList<Integer>();
+			List<Double> timeSets = new ArrayList<Double>(), sets = new ArrayList<Double>();
 			exercises.get(key).stream().forEach(e -> timeSets.addAll(getTimeSets(e)));
+			exercises.get(key).stream().forEach(e -> sets.addAll(getSets(e)));
 			Table statTable = createStatTable(
 					new String[] {
 						"Number of performances",
@@ -203,8 +203,8 @@ public class ChapterBuilder {
 						exercises.get(key).stream().mapToDouble(e -> e.getWeight()).min().getAsDouble()+"",
 						Collections.max(sets)+"",
 						Collections.min(sets)+"",
-						timeSets.isEmpty()? "-" : TimeFormat.minutesToHours(Collections.max(timeSets)),
-						timeSets.isEmpty()? "-" : TimeFormat.minutesToHours(Collections.min(timeSets)),
+						timeSets.isEmpty()? "-" : TimeFormat.secondsToMinutes(Collections.max(timeSets)),
+						timeSets.isEmpty()? "-" : TimeFormat.secondsToMinutes(Collections.min(timeSets)),
 					});
 			subSubChapter1.addTable(statTable, null);
 			subChapter.addSubSubChapter(subSubChapter1);
@@ -221,23 +221,23 @@ public class ChapterBuilder {
 			ChartBuilder chartBuilder = new ChartBuilder();
 			List<Date> dateList = exercises.get(key).stream().map(e -> e.getDate()).collect(Collectors.toList());
 			List<Double> weightList = exercises.get(key).stream().map(e -> e.getWeight()).collect(Collectors.toList());
-			List<Double> setList = new ArrayList<Double>();
-			exercises.get(key).stream().forEach(e -> setList.add(getSets(e).size()>0?getSets(e).stream().mapToDouble(s -> s).average().getAsDouble():null));
-			if(!isNull(setList)) {
+			List<Double> setAverageList = new ArrayList<Double>();
+			exercises.get(key).stream().forEach(e -> setAverageList.add(getSets(e).size()>0?getSets(e).stream().mapToDouble(s -> s).average().getAsDouble():null));
+			if(!isNull(setAverageList)) {
 				if(weightList.stream().mapToDouble(w -> w).sum()<=0) {
-					chartBuilder.createLineChart(key+" sets", Properties.chart_1, dateList, setList, "Reps");
+					chartBuilder.createLineChart(key+" sets", Properties.chart_1, dateList, setAverageList, "Reps");
 				}else {
-					chartBuilder.createLineChart(key+" sets", Properties.chart_1, dateList, setList, "Reps", weightList, "Weight");
+					chartBuilder.createLineChart(key+" sets", Properties.chart_1, dateList, setAverageList, "Reps", weightList, "Weight");
 				}
 				subSubChapter3.addChart(chartBuilder.getChart(), null);
 				subChapter.addSubSubChapter(subSubChapter3);
 			}
 			
-			List<Double> timeSetList = new ArrayList<Double>();
-			exercises.get(key).stream().forEach(e -> timeSetList.add(getTimeSets(e).size()>0?getTimeSets(e).stream().mapToDouble(t -> t).average().getAsDouble():null));
-			if(!isNull(timeSetList)) {
+			List<Double> timeAverageSetList = new ArrayList<Double>();
+			exercises.get(key).stream().forEach(e -> timeAverageSetList.add(getTimeSets(e).size()>0?getTimeSets(e).stream().mapToDouble(t -> t).average().getAsDouble():null));
+			if(!isNull(timeAverageSetList)) {
 				SubSubChapter subSubChapter4 = new SubSubChapter(createSubSubChapterId(subChapter), "Time per timeset average chart");
-				chartBuilder.createLineChart(key+"timesets", Properties.chart_1, dateList, timeSetList, "Time average");
+				chartBuilder.createLineChart(key+"timesets", Properties.chart_1, dateList, timeAverageSetList, "Time average");
 				subSubChapter4.addChart(chartBuilder.getChart(), null);
 				subChapter.addSubSubChapter(subSubChapter4);
 			}
@@ -273,23 +273,23 @@ public class ChapterBuilder {
 		return table;
 	}
 	
-	private List<Integer> getSets(Exercise exercise){
-		List<Integer> sets = exercise.getReps();
+	private List<Double> getSets(Exercise exercise){
+		List<Double> sets = exercise.getReps().stream().mapToDouble(i -> i).boxed().collect(Collectors.toList());
 		if(exercise.getTimeSets()!=null) {
 			for(int i=exercise.getTimeSets().size()-1; i>=0; i--) {
-				sets.remove(exercise.getTimeSets().get(i));
+				sets.remove((int)exercise.getTimeSets().get(i));
 			}
 		}
 		return sets;
 	}
 	
-	private List<Integer> getTimeSets(Exercise exercise){
-		List<Integer> timeSets = new ArrayList<Integer>();
-		if(exercise.getTimeSets()!=null) {				
+	private List<Double> getTimeSets(Exercise exercise){
+		List<Double> timeSets = new ArrayList<Double>();
+		if(exercise.getTimeSets()!=null) {	
 			for(Integer timeSet: exercise.getTimeSets()) {
-				timeSets.add(exercise.getReps().get(timeSet-1));
+				timeSets.add((double)exercise.getReps().get(timeSet));
 			}
-		}	
+		}			
 		return timeSets;
 	}
 	

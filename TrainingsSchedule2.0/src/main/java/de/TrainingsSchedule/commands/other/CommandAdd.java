@@ -91,7 +91,7 @@ public class CommandAdd {
 				numberInput = numberInput.subList(1, numberInput.size());
 				for(int i=0; i<numberInput.size(); i++) {
 					if(numberInput.get(i).startsWith("d:")) {
-						timeSets.add(i+1);
+						timeSets.add(i);
 						numberInput.set(i, numberInput.get(i).replace("d:", ""));
 					}
 				}

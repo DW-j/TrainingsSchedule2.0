@@ -90,7 +90,7 @@
                     <reps>150</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2019-12-02T01:00:00+01:00" weight="70.0" variation="-">
@@ -143,8 +143,8 @@
                     <reps>25</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>2</timeSets>
-                    <timeSets>4</timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -155,7 +155,7 @@
                     <reps>150</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2019-12-03T01:00:00+01:00" weight="70.0" variation="-">
@@ -216,7 +216,7 @@
                     <reps>188</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2019-12-07T01:00:00+01:00" weight="70.0" variation="-">
@@ -269,9 +269,9 @@
                     <reps>60</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
-                    <timeSets>3</timeSets>
-                    <timeSets>5</timeSets>
+                    <timeSets>0</timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -282,7 +282,7 @@
                     <reps>199</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2019-12-08T01:00:00+01:00" weight="70.0" variation="-">
@@ -343,7 +343,7 @@
                     <reps>235</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2019-12-14T01:00:00+01:00" weight="70.0" variation="-">
@@ -396,8 +396,8 @@
                     <reps>30</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>2</timeSets>
-                    <timeSets>4</timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -408,7 +408,7 @@
                     <reps>187</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2019-12-15T01:00:00+01:00" weight="70.0" variation="-">
@@ -469,7 +469,7 @@
                     <reps>195</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2019-12-18T01:00:00+01:00" weight="70.0" variation="-">
@@ -522,9 +522,9 @@
                     <reps>70</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
-                    <timeSets>3</timeSets>
-                    <timeSets>5</timeSets>
+                    <timeSets>0</timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -535,7 +535,7 @@
                     <reps>218</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2019-12-20T01:00:00+01:00" weight="75.0" variation="-">
@@ -596,7 +596,7 @@
                     <reps>217</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2019-12-22T01:00:00+01:00" weight="75.0" variation="-">
@@ -649,8 +649,8 @@
                     <reps>40</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>2</timeSets>
-                    <timeSets>4</timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -661,7 +661,7 @@
                     <reps>180</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2019-12-23T01:00:00+01:00" weight="80.0" variation="-">
@@ -722,7 +722,7 @@
                     <reps>194</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2019-12-28T01:00:00+01:00" weight="75.0" variation="-">
@@ -775,8 +775,8 @@
                     <reps>40</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>2</timeSets>
-                    <timeSets>4</timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -787,7 +787,7 @@
                     <reps>179</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2019-12-30T01:00:00+01:00" weight="85.0" variation="-">
@@ -848,7 +848,7 @@
                     <reps>180</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-01-03T01:00:00+01:00" weight="75.0" variation="-">
@@ -901,9 +901,9 @@
                     <reps>80</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
-                    <timeSets>3</timeSets>
-                    <timeSets>5</timeSets>
+                    <timeSets>0</timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -914,7 +914,7 @@
                     <reps>186</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-01-04T01:00:00+01:00" weight="85.0" variation="-">
@@ -975,7 +975,7 @@
                     <reps>239</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-01-07T01:00:00+01:00" weight="75.0" variation="-">
@@ -1028,8 +1028,8 @@
                     <reps>45</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>2</timeSets>
-                    <timeSets>4</timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -1040,7 +1040,7 @@
                     <reps>250</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-01-15T01:00:00+01:00" weight="85.0" variation="-">
@@ -1101,7 +1101,7 @@
                     <reps>240</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-01-18T01:00:00+01:00" weight="80.0" variation="-">
@@ -1154,9 +1154,9 @@
                     <reps>90</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
-                    <timeSets>3</timeSets>
-                    <timeSets>5</timeSets>
+                    <timeSets>0</timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -1167,7 +1167,7 @@
                     <reps>253</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-01-20T01:00:00+01:00" weight="90.0" variation="-">
@@ -1228,7 +1228,7 @@
                     <reps>228</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-01-22T01:00:00+01:00" weight="75.0" variation="-">
@@ -1281,8 +1281,8 @@
                     <reps>50</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>2</timeSets>
-                    <timeSets>4</timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -1293,7 +1293,7 @@
                     <reps>224</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-01-24T01:00:00+01:00" weight="90.0" variation="-">
@@ -1354,7 +1354,7 @@
                     <reps>224</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-01-25T01:00:00+01:00" weight="75.0" variation="-">
@@ -1407,9 +1407,9 @@
                     <reps>95</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
-                    <timeSets>3</timeSets>
-                    <timeSets>5</timeSets>
+                    <timeSets>0</timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -1420,7 +1420,7 @@
                     <reps>248</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-01-28T01:00:00+01:00" weight="95.0" variation="-">
@@ -1481,7 +1481,7 @@
                     <reps>226</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-01-29T01:00:00+01:00" weight="77.5" variation="-">
@@ -1534,8 +1534,8 @@
                     <reps>50</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>2</timeSets>
-                    <timeSets>4</timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -1546,7 +1546,7 @@
                     <reps>159</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-01-31T01:00:00+01:00" weight="95.0" variation="-">
@@ -1607,7 +1607,7 @@
                     <reps>219</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-02-01T01:00:00+01:00" weight="77.5" variation="-">
@@ -1660,9 +1660,9 @@
                     <reps>100</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
-                    <timeSets>3</timeSets>
-                    <timeSets>5</timeSets>
+                    <timeSets>0</timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -1673,7 +1673,7 @@
                     <reps>216</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-02-04T01:00:00+01:00" weight="95.0" variation="-">
@@ -1734,7 +1734,7 @@
                     <reps>249</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-02-05T01:00:00+01:00" weight="80.0" variation="-">
@@ -1787,8 +1787,8 @@
                     <reps>55</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>2</timeSets>
-                    <timeSets>4</timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -1799,7 +1799,7 @@
                     <reps>277</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-02-07T01:00:00+01:00" weight="95.0" variation="-">
@@ -1860,7 +1860,7 @@
                     <reps>245</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-02-08T01:00:00+01:00" weight="80.0" variation="-">
@@ -1913,9 +1913,9 @@
                     <reps>105</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
-                    <timeSets>3</timeSets>
-                    <timeSets>5</timeSets>
+                    <timeSets>0</timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -1926,7 +1926,7 @@
                     <reps>225</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-02-09T01:00:00+01:00" weight="95.0" variation="-">
@@ -1987,7 +1987,7 @@
                     <reps>221</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-02-11T01:00:00+01:00" weight="80.0" variation="-">
@@ -2040,8 +2040,8 @@
                     <reps>60</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>2</timeSets>
-                    <timeSets>4</timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -2052,7 +2052,7 @@
                     <reps>212</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-02-12T01:00:00+01:00" weight="95.0" variation="-">
@@ -2113,7 +2113,7 @@
                     <reps>233</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-02-15T01:00:00+01:00" weight="80.0" variation="-">
@@ -2166,9 +2166,9 @@
                     <reps>110</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
-                    <timeSets>3</timeSets>
-                    <timeSets>5</timeSets>
+                    <timeSets>0</timeSets>
+                    <timeSets>2</timeSets>
+                    <timeSets>4</timeSets>
                 </timeSets>
             </exercises>
         </days>
@@ -2179,7 +2179,7 @@
                     <reps>247</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="2" name="Squad" date="2020-02-18T01:00:00+01:00" weight="95.0" variation="-">
@@ -2240,7 +2240,7 @@
                     <reps>218</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>1</timeSets>
+                    <timeSets>0</timeSets>
                 </timeSets>
             </exercises>
             <exercises id="2" dayId="1" name="Benchpress" date="2020-02-20T01:00:00+01:00" weight="80.0" variation="-">
@@ -2293,8 +2293,8 @@
                     <reps>60</reps>
                 </reps>
                 <timeSets>
-                    <timeSets>2</timeSets>
-                    <timeSets>4</timeSets>
+                    <timeSets>1</timeSets>
+                    <timeSets>3</timeSets>
                 </timeSets>
             </exercises>
         </days>

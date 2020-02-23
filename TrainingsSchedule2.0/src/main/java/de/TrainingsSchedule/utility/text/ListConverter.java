@@ -20,11 +20,11 @@ public class ListConverter {
 	}
 	
 	public String stringListToString(List<String> list) {
-		return list.toString().replace("[", "").replace("]", "");
+		return String.join("; ", list);
 	}
 	
 	public String integerListToString(List<Integer> list) {
-		return list.toString().replace("[", "").replace("]", "");
+		return String.join("; ", list.stream().map(i -> i+"").collect(Collectors.toList()));
 	}
 	
 	public String listLists(List<String> list) {
@@ -37,7 +37,7 @@ public class ListConverter {
 			return repList.stream().map(i -> i+"").collect(Collectors.toList());
 		}
 		for(int i=0; i<repList.size(); i++) {
-			if(timeSets.contains(i+1)) {
+			if(timeSets.contains(i)) {
 				formatedRepList.add(TimeFormat.secondsToMinutes(repList.get(i)));
 			}else {
 				formatedRepList.add(repList.get(i)+"");

@@ -22,10 +22,10 @@ public class TimeFormat {
 		return String.format("%d:%d h", hours, minutes);
 	}
 	
-	public static String secondsToMinutes(int seconds) {
-		int minutes = seconds / 60;
+	public static String secondsToMinutes(double seconds) {
+		double minutes = seconds / 60;
 		seconds = seconds % 60;
-		return String.format("%d:%d min", minutes, seconds);
+		return String.format("%d:%d min", (int)minutes, (int)seconds);
 	}
 
 	
