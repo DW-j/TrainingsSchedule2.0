@@ -156,8 +156,7 @@ public class ChapterBuilder {
 		return chapter;
 	}
 	
-	public Chapter getChapterExercises(List<Chapter> chapters, List<DayTemplate> dayTemplates, List<Day> days) throws IOException {
-		Chapter chapter = new Chapter(createChapterId(chapters), "Exercises");
+	public List<Chapter> getChapterExercises(List<Chapter> chapters, List<DayTemplate> dayTemplates, List<Day> days) throws IOException {
 		
 		List<Exercise> exerciseList = new ArrayList<Exercise>();
 		days.stream().forEach(d -> exerciseList.addAll(d.getExercises()));
@@ -175,12 +174,94 @@ public class ChapterBuilder {
 				}
 			}
 		}
+		Map<String, List<Exercise>> oldExercises = new HashMap<String, List<Exercise>>();
+		List<String> oldKeys = new ArrayList<String>();
+		for(Day day: days) {
+			for(Exercise exercise: day.getExercises()) {
+				String oldKey = String.format("%s: %s", exercise.getName(), exercise.getVariation());
+				if(!keys.contains(oldKey)) {
+					if(!oldExercises.keySet().contains(oldKey)) {
+						oldExercises.put(oldKey, new ArrayList<Exercise>());
+						oldKeys.add(oldKey);
+					}
+					oldExercises.get(oldKey).add(exercise);
+				}
+			}
+		}
 		
 		for(Exercise exercise: exerciseList) {
 			String key = String.format("%s: %s", exercise.getName(), exercise.getVariation());
 			exercises.get(key).add(exercise);
 		}
 		
+		List<Chapter> exerciseChapters = new ArrayList<Chapter>();
+		if(exercises.size()>0) {
+			exerciseChapters.add(getExercisesChapter("Exercises", chapters, exercises, keys, days));
+			chapters.addAll(exerciseChapters);
+		}
+		if(oldExercises.size()>0) {
+			exerciseChapters.add(getExercisesChapter("Inactive exercises", chapters, oldExercises, oldKeys, days));
+		}
+		
+		return exerciseChapters;
+	}
+	
+	private String createChapterId(List<Chapter> chapters) {
+		return (chapters.size()+1)+"";
+	}
+	
+	private String createSubChapterId(Chapter chapter) {
+		if(chapter.getSubChapters()==null) {
+			return chapter.getId() + "." + 1;
+		}
+		return chapter.getId() + '.' + (chapter.getSubChapters().size()+1);
+	}
+	
+	private String createSubSubChapterId(SubChapter subChapter) {
+		if(subChapter.getSubSubChapters()==null) {
+			return subChapter.getId() + "." + 1;
+		}
+		return subChapter.getId() + "." + (subChapter.getSubSubChapters().size()+1);
+	}
+	
+	private Table createStatTable(String[] labels, String[] stats) {
+		Table table = new Table();
+		table.addColumn(Arrays.asList(labels));
+		table.addColumn(Arrays.asList(stats));
+		return table;
+	}
+	
+	private List<Double> getSets(Exercise exercise){
+		List<Double> sets = exercise.getReps().stream().mapToDouble(i -> i).boxed().collect(Collectors.toList());
+		if(exercise.getTimeSets()!=null) {
+			for(int i=exercise.getTimeSets().size()-1; i>=0; i--) {
+				sets.remove((int)exercise.getTimeSets().get(i));
+			}
+		}
+		return sets;
+	}
+	
+	private List<Double> getTimeSets(Exercise exercise){
+		List<Double> timeSets = new ArrayList<Double>();
+		if(exercise.getTimeSets()!=null) {	
+			for(Integer timeSet: exercise.getTimeSets()) {
+				timeSets.add((double)exercise.getReps().get(timeSet));
+			}
+		}			
+		return timeSets;
+	}
+	
+	private boolean isNull(List<Double> list) {
+		for(Double d: list) {
+			if(d!=null) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private Chapter getExercisesChapter(String title, List<Chapter> chapters, Map<String, List<Exercise>> exercises, List<String> keys, List<Day> days) throws IOException {
+		Chapter chapter = new Chapter(createChapterId(chapters), title);
 		for(int i=0; i<keys.size(); i++) {
 			String key = keys.get(i);
 			SubChapter subChapter = new SubChapter(createSubChapterId(chapter), key.replace(": -", ""));
@@ -244,62 +325,7 @@ public class ChapterBuilder {
 						
 			chapter.addSubChapter(subChapter);
 		}
-		
 		return chapter;
-	}
-	
-	private String createChapterId(List<Chapter> chapters) {
-		return (chapters.size()+1)+"";
-	}
-	
-	private String createSubChapterId(Chapter chapter) {
-		if(chapter.getSubChapters()==null) {
-			return chapter.getId() + "." + 1;
-		}
-		return chapter.getId() + '.' + (chapter.getSubChapters().size()+1);
-	}
-	
-	private String createSubSubChapterId(SubChapter subChapter) {
-		if(subChapter.getSubSubChapters()==null) {
-			return subChapter.getId() + "." + 1;
-		}
-		return subChapter.getId() + "." + (subChapter.getSubSubChapters().size()+1);
-	}
-	
-	private Table createStatTable(String[] labels, String[] stats) {
-		Table table = new Table();
-		table.addColumn(Arrays.asList(labels));
-		table.addColumn(Arrays.asList(stats));
-		return table;
-	}
-	
-	private List<Double> getSets(Exercise exercise){
-		List<Double> sets = exercise.getReps().stream().mapToDouble(i -> i).boxed().collect(Collectors.toList());
-		if(exercise.getTimeSets()!=null) {
-			for(int i=exercise.getTimeSets().size()-1; i>=0; i--) {
-				sets.remove((int)exercise.getTimeSets().get(i));
-			}
-		}
-		return sets;
-	}
-	
-	private List<Double> getTimeSets(Exercise exercise){
-		List<Double> timeSets = new ArrayList<Double>();
-		if(exercise.getTimeSets()!=null) {	
-			for(Integer timeSet: exercise.getTimeSets()) {
-				timeSets.add((double)exercise.getReps().get(timeSet));
-			}
-		}			
-		return timeSets;
-	}
-	
-	private boolean isNull(List<Double> list) {
-		for(Double d: list) {
-			if(d!=null) {
-				return false;
-			}
-		}
-		return true;
 	}
 	
 }

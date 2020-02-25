@@ -18,14 +18,25 @@ import lombok.NoArgsConstructor;
 @Getter
 public class ExerciseTemplate {
 
+	private int id, dayId;
 	@XmlAttribute
-	private int id, dayId, setNumber;
+	private int setNumber;
 	@XmlAttribute
 	private String name;
 	@XmlElement
 	private List<String> variations = new ArrayList<String>();
 	@XmlElement
 	private List<Integer> goalTypes = new ArrayList<Integer>();
+	
+	@XmlAttribute
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@XmlAttribute
+	public void setDayId(int dayId) {
+		this.dayId = dayId;
+	}
 	
 	public List<String> toRow() {
 		List<String> row = new ArrayList<String>(){

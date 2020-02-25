@@ -34,7 +34,7 @@ public class Content {
 		chapters.add(chapterBuilder.getChapterTemplate(chapters, planTemplate));
 		chapters.add(chapterBuilder.getChapterPlan(chapters, plan.getDays()));
 		chapters.add(chapterBuilder.getChapterDays(chapters, planTemplate, plan.getDays()));
-		chapters.add(chapterBuilder.getChapterExercises(chapters, planTemplate.getDayTemplates(), plan.getDays()));
+		chapters.addAll(chapterBuilder.getChapterExercises(chapters, planTemplate.getDayTemplates(), plan.getDays()));
 	
 	}
 	

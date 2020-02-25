@@ -9,8 +9,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import de.TrainingsSchedule.utility.other.TimeFormat;
 import de.TrainingsSchedule.utility.other.Table;
+import de.TrainingsSchedule.utility.other.TimeFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

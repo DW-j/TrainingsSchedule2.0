@@ -26,6 +26,10 @@ public class Message {
 		return String.format("Please enter %s of the %d. %s. %s", item, subitemNumber, subitem, additionalMessage);
 	}
 	
+	public static String getEnterMessageAction(String subItemType, String item, String action) {
+		return String.format("Please enter the %s of the %s to %s it.", subItemType, item, action);
+	}
+	
 	public static String getRepeatingMessage() {
 		return "Repeating process.";
 	}

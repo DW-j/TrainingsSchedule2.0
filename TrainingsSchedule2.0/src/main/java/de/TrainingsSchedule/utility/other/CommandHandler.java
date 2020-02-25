@@ -1,12 +1,16 @@
 package de.TrainingsSchedule.utility.other;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.StringUtils;
+
 import de.TrainingsSchedule.commands.other.CommandAdd;
 import de.TrainingsSchedule.commands.other.CommandCreate;
 import de.TrainingsSchedule.commands.other.CommandDelete;
+import de.TrainingsSchedule.commands.other.CommandEdit;
 import de.TrainingsSchedule.commands.other.CommandGoal;
 import de.TrainingsSchedule.commands.other.CommandHelp;
 import de.TrainingsSchedule.commands.other.CommandShow;
@@ -38,8 +42,8 @@ public class CommandHandler {
 		try {
 			Command command = new Command(input);
 			TrainingsSchedule trainingsSchedule = (TrainingsSchedule) FileReader.getInstance().readXml("trainingsschedule", TrainingsSchedule.class);
-			
-			switch(command.getActionParameter().toLowerCase()) {
+						
+			switch(command.getActionParameter()) {
 			
 			case "exit":
 				throw new ThrowableExit();
@@ -58,7 +62,7 @@ public class CommandHandler {
 			
 			case "show":
 				CommandShow commandShow = new CommandShow();
-				switch(command.getObjectParameter().toLowerCase()) {
+				switch(command.getObjectParameters().get(0)) {
 				
 				case "plan":
 					return commandShow.showPlan(trainingsSchedule);
@@ -66,14 +70,13 @@ public class CommandHandler {
 					return commandShow.showDays(trainingsSchedule);
 				case "exercise":
 					return commandShow.showExercise(trainingsSchedule, command.getNumberParameters());
-					
 				default:
 					throw new ThrowableParameter();
 				}
 			
 			case "delete":
 				CommandDelete commandDelete = new CommandDelete();
-				return commandDelete.deleteDay(command.getObjectParameter(), trainingsSchedule);
+				return commandDelete.deleteDay(command.getObjectParameters().get(0), trainingsSchedule);
 			
 			case "goals":
 				CommandGoal commandGoal = new CommandGoal();
@@ -82,6 +85,22 @@ public class CommandHandler {
 			case "print":
 				CommandPrint commandPrint = new CommandPrint();
 				return commandPrint.print(trainingsSchedule);
+			
+			case "edit":
+				CommandEdit commandEdit = new CommandEdit();
+				if(command.getObjectParameters().get(0).equals("exercise")&&command.getObjectParameters().get(1).equals("add")) {
+					return commandEdit.addExercise(trainingsSchedule);
+				}
+				if(command.getObjectParameters().get(0).equals("exercise")&&command.getObjectParameters().get(1).equals("delete")) {
+					return commandEdit.deleteExercise(trainingsSchedule);
+				}
+				if(command.getObjectParameters().get(0).equals("day")&&command.getObjectParameters().get(1).equals("add")) {
+					return commandEdit.addDay(trainingsSchedule);
+				}
+				if(command.getObjectParameters().get(0).equals("day")&&command.getObjectParameters().get(1).equals("delete")) {
+					return commandEdit.deleteDay(trainingsSchedule);
+				}
+				throw new ThrowableParameter();
 				
 			default:
 				throw new ThrowableCommand();
@@ -106,15 +125,20 @@ public class CommandHandler {
 @Getter
 class Command {
 
-	private String actionParameter, objectParameter;
+	private String actionParameter;
+	private List<String> objectParameters = new ArrayList<String>();
 	private List<Integer> numberParameters;
 	
 	public Command(String input) throws ThrowableParameter, ThrowableCommand, Exception{
 		String[] parameters = input.split(" ");
-		actionParameter = parameters[0];
+		actionParameter = parameters[0].toLowerCase();
 		try {
-			objectParameter = parameters[1];
-			numberParameters = Arrays.asList(Arrays.copyOfRange(parameters, 2, parameters.length)).stream().map(p -> Integer.parseInt(p)).collect(Collectors.toList());
+			objectParameters.add(parameters[1].toLowerCase());
+			if(!StringUtils.isNumeric(parameters[2])) {
+				objectParameters.add(parameters[2].toLowerCase());
+			}else {
+				numberParameters = Arrays.asList(Arrays.copyOfRange(parameters, 2, parameters.length)).stream().map(p -> Integer.parseInt(p)).collect(Collectors.toList());
+			}
 		}catch(Exception e) {}
 	}
 	

@@ -18,10 +18,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DayTemplate {
 
-	@XmlAttribute
 	private int id;
 	@XmlElement
 	private List<ExerciseTemplate> exerciseTemplates;
+	
+	@XmlAttribute
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public Table toTable() {
 		String headline = "Day "+id;

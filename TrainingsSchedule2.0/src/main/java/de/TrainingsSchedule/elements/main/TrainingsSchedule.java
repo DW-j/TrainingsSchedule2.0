@@ -11,6 +11,7 @@ import de.TrainingsSchedule.elements.templates.PlanTemplate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
@@ -19,14 +20,12 @@ import lombok.NoArgsConstructor;
 @Getter
 public class TrainingsSchedule {
 
+	@Setter
 	@XmlElement
 	private PlanTemplate planTemplate;
 	@XmlElement
 	private Plan plan;
+	@Setter
 	private GoalList goalList;
-	
-	public void setGoalList(GoalList goalList) {
-		this.goalList = goalList;
-	}
 
 }
