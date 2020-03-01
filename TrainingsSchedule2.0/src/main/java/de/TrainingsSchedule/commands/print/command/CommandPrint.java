@@ -44,8 +44,10 @@ public class CommandPrint {
 		for(File chart: FileReader.getInstance().getFolder("jpg").listFiles()) {
 			chart.delete();
 		}
+		FileReader fileReader = FileReader.getInstance();
+		fileReader.openFile("TrainingsSchedule", "pdf");
 		
-		return "PDF created succesfully.";
+		return String.format("PDF created succesfully. It can be retrieved in the following path: '%s'.", fileReader.getPath("TrainingsSchedule", "pdf"));
 	}
 
 }

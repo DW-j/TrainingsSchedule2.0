@@ -1,5 +1,6 @@
 package de.TrainingsSchedule.utility.other;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -112,10 +113,11 @@ public class CommandHandler {
 			return "Unknown command.";
 		}catch (ThrowableAbort throwableAbort) {
 			return "Process was aborted.";
-		} catch (ThrowableData e) {
+		} catch (ThrowableData throwableData) {
 			return "No data exists.";
+		}catch(IOException e) {
+			return "An error related to the file system occured.";
 		}catch (Exception e) {
-			e.printStackTrace();
 			return "An unknown error occured.";
 		}
 	}

@@ -1,5 +1,6 @@
 package de.TrainingsSchedule.utility.files;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -71,5 +72,15 @@ public class FileReader {
 	
 	public File getFile(String fileName, String fileType) {
 		return new File(createPath(fileType, fileName));
+	}
+	
+	public void openFile(String fileName, String fileType) throws IOException {
+		String currentPath = createPath(fileType, fileName);
+		Desktop desktop = Desktop.getDesktop();
+		desktop.open(new File(currentPath));
+	}
+	
+	public String getPath(String fileName, String fileType) {
+		return createPath(fileType, fileName);
 	}
 }
