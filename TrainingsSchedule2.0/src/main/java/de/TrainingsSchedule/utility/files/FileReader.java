@@ -20,7 +20,7 @@ import com.itextpdf.text.Image;
 
 public class FileReader {
 
-	private final String filePath = "C:\\Users\\wittn\\workspaces\\git\\TrainingsSchedule2.0\\TrainingsSchedule2.0\\src\\main\\java\\de\\TrainingsSchedule\\files\\%s";
+	private final String filePath = System.getProperties().getProperty("user.dir")+"\\files\\%s";
 	private static FileReader fileReader = null;
 	
 	private FileReader() {} 

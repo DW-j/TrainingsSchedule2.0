@@ -18,7 +18,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 public class FileWriter {
 
-	private final String filePath = "C:\\Users\\wittn\\workspaces\\git\\TrainingsSchedule2.0\\TrainingsSchedule2.0\\src\\main\\java\\de\\TrainingsSchedule\\files\\%s";
+	private final String filePath = System.getProperties().getProperty("user.dir")+"\\files\\%s";
 	private static FileWriter fileWriter = null;
 	
 	private FileWriter() {}
