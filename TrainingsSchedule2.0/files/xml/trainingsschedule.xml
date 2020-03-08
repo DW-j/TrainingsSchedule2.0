@@ -2491,21 +2491,5 @@
             </exercises>
         </days>
     </plan>
-    <goalList>
-        <exerciseGoals name="Curls, triceps pushdown" variation="DB-Curl, standing" dayId="1" exerciseId="6" goalReps="10" goalWeight="15.0"/>
-        <exerciseGoals name="Curls, triceps pushdown" variation="SZ-Curl" dayId="1" exerciseId="6" goalReps="6" goalWeight="38.5"/>
-        <exerciseGoals name="Pull-Ups" variation="Wide, not weighted" dayId="1" exerciseId="3" goalReps="8" goalWeight="0.0"/>
-        <exerciseGoals name="Curls, triceps pushdown" variation="Triceps pushdown" dayId="1" exerciseId="6" goalReps="16" goalWeight="50.0"/>
-        <exerciseGoals name="Planks &amp; Sit-Ups" variation="-" dayId="1" exerciseId="7" goalReps="96" goalWeight="0.0"/>
-        <exerciseGoals name="Dips" variation="Not weighted" dayId="1" exerciseId="4" goalReps="19" goalWeight="0.0"/>
-        <exerciseGoals name="Curls, triceps pushdown" variation="DB-Curl, incline" dayId="1" exerciseId="6" goalReps="6" goalWeight="14.0"/>
-        <exerciseGoals name="Pull-Ups" variation="Close, weighted" dayId="1" exerciseId="3" goalReps="5" goalWeight="10.0"/>
-        <exerciseGoals name="Pull-Ups" variation="Close, not weighted" dayId="1" exerciseId="3" goalReps="10" goalWeight="0.0"/>
-        <exerciseGoals name="Push-Ups" variation="Normal, not weighted" dayId="1" exerciseId="5" goalReps="29" goalWeight="0.0"/>
-        <exerciseGoals name="Push-Ups" variation="Stepping" dayId="1" exerciseId="5" goalReps="7" goalWeight="0.0"/>
-        <exerciseGoals name="Dips" variation="Weighted" dayId="1" exerciseId="4" goalReps="10" goalWeight="10.0"/>
-        <exerciseGoals name="Push-Ups" variation="Normal, weighted" dayId="1" exerciseId="5" goalReps="12" goalWeight="20.0"/>
-        <exerciseGoals name="Latpull" variation="Wide" dayId="2" exerciseId="4" goalReps="10" goalWeight="130.0"/>
-        <exerciseGoals name="T-Bar-Row" variation="Close" dayId="2" exerciseId="5" goalReps="8" goalWeight="57.5"/>
-    </goalList>
+    <goalList/>
 </trainingsSchedule>

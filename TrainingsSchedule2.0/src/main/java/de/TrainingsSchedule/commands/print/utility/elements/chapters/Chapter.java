@@ -36,7 +36,7 @@ public class Chapter extends ChapterTemplate{
 		if(subChapters!=null) {
 			for(SubChapter subChapter: subChapters) {
 				float subSubChapterHeight = subChapter.getSubSubChapters()!=null? subChapter.getSubSubChapters().get(0).getHeight(document, pdfAdder) : 0;
-				if(yPosition+subChapter.getHeight(document, pdfAdder)+subSubChapterHeight>document.getPageSize().getHeight()) {
+				if(yPosition+subChapter.getHeight(document, pdfAdder)+subSubChapterHeight+(Properties.chapter_1.getMargin_top()*2)>document.getPageSize().getHeight()) {
 					yPosition = pdfAdder.addPagebreak(document);
 				}
 				yPosition = subChapter.add(document, pdfContentByte, pdfAdder, yPosition);

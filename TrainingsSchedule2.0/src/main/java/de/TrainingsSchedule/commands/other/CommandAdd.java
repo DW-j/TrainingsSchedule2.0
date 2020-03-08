@@ -113,9 +113,6 @@ public class CommandAdd {
 		plan.addDay(day);
 		trainingsSchedule = new TrainingsSchedule(planTemplate, plan, trainingsSchedule.getGoalList());
 		
-		CommandGoal commandGoal = new CommandGoal();
-		trainingsSchedule = commandGoal.loadGoals(trainingsSchedule);
-		
 		FileWriter.getInstance().writeXml("trainingsschedule", trainingsSchedule, TrainingsSchedule.class);
 		
 		return "Day successful added.";

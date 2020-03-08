@@ -118,6 +118,7 @@ public class CommandHandler {
 		}catch(IOException e) {
 			return "An error related to the file system occured.";
 		}catch (Exception e) {
+			e.printStackTrace();
 			return "An unknown error occured.";
 		}
 	}

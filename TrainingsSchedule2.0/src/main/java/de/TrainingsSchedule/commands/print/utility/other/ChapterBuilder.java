@@ -195,6 +195,7 @@ public class ChapterBuilder {
 		}
 		
 		List<Chapter> exerciseChapters = new ArrayList<Chapter>();
+	
 		if(exercises.size()>0) {
 			exerciseChapters.add(getExercisesChapter("Exercises", chapters, exercises, keys, days));
 			chapters.addAll(exerciseChapters);
@@ -202,7 +203,9 @@ public class ChapterBuilder {
 		if(oldExercises.size()>0) {
 			exerciseChapters.add(getExercisesChapter("Inactive exercises", chapters, oldExercises, oldKeys, days));
 		}
-		
+		if(exercises.size()>0) {
+			chapters.remove(chapters.size()-1);
+		}
 		return exerciseChapters;
 	}
 	
